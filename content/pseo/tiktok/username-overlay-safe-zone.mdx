@@ -1,0 +1,43 @@
+The TikTok username overlay sits at the bottom-left of the canvas, covering approximately 70% of the width and 8% of the height. Below it, the caption block extends another 10% downward — so the bottom-left 70% × 18% region is double-occupied by username chrome. Anything you compose into that region disappears under the username, the caption, or both.
+
+This is the safe-zone constraint that catches the most first-time TikTok ad designers. They've built creative for Instagram Reels, where the username is anchored to the bottom but the caption sits in a separate block. On TikTok, the username and the caption are stacked together in a single overlay region, and that region is much taller than you'd expect.
+
+Plan creative around an inverted-L safe area: the right 30% of the bottom 22% remains usable (it's covered by the right rail icons but not by the username/caption), while the left 70% is fully obscured.
+
+<SimulatorPreset
+  placementId="tiktok-in-feed"
+  presetCopy={{
+    caption: "@brand username row covers bottom-left 22%",
+  }}
+/>
+
+## Verified 2026 safe zones
+
+<SpecTable placementId="tiktok-in-feed" />
+
+## The bottom-left blackout
+
+Treat the bottom-left 70% × 22% as a no-go zone. If you've imported assets from Instagram Reels — where the bottom-left has more room — re-crop them for TikTok or accept that the brand element disappears.
+
+<FAQ
+  items={[
+    {
+      q: "How tall is the username + caption block on TikTok?",
+      a: "Approximately 18% of the canvas in worst case (8% username + 10% caption). That's 152 pixels on a 390 × 844 device.",
+    },
+    {
+      q: "Can the user dismiss the caption?",
+      a: "Tapping the caption can expand it but not hide it. The username block is always visible.",
+    },
+    {
+      q: "What about creator-led Spark Ads?",
+      a: "Spark Ads inherit the same overlay since they use the For You UI. Plan creative the same way as In-Feed.",
+    },
+    {
+      q: "Why is TikTok's username block taller than Instagram Reels' username block?",
+      a: "TikTok stacks the caption directly below the username. Instagram separates the caption to a different region of the canvas.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["tiktok/cta-overlay-safe-zone", "tiktok/side-panel-icon-safe-zone", "tiktok/spark-ads-safe-zones-2026"]} />

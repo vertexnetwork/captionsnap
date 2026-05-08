@@ -1,0 +1,43 @@
+A character limit is the maximum count of characters the platform will accept or display before either rejecting the input or visually truncating it. Most modern social platforms count graphemes — the visual unit a user sees as one character — rather than bytes or code points.
+
+There are two distinct flavors of limit: hard maximum (the input will be rejected past this length) and visible window (the input is accepted but truncated visually). Meta Feed's hard maximum on primary text is 500 characters; the visible window is 125. So you can write up to 500 characters, but only the first 125 are shown by default.
+
+For ad copy planning, the visible window is what matters. The hard maximum is rarely the binding constraint because the post-cutoff text is read by very few viewers anyway. Plan all copy to the visible window of the most restrictive placement in your campaign.
+
+<SimulatorPreset
+  placementId="meta-facebook-feed"
+  presetCopy={{
+    headline: "Character limit = grapheme cap before clip",
+  }}
+/>
+
+## Per-placement limits
+
+<SpecTable placementId="meta-facebook-feed" />
+
+## The two-number model
+
+Every field has two numbers: hard max and visible window. The hard max is rarely the binding constraint. The visible window is the operational budget. When in doubt, optimize against the visible window.
+
+<FAQ
+  items={[
+    {
+      q: "How are characters counted?",
+      a: "By grapheme. Each visible character unit counts as 1, regardless of underlying byte count. Compound emoji typically count as 1 modern grapheme.",
+    },
+    {
+      q: "What's the most common character limit on Meta?",
+      a: "125 characters visible primary text on Feed. 40 characters visible headline. 30 characters visible description.",
+    },
+    {
+      q: "Can I exceed the hard max?",
+      a: "No. The platform rejects input past the hard max. You can stop yourself at the visible window without ever hitting the hard max.",
+    },
+    {
+      q: "Are character limits the same on every placement?",
+      a: "No. They vary substantially. Stories is the tightest. Feed is the most generous.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["glossary/safe-zone", "glossary/see-more-cutoff", "guides/why-ads-get-truncated"]} />

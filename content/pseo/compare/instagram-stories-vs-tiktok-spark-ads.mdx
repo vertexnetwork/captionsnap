@@ -1,0 +1,45 @@
+Instagram Stories and TikTok Spark Ads are both vertical 9:16 placements but represent fundamentally different mental models for the viewer. Stories are sealed-slot, time-bounded, branded-feeling. Spark Ads are For You feed, infinite-scroll, organic-feeling. The character math reflects the difference.
+
+Stories' primary text caps at 125 characters total with 90 visible. Spark Ads inherit In-Feed: 2,200 maximum, 100 visible. Stories' headline caps at 40 characters total. Spark Ads use a 40-character display name with no in-field truncation. Stories has no description field; Spark Ads doesn't use a description field either.
+
+Safe zones differ meaningfully. Stories sacrifices the top 14% (progress + profile) and bottom 14% (sticker + CTA), leaving the middle 72%. Spark Ads sacrifices the right 14% (engagement column from 28%–82% Y) and the bottom 22% (username + caption + CTA strip), leaving an L-shaped safe area.
+
+<SimulatorPreset
+  placementId="meta-instagram-stories"
+  presetCopy={{
+    primary: "Stories = sealed slot, 90-char primary. Spark = For You, 100-char caption.",
+    headline: "Different mental model",
+  }}
+/>
+
+## Side-by-side spec
+
+<SpecTable placementId="meta-instagram-stories" />
+<SpecTable placementId="tiktok-spark-ads" />
+
+## When to choose which
+
+Stories outperforms when the message is brand-focused, time-sensitive, and image-led. Spark Ads outperforms when the message is community-led, demonstration-heavy, and benefits from feeling organic.
+
+<FAQ
+  items={[
+    {
+      q: "Can the same creative run on both surfaces?",
+      a: "Technically yes, but the safe-zone differences usually require separate composition.",
+    },
+    {
+      q: "Which surface has higher engagement rates?",
+      a: "Spark Ads typically engages more (taps, comments). Stories engages differently — completion rates and brand lift.",
+    },
+    {
+      q: "Are CPMs comparable?",
+      a: "Varies by audience. Spark Ads is often slightly cheaper per impression but harder to attribute lower-funnel.",
+    },
+    {
+      q: "Should I run them together?",
+      a: "Yes — they reach different mental states. A combined campaign tends to outperform either in isolation.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["meta/instagram-stories-character-limits", "tiktok/spark-ads-safe-zones-2026", "compare/meta-reels-vs-tiktok-in-feed"]} />

@@ -1,0 +1,44 @@
+Right-to-left (RTL) languages — Arabic, Hebrew, Persian, Urdu — present a special truncation challenge. The platform's clamp logic is identical to LTR languages: it truncates at character N from the start of the source string. But the *visual* result depends on the writing direction.
+
+In LTR copy, character N is on the right side of the visible region; the truncation eats from the right. In RTL copy, character N is on the left side of the visible region; the truncation eats from the left. So your hook — which lives at the start of the source string — appears at the visual right of the rendered text and gets eaten last. But anything past character N in the source string lives at the visual left and gets eaten first.
+
+This means RTL ad copy has the opposite mental model from LTR. Your most important word should still be at the start of the source string, but you write knowing it will appear right-aligned and that left-side content gets eaten first.
+
+<SimulatorPreset
+  placementId="meta-facebook-feed"
+  presetCopy={{
+    primary: "RTL clips from the leading edge. Your hook lives at the end of the source string.",
+    headline: "Mind the source order",
+  }}
+/>
+
+## Spec context
+
+<SpecTable placementId="meta-facebook-feed" />
+
+## Bidirectional copy
+
+The hardest case is mixed-direction copy — Arabic ad copy with English brand names. The bidirectional rendering can produce surprising clipping behavior because the platform's renderer uses the Unicode bidirectional algorithm. Test in the simulator with the actual mixed-script string.
+
+<FAQ
+  items={[
+    {
+      q: "Are character limits the same for RTL languages?",
+      a: "Numerically yes. Visually, the clipping appears on the opposite edge. Plan source-order accordingly.",
+    },
+    {
+      q: "Should I run separate ad copy for RTL audiences?",
+      a: "Yes — direct translation from LTR rarely works. Native RTL copy plays to the visual rendering.",
+    },
+    {
+      q: "Does Meta automatically detect RTL?",
+      a: "Yes. The platform applies the Unicode bidirectional algorithm. You can override direction with hidden bidi marks in extreme cases.",
+    },
+    {
+      q: "What about platforms in regions where RTL is the default?",
+      a: "Same algorithm, native rendering. The simulator above renders in the direction of the system locale.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["guides/emoji-character-counting-meta-tiktok", "glossary/character-limit", "guides/why-ads-get-truncated"]} />

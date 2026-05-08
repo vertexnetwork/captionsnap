@@ -1,0 +1,43 @@
+CTA truncation refers to the visual cutoff that happens when a platform's native call-to-action button or sticker overlays the call-to-action region of an ad creative. The composed CTA in your creative — a button label, a "Tap here" instruction, a "Swipe up" graphic — disappears behind the platform's native CTA element.
+
+This is one of the most common ad failure modes and one of the hardest to spot during preview. The platform's CTA strip is typically 8–14% of the canvas height, sits at the very bottom, and is rendered semi-transparently. So if you've composed a CTA button into your creative at 90% Y, the platform's strip lands directly on top of it. Both are visible. Both are partially readable. Neither is fully effective.
+
+The fix is to compose your CTA above the platform's strip — typically above 80% Y on Reels, above 78% Y on TikTok In-Feed, above 86% Y on Stories. The simulator above shows the platform's CTA strip overlay in real time, so you can verify your composed CTA isn't fighting it.
+
+<SimulatorPreset
+  placementId="tiktok-in-feed"
+  presetCopy={{
+    caption: "CTA truncation = the platform's own button covers your text",
+  }}
+/>
+
+## See the CTA strip overlay
+
+<SpecTable placementId="tiktok-in-feed" />
+
+## The double-CTA failure mode
+
+The worst version of CTA truncation is the "double CTA" — your composed CTA and the platform's CTA both visible, both saying different things. Viewers parse it as confusion and skip. Pick one CTA, place it where the other can't compete.
+
+<FAQ
+  items={[
+    {
+      q: "Why don't platforms move their CTA out of the way?",
+      a: "Because the platform CTA is what monetizes the placement. The platform's incentive is to keep its CTA visible at all costs.",
+    },
+    {
+      q: "Can I disable the platform CTA?",
+      a: "No. The CTA strip is rendered automatically on every paid placement.",
+    },
+    {
+      q: "Does CTA truncation affect organic posts?",
+      a: "Less aggressively, since organic posts don't have the same CTA strip. But other UI overlays (engagement icons, captions) still apply.",
+    },
+    {
+      q: "How do I test for CTA truncation before launch?",
+      a: "Use this simulator. The red overlay shows where the platform's CTA will appear over your creative.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["glossary/safe-zone", "tiktok/cta-overlay-safe-zone", "guides/why-ads-get-truncated"]} />

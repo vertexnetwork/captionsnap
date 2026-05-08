@@ -1,0 +1,44 @@
+Instagram Shopping Ads add product tags to Feed and Stories creative, letting users tap a tagged product to see price, description, and a "View on website" CTA. The ad creative inherits Feed character limits (125 visible primary text, 40 visible headline). The product tag overlay adds its own clamp: 30-character product title visible in the tag chip.
+
+Up to 5 product tags per Feed image, up to 1 per Stories ad. The tag chip appears as a small white circle on the creative, and tapping it expands a card with the product title (30 chars), price, and a CTA. If your catalog product title exceeds 30 characters, it clamps in the chip — usually mid-word — which reads as careless.
+
+The fix is the same as Collection Ads: maintain a `display_title` field in your catalog with 30-character versions of every shoppable product title.
+
+<SimulatorPreset
+  placementId="meta-instagram-feed"
+  presetCopy={{
+    primary: "Shopping ads inherit Feed limits + 30-char tagged product titles",
+    headline: "Tag titles 30 chars",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="meta-instagram-feed" />
+
+## Tag-chip discipline
+
+The tag chip is a tiny UI element. Anything past 30 characters disappears. Plan the catalog feed for the tag, not just the product page.
+
+<FAQ
+  items={[
+    {
+      q: "Can I tag multiple products in a single Shopping Ad?",
+      a: "Up to 5 tags on a Feed image. Stories supports 1 tag per ad.",
+    },
+    {
+      q: "Does tagging affect the ad's character limits?",
+      a: "Not the ad creative limits — those stay at Feed defaults. Tags add their own 30-character title clamp.",
+    },
+    {
+      q: "Are Shopping Ads available without a Shop integration?",
+      a: "No. You need an Instagram Shop set up with a linked product catalog.",
+    },
+    {
+      q: "How do Shopping Ads compare to Collection Ads?",
+      a: "Shopping Ads tag products inside a single creative; Collection Ads pair a hero with a product grid. Different layout, similar character constraints.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["meta/collection-ad-character-limits", "meta/instagram-feed-ad-character-limits", "tiktok/shop-ads-character-limits"]} />

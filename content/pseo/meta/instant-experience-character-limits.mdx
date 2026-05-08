@@ -1,0 +1,44 @@
+Meta Instant Experience (formerly Canvas) is a full-screen mobile landing page that opens when the user taps a Feed, Reels, or Stories ad. It is composed of blocks — header, photos, videos, carousels, buttons, product tiles, text — and each block has its own copy budget.
+
+Header blocks support 30 characters of title. Text blocks support up to 500 characters with a recommended 150 for readability. Button blocks support 30 characters of label. Product blocks inherit the Collection Ads tile budget (30 characters). The total Instant Experience can have up to 20 blocks.
+
+The format is powerful but error-prone because every block has different limits. The fix is to plan the entire experience as a sequence of micro-pages, each with the per-block budget at the top of the spec. Don't write Instant Experience copy as flowing prose — write it as discrete blocks.
+
+<SimulatorPreset
+  placementId="meta-facebook-feed"
+  presetCopy={{
+    primary: "Instant Experience = full-screen landing. Each block has its own clamp.",
+    headline: "Block-level clamps",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="meta-facebook-feed" />
+
+## Block-level discipline
+
+Every block is a mini-design problem. Plan each block's copy before laying out the experience. Don't try to retrofit a long article into Instant Experience — it will fragment in ways that hurt comprehension.
+
+<FAQ
+  items={[
+    {
+      q: "How many blocks can an Instant Experience have?",
+      a: "Up to 20. Most successful Instant Experiences use 6–10 blocks for narrative pacing.",
+    },
+    {
+      q: "Are Instant Experiences mobile-only?",
+      a: "Yes. They render only on mobile placements; desktop traffic gets routed elsewhere.",
+    },
+    {
+      q: "Do Instant Experience blocks share the ad's character limits?",
+      a: "No. The ad creative has Feed-style limits; the Instant Experience itself has block-level limits that vary per block type.",
+    },
+    {
+      q: "Can I A/B test Instant Experience versions?",
+      a: "Limited. The Instant Experience is attached to the ad. Testing requires duplicating the ad with a different Instant Experience.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["meta/collection-ad-character-limits", "meta/dynamic-creative-character-limits", "guides/ad-copy-mobile-first-checklist"]} />

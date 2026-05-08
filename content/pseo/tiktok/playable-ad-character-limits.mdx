@@ -1,0 +1,43 @@
+TikTok Playable Ads run interactive demos — a mini playable game or a tap-through interactive — directly inside the For You feed. The ad creative is the playable itself, and a thin caption strip sits above the platform's UI overlays. Caption space inherits In-Feed clamps (2,200 max, ~100 visible) but the visible region is reduced because the playable demo dominates the canvas.
+
+In practice, plan caption to ~70 visible characters on Playable Ads. The remaining vertical real estate is consumed by the playable interaction zone, the platform UI, and the "Try in app" CTA strip that often appears post-interaction.
+
+Display name behavior is identical to In-Feed (40 characters, no visible truncation within the field). The CTA strip that appears after demo interaction includes a "Download" or "Open" button; that button label is fixed by the platform and not user-configurable.
+
+<SimulatorPreset
+  placementId="tiktok-in-feed"
+  presetCopy={{
+    caption: "Playable demo overlay shrinks caption space",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="tiktok-in-feed" />
+
+## Caption-as-overlay
+
+On Playable Ads, the caption is overlay text — not the primary message. The playable does the selling. Caption serves as orientation: "what is this game?" in 70 characters or less.
+
+<FAQ
+  items={[
+    {
+      q: "Are Playable Ads only for games?",
+      a: "Most are, but other categories use them too — e-commerce demos, app onboarding flows, configurator experiences.",
+    },
+    {
+      q: "How long can the playable run?",
+      a: "Up to 60 seconds of interactive content, after which the user is prompted to install / open the full app.",
+    },
+    {
+      q: "Are Playable Ads available self-serve?",
+      a: "Yes, with restrictions on creative production. Most agencies use TikTok's playable studio or a partner.",
+    },
+    {
+      q: "Does the playable have to use TikTok's templating?",
+      a: "No, but using TikTok's templates speeds approval. Custom HTML5 playables go through additional review.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["tiktok/in-feed-ad-character-limits-2026", "tiktok/branded-effect-safe-zones", "tiktok/spark-ads-safe-zones-2026"]} />

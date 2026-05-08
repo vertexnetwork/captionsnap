@@ -1,0 +1,46 @@
+Instagram Reels and TikTok In-Feed share the same 9:16 portrait canvas but differ meaningfully in how their UI overlays land. Both have right-rail engagement columns, both have a username block at the bottom-left, both have a sponsored CTA strip — but the percentages differ by enough that creative built for one surface needs adjustment for the other.
+
+Reels' right-rail engagement column extends from approximately 30% Y down to 80% Y, covering 14% × 50% of the canvas. TikTok's column extends from 28% Y down to 82% Y, covering 14% × 54%. So TikTok's right rail is taller. Reels' username block is shorter (bottom 14%) than TikTok's combined username + caption block (bottom 22%).
+
+The practical implication: a creative built to TikTok safe zones will pass cleanly through Instagram Reels, but the reverse is not always true. If you're building cross-platform, design to TikTok's tighter constraints first.
+
+Caption behavior also differs. Reels clamps primary text at 72 visible characters; TikTok at 100. Reels' headline (10 visible characters) is the tighter clamp by far — TikTok's 40-character display name doesn't visually truncate.
+
+<SimulatorPreset
+  placementId="meta-instagram-reels"
+  presetCopy={{
+    caption: "Both 9:16. Different overlays. Plan creative for whichever has the more aggressive clamp.",
+  }}
+/>
+
+## Side-by-side spec
+
+<SpecTable placementId="meta-instagram-reels" />
+<SpecTable placementId="tiktok-in-feed" />
+
+## The TikTok-first design rule
+
+When building cross-platform 9:16 creative, design first for TikTok safe zones. The taller right rail and bigger bottom-left blackout on TikTok make it the worst-case constraint. Anything that survives TikTok will survive Reels.
+
+<FAQ
+  items={[
+    {
+      q: "Are Reels and TikTok really that similar?",
+      a: "Same canvas, similar UX patterns, slightly different overlay percentages. The differences matter for safe-zone design but not for creative concept.",
+    },
+    {
+      q: "Why is TikTok's bottom blackout taller?",
+      a: "Because TikTok stacks the caption directly below the username. Reels separates the caption to a different region.",
+    },
+    {
+      q: "Do they share an audience?",
+      a: "Significant overlap, but the creative norms differ — TikTok rewards looser, faster, more hand-held content; Reels still leans more produced.",
+    },
+    {
+      q: "Should I run identical creative on both?",
+      a: "You can, but customizing for each platform's native style typically lifts performance 10–25%.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["meta/instagram-reels-safe-zones", "tiktok/spark-ads-safe-zones-2026", "compare/meta-reels-vs-tiktok-in-feed"]} />

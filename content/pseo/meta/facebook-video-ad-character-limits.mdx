@@ -1,0 +1,44 @@
+Facebook Video Ads share Feed character limits exactly: 125 visible primary text, 40 visible headline, 30 visible description. The catch is that video viewers behave differently than image viewers — they're watching motion, not reading. Tap-through rates on See more during video playback are roughly half what they are on static creative.
+
+Practical implication: anything past character 50 of primary text during video playback is read by maybe 5% of viewers. The 125-character window technically applies, but viewers read closer to 50. Plan video ad primary text for the 50-character budget, even if the platform allows 125.
+
+The headline strip on video ads renders below the video and stays visible after playback ends. Headline visibility is comparable to static Feed — about 40 characters before the strip clips. The post-playback period is also when most "View more" taps happen, so consider the headline as a closing argument rather than a hook.
+
+<SimulatorPreset
+  placementId="meta-facebook-feed"
+  presetCopy={{
+    primary: "Video viewers don't read primary text past character 50.",
+    headline: "Hook lands in the first 5 seconds",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="meta-facebook-feed" />
+
+## Video-mode reading
+
+When viewers watch video, they don't read the caption. The video does the talking. The caption serves as orienting text — "what is this?" — in fewer than 50 characters. Save the longer copy for static or carousel creative.
+
+<FAQ
+  items={[
+    {
+      q: "Are video ad limits different from static?",
+      a: "Identical numerically. The behavioral difference is that video viewers read less primary text in practice.",
+    },
+    {
+      q: "Should I add captions or burn-in text on the video itself?",
+      a: "Yes. Burn-in captions add ~30% to retention on autoplay-muted impressions, which is most Feed video.",
+    },
+    {
+      q: "Does sound-off mode change character behavior?",
+      a: "Not the limits. But viewers watching with sound off read more burn-in text and less primary text.",
+    },
+    {
+      q: "How long should the video itself be?",
+      a: "15 seconds is the sweet spot for most Feed video. Reels prefers 10–20. The character limits are independent of video length.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["meta/facebook-feed-character-limits-2026", "meta/facebook-reels-safe-zones", "guides/ad-copy-mobile-first-checklist"]} />

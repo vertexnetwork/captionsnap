@@ -1,0 +1,45 @@
+Facebook Feed remains the highest-volume ad placement on Meta, and 2026 has not loosened a single limit. Primary text accepts up to 500 characters, but only the first 125 characters are visible before Meta clamps the post with a "See more" link. Headlines accept up to 255 characters, but only the first 40 are reliably visible — and on smaller phones the visible window can collapse to the first 27 characters. Description fields are even tighter at 30 visible characters before the rest is hidden under the headline.
+
+The placement runs on devices ranging from the iPhone SE to ultra-wide Android tablets, so the safe-zone rule of thumb is simple: assume the worst-case crop. Anything above your hero image is dominated by the profile row and "Sponsored" label. Anything below it is dominated by the CTA strip and reaction bar. Real-world feed scrolling rarely lingers, which means primary text past the See more cutoff is read by an estimated 5% of viewers — your hook, offer, and proof must land before character 125.
+
+The simulator preset below is set to a copy length that crosses the See more boundary on purpose. Toggle through Meta and TikTok in the picker above to compare how the same copy clamps on each platform.
+
+<SimulatorPreset
+  placementId="meta-facebook-feed"
+  presetCopy={{
+    primary: "Stop wasting ad spend on copy that gets clipped at See more. This headline runs longer than 40 characters intentionally so you can watch the cut.",
+    headline: "Your most important hook should land before character 40",
+    description: "Free preview · No signup",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="meta-facebook-feed" />
+
+## What changed in 2026
+
+The hard maximums have not changed. What did change is Meta's enforcement of the visible cutoff: third-party reports from agencies running A/B tests at scale show the See more clamp now triggers more aggressively on shorter screens, and short-form Reels-adjacent inventory has started showing primary text on a single line. Plan for 110 visible characters as the practical safe budget.
+
+<FAQ
+  items={[
+    {
+      q: "What happens if my primary text exceeds 125 characters?",
+      a: "Meta clamps the visible region at 125 characters and appends a 'See more' link. The full text is still indexed for relevance, but most users never tap See more.",
+    },
+    {
+      q: "Does Facebook Feed treat emoji as one character?",
+      a: "Most simple emoji count as one character. Compound emoji like family or country-flag glyphs can count as 2–7 characters depending on the underlying grapheme cluster. Use this preview to verify exact behavior.",
+    },
+    {
+      q: "Is the 40-character headline limit hard?",
+      a: "Headlines accept up to 255 characters, but the visible window is closer to 40 on most modern phones. Anything past character 40 risks being clipped by the CTA strip.",
+    },
+    {
+      q: "How often does Meta change these limits?",
+      a: "Hard limits change roughly once per year. Visible-window behavior changes silently — we re-verify our specs on a monthly cadence.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["meta/facebook-carousel-character-limits", "meta/primary-text-see-more-truncation", "guides/why-ads-get-truncated"]} />

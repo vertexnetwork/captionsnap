@@ -1,0 +1,44 @@
+Instagram Explore is a discovery surface — a grid of thumbnails the user is browsing with intent. Ads slide into that grid and inherit Feed's character limits when tapped, but the thumbnail context fundamentally changes the rules of engagement. The 125-character primary text cutoff that hurts on Feed hurts twice as much on Explore because the user already self-selected by tapping a tile.
+
+In other words: by the time someone reaches your primary text on Explore, they've already chosen to read. They want depth. The trap is that the visible window is still 125 characters before See more, so you can't actually deliver the depth without forcing a tap-to-expand. The pattern that performs on Explore is a punchy first 100 characters that earns the See more tap.
+
+Headline behavior is identical to Feed: 40 visible characters, soft warning at 27. Description fields are not used on Explore — the placement renders the headline directly under the creative without a separate description region.
+
+<SimulatorPreset
+  placementId="meta-instagram-explore"
+  presetCopy={{
+    primary: "In Explore, the user is browsing thumbnails. The first 125 characters of primary text are the only thing they will read.",
+    headline: "Hook the thumbnail-browser before See more",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="meta-instagram-explore" />
+
+## The Explore selection effect
+
+A subtle but important point: Explore audiences over-index on browse intent. They're the audience most likely to actually tap See more — but only if the first 125 characters earn the tap. Treat the visible window as a teaser, not a complete message.
+
+<FAQ
+  items={[
+    {
+      q: "Are Explore ads cheaper than Feed ads?",
+      a: "Auction prices vary by audience and category. Explore inventory tends to be slightly cheaper because Meta has more of it, but the engagement quality is also generally lower than Feed's saved-content audience.",
+    },
+    {
+      q: "Do Explore ads support carousels?",
+      a: "Yes. Carousel cards behave identically to the Feed carousel, with the same 40-character headline and 20-character description visible windows per card.",
+    },
+    {
+      q: "How does Explore compare to Reels for character limits?",
+      a: "Explore inherits Feed's 125-character primary cutoff. Reels clamps earlier at 72. So Explore gives you more room to write per impression.",
+    },
+    {
+      q: "Why is the See more tap rate higher on Explore?",
+      a: "Explore audiences are in browse-mode. They tap to learn. Other surfaces are in scroll-mode where See more is rarely tapped.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["meta/instagram-feed-ad-character-limits", "meta/instagram-stories-safe-zones", "guides/why-ads-get-truncated"]} />

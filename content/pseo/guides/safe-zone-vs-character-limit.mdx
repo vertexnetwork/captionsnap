@@ -1,0 +1,44 @@
+Character limits and safe zones are two different problems with two different solutions. Confusing them is one of the most common mistakes in ad operations. A character limit governs your text — how many characters of copy will be visible before the platform truncates with an ellipsis. A safe zone governs your pixels — which regions of your ad creative will be obscured by the platform's UI overlays.
+
+You can violate one without violating the other. A 30-character headline that fits inside the 40-character visible window may still be obscured by the CTA strip if the placement renders headlines too low on the canvas. Conversely, you can compose a perfectly safe-zone-respecting visual that still has 200-character primary text that gets clamped at 125. Both are failure modes. Both look careless to the viewer.
+
+The fix for character-limit violations is rewriting copy. The fix for safe-zone violations is recomposing the visual. They require different specialists — copywriters and designers — and different review steps. A pre-launch QA that only checks one of them ships ads with the other broken.
+
+<SimulatorPreset
+  placementId="meta-instagram-stories"
+  presetCopy={{
+    primary: "Character limit = how many characters before the platform clips your copy. Safe zone = which pixels the UI overlays cover.",
+    headline: "Two different problems, both fixable in preview",
+  }}
+/>
+
+## Two different specs
+
+<SpecTable placementId="meta-instagram-stories" />
+
+## Why this confusion costs money
+
+When a buyer says "my ad got truncated," they often mean one of two completely different things. Either: the copy was clamped at 125 characters and the offer disappeared. Or: the CTA button was overlaid on the composed CTA in the creative. The fix is different in each case. Diagnose precisely before you re-spend.
+
+<FAQ
+  items={[
+    {
+      q: "Can a single ad violate both a character limit and a safe zone simultaneously?",
+      a: "Yes, and most failed ad QA reviews catch only one of the two. Both need separate review steps.",
+    },
+    {
+      q: "Are safe zones the same on every device?",
+      a: "Within ~1% drift across iOS and Android. The simulator above shows the worst-case numbers.",
+    },
+    {
+      q: "Are character limits the same on every device?",
+      a: "Hard maximums are. Visible windows can vary by ~5% based on device width and font rendering.",
+    },
+    {
+      q: "Should I QA character limits or safe zones first?",
+      a: "Character limits — they're cheaper to fix (rewrite a sentence). Safe-zone violations require recomposing the visual, which is more expensive.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["glossary/safe-zone", "glossary/character-limit", "guides/why-ads-get-truncated"]} />

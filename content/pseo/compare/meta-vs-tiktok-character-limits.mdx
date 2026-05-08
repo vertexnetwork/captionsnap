@@ -1,0 +1,45 @@
+If you're moving creative budget between Meta and TikTok — or running both — the character-limit math diverges in ways that catch most teams off guard. Meta clamps primary text at 125 visible characters across Feed and Marketplace, drops to 72 on Reels surfaces, and bottoms out at 90 on Stories. TikTok In-Feed clamps at ~100 characters, TopView at ~60, and Branded Effect at ~50.
+
+Headline behavior is more aligned. Meta clamps headlines at 40 visible characters across most placements (with Carousel descriptions narrower at 20). TikTok uses a 40-character display name field that doesn't visually truncate within its bounds but causes vertical compression of the caption block past 30 characters.
+
+The strategic implication: TikTok In-Feed gives you slightly more visible caption budget than Meta Feed (100 vs 125 — wait, Feed is more, actually). Let me restate: Meta Feed has more visible primary-text budget than TikTok In-Feed (125 vs 100), but Meta Reels has *less* than TikTok In-Feed (72 vs 100). So if your media plan is Reels + TikTok In-Feed, plan to TikTok's 100-character budget — Reels will clamp first.
+
+<SimulatorPreset
+  placementId="meta-facebook-feed"
+  presetCopy={{
+    primary: "Meta = 125-char primary, 40-char headline. TikTok = 100-char caption, 40-char display name.",
+    headline: "Different math, similar discipline",
+  }}
+/>
+
+## Side-by-side spec
+
+<SpecTable placementId="meta-facebook-feed" />
+<SpecTable placementId="tiktok-in-feed" />
+
+## The cross-platform safe budget
+
+If you're writing one piece of copy that runs across Meta Reels, TikTok In-Feed, and a Stories placement, your safe budget is the most restrictive: 60 visible characters of primary text and 27 of headline. That's the budget that survives every placement intact.
+
+<FAQ
+  items={[
+    {
+      q: "Why is Meta's primary-text budget bigger on Feed but smaller on Reels?",
+      a: "Feed is a slow-scroll surface where users sometimes pause. Reels is faster-scroll. Tighter clamps reinforce faster scrolling.",
+    },
+    {
+      q: "Can I just use Meta's caption on TikTok?",
+      a: "If it's under 100 visible characters, yes. If it's longer, you'll lose the post-100 region on TikTok.",
+    },
+    {
+      q: "Does TikTok have a See more equivalent?",
+      a: "Yes — '...more'. Tap rates are typically 1–4%, lower than Meta's See more rates.",
+    },
+    {
+      q: "What about hashtags — do they count differently across platforms?",
+      a: "Both count hashtag characters toward the visible window. TikTok rewards hashtag usage in algorithm signals; Meta does not.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["compare/instagram-reels-vs-tiktok-feed", "compare/facebook-feed-vs-instagram-feed", "guides/why-ads-get-truncated"]} />

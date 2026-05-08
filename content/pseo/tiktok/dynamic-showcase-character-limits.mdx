@@ -1,0 +1,45 @@
+TikTok Dynamic Showcase Ads (DSA) auto-generate ad creative from a linked product catalog. The video creative is generated with TikTok's templating engine; the product card is pinned with title, price, and CTA. Caption inherits In-Feed limits (~100 visible characters of 2,200 max). Product titles in the pinned card truncate at 34 characters — same number as Shop Ads.
+
+The catalog feed is where DSA campaigns succeed or fail. If your catalog `title` field is "Premium Organic Cotton T-Shirt — Heather Gray, Size M," it clamps to "Premium Organic Cotton T-Shirt — H…" in the pinned card. The fix is the same `display_title` pattern as Meta: maintain a 34-character version for the pinned-card surface.
+
+Description in the pinned card shows the first 80 characters of your catalog `description` field. Plan a `display_description` of 80 characters or less.
+
+<SimulatorPreset
+  placementId="tiktok-shop-ads"
+  presetCopy={{
+    caption: "Dynamic Showcase pulls from catalog. Titles 34 chars.",
+    headline: "34-char product titles",
+    description: "80-char description tier",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="tiktok-shop-ads" />
+
+## The 34/80 catalog override
+
+The same catalog override pattern that works for Meta Advantage+ works for TikTok DSA. Three parallel title fields. Three parallel description fields. Map each surface to the right one.
+
+<FAQ
+  items={[
+    {
+      q: "Is DSA the same as TikTok Shop Ads?",
+      a: "Related but distinct. Shop Ads pin a single product card; DSA generates entire creative variants from a catalog automatically.",
+    },
+    {
+      q: "How many product variants can DSA generate?",
+      a: "Up to 50 in a single ad set, more with extended catalog support.",
+    },
+    {
+      q: "What catalog feed format does DSA accept?",
+      a: "Standard product feed in CSV, XML, or Google Shopping format.",
+    },
+    {
+      q: "Does DSA need a TikTok Shop integration?",
+      a: "DSA works with any product catalog, not just TikTok Shop. Shop Ads specifically requires the Shop integration.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["tiktok/shop-ads-character-limits", "tiktok/in-feed-ad-character-limits-2026", "meta/dynamic-creative-character-limits"]} />

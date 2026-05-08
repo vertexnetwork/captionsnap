@@ -1,0 +1,45 @@
+Facebook Feed and Instagram Feed are sibling placements inside the same Meta auction, with mostly identical character math and one big divergence. Facebook Feed primary text caps at 500 characters total. Instagram Feed allows 2,200 characters — the same ceiling as organic Instagram captions. Both clamp the visible region at 125 characters with a See more link.
+
+Headline behavior is identical: 255-character maximum, 40 visible. Description is identical: 200-character maximum, 30 visible. The 2,200 vs 500 divergence is purely about the post-cutoff text, which most viewers don't read anyway.
+
+Strategically: don't write longer Instagram primary text just because the limit allows it. The visible window is 125 on both. If you have content past 125, ask yourself whether your audience will tap See more. On Instagram Feed, single-digit percentages do. On Facebook Feed, similar. The post-cutoff content is for SEO and indexing, not conversion.
+
+<SimulatorPreset
+  placementId="meta-facebook-feed"
+  presetCopy={{
+    primary: "FB Feed = 500-char primary. IG Feed = 2,200-char. Both clip at 125.",
+    headline: "Visible 125 either way",
+  }}
+/>
+
+## Side-by-side spec
+
+<SpecTable placementId="meta-facebook-feed" />
+<SpecTable placementId="meta-instagram-feed" />
+
+## Practical implication
+
+Plan one canonical primary text under 125 characters. Use it on both placements. Move hashtags below the cutoff. Treat the divergence as cosmetic.
+
+<FAQ
+  items={[
+    {
+      q: "Why does Instagram allow 2,200 characters?",
+      a: "Inheritance from organic Instagram captions, where users were used to longer micro-blog content.",
+    },
+    {
+      q: "Should I write different primary text for each surface?",
+      a: "Usually no. The visible window is identical. Use the same primary text on both.",
+    },
+    {
+      q: "What about hashtags — count differently?",
+      a: "Both surfaces count hashtag characters identically. Both reward strategic hashtag placement below the visible window.",
+    },
+    {
+      q: "Are Facebook Feed and Instagram Feed in the same auction?",
+      a: "Yes — both are in Meta's unified auction. You bid against both audiences from the same campaign.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["meta/facebook-feed-character-limits-2026", "meta/instagram-feed-ad-character-limits", "compare/meta-vs-tiktok-character-limits"]} />

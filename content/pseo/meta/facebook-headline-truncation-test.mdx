@@ -1,0 +1,44 @@
+This page is a live test, not a spec. Paste your real ad headline into the simulator below, and watch in real time where it cuts off across Facebook Feed, Marketplace, and Carousel placements. The visible-character window changes per placement, and the cutoff is enforced visually by the platform — not just numerically — so a 39-character headline that "fits" on Feed may still clip on Marketplace.
+
+The most common surprise is that Carousel ads use the same 40-character visible window as Feed for the headline, but the description field's window collapses from Feed's 30 down to Carousel's 20. So a card-level headline that survives gets its description neatly cropped. Marketplace introduces its own variance — same 40-character window for headline, but the surrounding price tag shrinks the perceived width.
+
+Walk through three runs: a 30-character "safe" headline, a 41-character "right at the edge" headline, and a 65-character "definitely too long" headline. Switch placements and you'll see exactly how each clips.
+
+<SimulatorPreset
+  placementId="meta-facebook-feed"
+  presetCopy={{
+    headline: "Headlines longer than 40 characters get clipped on most placements",
+    primary: "Use this preview to spot the exact cut before launch.",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="meta-facebook-feed" />
+
+## Why this preview matters
+
+Most ad managers preview your ad in a simulated desktop window where the headline rarely clips. That preview lies. The real-world clip happens on phones with narrower windows. The simulator above defaults to a 390 logical-pixel iPhone-class device, which is the worst case for most cohorts.
+
+<FAQ
+  items={[
+    {
+      q: "Why does my headline preview look fine in Ads Manager but truncate live?",
+      a: "Ads Manager previews in a desktop-width context. Real impressions happen on phones, where the visible window is significantly narrower.",
+    },
+    {
+      q: "How do I find the clip point precisely?",
+      a: "The simulator shows the exact cut index. The truncated string ends with '… See more' on Meta surfaces. Anything past that index is hidden.",
+    },
+    {
+      q: "Is the visible window really 40 characters?",
+      a: "It's a soft floor. On large phones the visible window stretches to about 50. On smaller phones it can collapse to 27. Treat 40 as the safe budget.",
+    },
+    {
+      q: "Does the preview account for emoji?",
+      a: "Yes. The preview counts graphemes, so a single emoji is one character even when it's a compound emoji like a flag.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["meta/primary-text-see-more-truncation", "meta/facebook-feed-character-limits-2026", "guides/headline-vs-primary-text-strategy"]} />

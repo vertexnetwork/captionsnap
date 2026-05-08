@@ -1,0 +1,42 @@
+Instagram Reels uses the same 9:16 canvas as Stories, but the UI behaves more like TikTok than like a Feed surface. The right rail — like, comment, share, send, audio — covers the right 14% of the canvas from approximately 30% Y down to 80% Y. That's over half the height of the right edge. Below that, the username block plus the caption cover roughly 22% of the bottom, with a sponsored CTA strip taking another 8%.
+
+What this means in practice: any product shot, any logo, any text overlay placed on the right side of a Reels ad disappears under the engagement column. Even worse, the bottom 30% of the canvas is double-occupied — by your composed caption (if you have one) and the sponsored CTA strip. Brands that center their hero in the safe middle 72% × 56% rectangle reliably outperform brands that compose to the edges.
+
+<SimulatorPreset
+  placementId="meta-instagram-reels"
+  presetCopy={{
+    caption: "Right rail icons cover the right 14%. Caption + CTA covers the bottom 22%.",
+    headline: "Centered hero",
+  }}
+/>
+
+## Verified 2026 safe zones
+
+<SpecTable placementId="meta-instagram-reels" />
+
+## The Reels safe rectangle
+
+Treat the safe canvas as a centered rectangle from 0%–86% wide and 8%–78% tall. That is a 86% × 70% box that survives every overlay. If your creative has a hero element, drop it inside that rectangle. If it has copy, the same rule applies — anything in the right 14% is covered by engagement icons.
+
+<FAQ
+  items={[
+    {
+      q: "Do Reels ads share specs with Stories?",
+      a: "Same canvas, different UI. Reels has the right-rail engagement column that Stories does not. Stories has the top progress bar that Reels does not. Plan creative for both surfaces if running them together.",
+    },
+    {
+      q: "Why does the engagement column go down to 80% Y?",
+      a: "Because Instagram Reels groups the audio button with the engagement icons. The audio chip sits below the share button, pushing the column down further than on Facebook Reels.",
+    },
+    {
+      q: "Can I move the username block out of the way?",
+      a: "No. The username + caption block is always anchored to the bottom-left and always visible.",
+    },
+    {
+      q: "Does the safe zone change for paid Reels vs organic Reels?",
+      a: "Paid Reels add the sponsored CTA strip at the very bottom. Organic Reels do not. The simulator reflects the paid-ad version.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["meta/instagram-stories-safe-zones", "meta/facebook-reels-safe-zones", "compare/meta-reels-vs-tiktok-in-feed"]} />

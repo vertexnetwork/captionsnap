@@ -1,0 +1,44 @@
+Truncation is not a bug. Every major social platform clamps ad copy by design, and the design rationale is straightforward: feeds need to scroll fast. A user who pauses to read a long ad's full primary text is a user who is no longer scrolling, and the platform's revenue depends on scroll velocity.
+
+So Meta and TikTok built fixed visible windows — 125 characters on Feed, 90 on Stories, 72 on Reels, 100 on TikTok In-Feed — and clamp every primary text to those windows. Anything past the clamp is hidden behind a "See more" or "...more" link. The user can tap to expand, but very few do. The clamp is the platform telling you: "Write less, scroll faster."
+
+There are three honest responses to this constraint. First: design copy that lands inside the visible window. Lead with the hook, follow with the offer, save the proof for after the cut if you need it. Second: use the post-cut region as deliberate creative tension — write the cliffhanger that earns the See more tap. Third: ignore the post-cut region entirely and treat the visible window as the entire ad. Most agencies that perform consistently use a mix of the first two patterns.
+
+<SimulatorPreset
+  placementId="meta-facebook-feed"
+  presetCopy={{
+    primary: "Truncation is a UX feature, not a bug. Platforms clamp copy to keep feeds fast.",
+    headline: "Design around the cut, not against it",
+  }}
+/>
+
+## How clamps differ across platforms
+
+<SpecTable placementId="meta-facebook-feed" />
+
+## Working with the clamp instead of against it
+
+The clamp is non-negotiable. Treat it as a design constraint, not a problem. Every great ad ever written under a clamp constraint has used the clamp as a tool — the cliffhanger, the punchline, the "if you want the rest, tap." The advertisers who fight the clamp lose ad spend.
+
+<FAQ
+  items={[
+    {
+      q: "Why don't platforms just give buyers more visible characters?",
+      a: "Because every additional character slows the feed. Slower feeds mean lower ad impressions per session, which means less revenue. The clamp is a deliberate trade-off.",
+    },
+    {
+      q: "Has the clamp ever increased?",
+      a: "Rarely, and only by small amounts. Meta's See more cutoff has been 125 characters since 2018.",
+    },
+    {
+      q: "Is See more ever auto-expanded?",
+      a: "Sometimes Meta auto-expands for users who tap many See more links — a personalization signal. But you cannot rely on auto-expansion in your campaign planning.",
+    },
+    {
+      q: "Why are Reels' clamps tighter than Feed's?",
+      a: "Reels are designed to scroll even faster than Feed. Tighter clamps reinforce the faster-scroll behavior.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["guides/safe-zone-vs-character-limit", "guides/headline-vs-primary-text-strategy", "meta/primary-text-see-more-truncation"]} />

@@ -1,0 +1,45 @@
+TikTok Shop Ads pin a product card overlay onto an In-Feed video. The product card sits below the right rail and above the CTA strip, occupying the bottom 22% of vertical real estate (right of the username block). Inside that card, product titles truncate at 34 characters and product descriptions show the first 80 characters before clamping.
+
+Caption space is technically unchanged from In-Feed (2,200-character maximum, 100-character visible window), but the product card cuts into the visual region where you'd usually compose hero copy. Practical caption budget on Shop Ads is closer to 80 visible characters once you account for the product card occluding the lower portion of the canvas.
+
+The 34-character product title clamp is the most important number to memorize. Titles that work for organic listings (e.g. "Vintage Sterling Silver Earrings — Limited Edition Drop") get brutally cut on Shop Ads to "Vintage Sterling Silver Earrings…". Write Shop product titles to fit inside 34 characters or rewrite the catalog feed for the placement.
+
+<SimulatorPreset
+  placementId="tiktok-shop-ads"
+  presetCopy={{
+    caption: "Shop Ads pin a product card. Caption space shrinks. Hit the hook in 80 chars.",
+    headline: "Product titles truncate at 34 chars",
+    description: "First 80 chars of product description are visible",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="tiktok-shop-ads" />
+
+## The 34/80 product card
+
+Product card writing on TikTok Shop is its own discipline. Product title in 34. Description hook in 80. Anything past those points is hidden behind the card chrome. Work backward from those budgets to your catalog feed.
+
+<FAQ
+  items={[
+    {
+      q: "Are TikTok Shop Ads available everywhere?",
+      a: "Shop Ads are gated by region. They're available in the US, UK, several Southeast Asian markets, and limited European regions as of 2026.",
+    },
+    {
+      q: "Do I need a TikTok Shop seller account?",
+      a: "Yes. Shop Ads pull product data from your linked Shop catalog. You cannot run Shop Ads without an active Shop integration.",
+    },
+    {
+      q: "Can I A/B test product titles for Shop Ads?",
+      a: "Limited. The product title is sourced from your Shop catalog. To A/B test, you need to test in your catalog feed and let Shop Ads inherit.",
+    },
+    {
+      q: "What happens to my caption when the product card pins?",
+      a: "Caption space remains technically the same, but the visible region is reduced because the product card sits in the lower canvas.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["tiktok/in-feed-ad-character-limits-2026", "tiktok/spark-ads-safe-zones-2026", "compare/instagram-stories-vs-tiktok-spark-ads"]} />

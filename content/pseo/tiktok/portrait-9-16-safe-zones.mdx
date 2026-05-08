@@ -1,0 +1,43 @@
+9:16 portrait is the only natively supported aspect ratio on TikTok. Every paid placement — In-Feed, Spark Ads, TopView, Branded Effect, Shop Ads — runs in 9:16. There is no Feed-style 1:1 or 4:5 fallback. If you bring 1:1 creative to TikTok, the platform letterboxes it inside a 9:16 frame, which compounds your safe-zone problem because the letterbox bars are added on top of the existing UI overlays.
+
+The full safe canvas in 9:16 — the rectangle that survives every TikTok overlay across every placement — is bounded by 0–86% X and 8–78% Y. That's a 86% × 70% box. Inside that box, the bottom-left 70% × 14% is additionally constrained by the username block on most placements. So the cleanest safe rectangle is 30%–86% X by 8%–78% Y, which is roughly the central-right two-thirds of the canvas.
+
+Plan key creative — logos, hero shots, headline overlays — to live in this central-right rectangle. Plan secondary elements — texture, background, atmospheric content — to live in the obscured regions where partial coverage is acceptable.
+
+<SimulatorPreset
+  placementId="tiktok-portrait"
+  presetCopy={{
+    caption: "Central 72% × 56% is your safe canvas",
+  }}
+/>
+
+## Verified 2026 safe zones
+
+<SpecTable placementId="tiktok-portrait" />
+
+## The central-right pattern
+
+The reason TikTok creators compose so much hero content slightly right-of-center is that the bottom-left blackout from the username block is universal. The central-right rectangle is the only canvas region that survives every placement type without rework.
+
+<FAQ
+  items={[
+    {
+      q: "Can I run 1:1 creative on TikTok?",
+      a: "Technically yes, but TikTok will letterbox it. Performance suffers because the letterbox bars compound with existing UI overlays.",
+    },
+    {
+      q: "Why is 9:16 the only supported aspect ratio?",
+      a: "Because the entire UX is built for portrait scrolling. Other aspect ratios force the platform to add chrome that wasn't designed for them.",
+    },
+    {
+      q: "Does 4:5 work as a near-portrait alternative?",
+      a: "No. TikTok still letterboxes anything that isn't 9:16. Stick to native portrait.",
+    },
+    {
+      q: "What's the safe rectangle for guaranteed survival across all placements?",
+      a: "Bounded by 30–86% X and 8–78% Y — the central-right rectangle described above.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["tiktok/spark-ads-safe-zones-2026", "tiktok/in-feed-ad-character-limits-2026", "glossary/aspect-ratio-9-16"]} />

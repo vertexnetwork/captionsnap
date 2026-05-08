@@ -1,0 +1,44 @@
+Both Meta and TikTok count characters in graphemes — the visual unit a user sees as "one character" — rather than in code points or bytes. For most plain emoji, one emoji equals one grapheme equals one character. So 🚀 in your headline counts as 1 character, even though under the hood it's 2 UTF-16 code units.
+
+Compound emoji is where it gets hairy. Family emoji like 👨‍👩‍👧‍👦 are technically composed of multiple emoji joined by zero-width joiners — 7 code points, but rendered as a single visual unit. Most modern grapheme counters (including the one in this simulator) count the family emoji as 1 grapheme. But older tools, including some platform admin interfaces, count it as 7. So your character budget can disagree with the platform's character budget by 6 per family emoji.
+
+Country flags 🇺🇸 are similar: 2 regional indicator code points joined into a single grapheme. Modern counters say 1 character; older tools say 2.
+
+<SimulatorPreset
+  placementId="meta-facebook-feed"
+  presetCopy={{
+    primary: "Most emoji = 1–2 chars. Compound emoji = 4–7. Plan accordingly.",
+    headline: "Budget for graphemes",
+  }}
+/>
+
+## Spec context
+
+<SpecTable placementId="meta-facebook-feed" />
+
+## The grapheme budget
+
+The simulator above counts graphemes, matching how the platform clamps text visually. If you want to be safe across older tools, treat each compound emoji as if it were 5 characters and budget accordingly.
+
+<FAQ
+  items={[
+    {
+      q: "Why do platforms count graphemes instead of bytes?",
+      a: "Because the visible-window clamp is a visual operation. The platform decides where to clip based on what the user sees, not what's in the database.",
+    },
+    {
+      q: "Are skin-tone modifiers counted separately?",
+      a: "Most modern counters treat 👍🏽 as 1 grapheme. Some older counters treat the base emoji + modifier as 2. The simulator counts as 1.",
+    },
+    {
+      q: "Do hashtags counted in the same way as plain text?",
+      a: "Yes. Each character in the hashtag (including the # itself) counts as 1 grapheme.",
+    },
+    {
+      q: "What about flag sequences and tag sequences?",
+      a: "Modern counters render them as 1 grapheme. Verify by pasting into the simulator before launch.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["guides/right-to-left-language-truncation", "glossary/character-limit", "guides/why-ads-get-truncated"]} />

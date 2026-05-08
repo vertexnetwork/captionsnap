@@ -1,0 +1,43 @@
+TikTok Symphony is the platform's AI creative suite — auto-generates TikTok-native videos from a script, a product feed, or a single seed creative. The character limits per generated variant inherit standard In-Feed clamps: 2,200-character caption, ~100 visible, 40-character display name. The same per-variant rule that applies to Meta Advantage+ applies here: every generated variant must hit the limits independently.
+
+Symphony's generation engine sometimes produces captions that exceed 100 visible characters because the underlying script can run long. The platform doesn't actively clamp during generation — it generates, and the visible-window clamp applies at runtime. So a generated variant with 130 visible characters still gets clipped, even though Symphony produced it.
+
+The fix is to constrain the seed input. If you provide a 60-character hook as your generation seed, Symphony tends to keep variants close to that length. Provide a 200-character paragraph as the seed and you'll get variants that overflow the visible window.
+
+<SimulatorPreset
+  placementId="tiktok-in-feed"
+  presetCopy={{
+    caption: "Symphony auto-generates variants. 100-char clamp still applies per variant.",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="tiktok-in-feed" />
+
+## Seed discipline for AI generation
+
+The shorter and more specific your seed, the cleaner Symphony's variants will be. Treat the seed input as a brief, not a draft. 60–80 characters of hook plus a sentence of context produces the best variant set.
+
+<FAQ
+  items={[
+    {
+      q: "Is Symphony available to all TikTok advertisers?",
+      a: "Self-serve advertisers can access Symphony via the TikTok Ads Manager. Some advanced features are gated to enterprise tier.",
+    },
+    {
+      q: "Does Symphony work with my existing creative?",
+      a: "Yes. You can seed Symphony with an existing video, image, or product feed and ask it to generate variants.",
+    },
+    {
+      q: "How many variants does Symphony produce?",
+      a: "Up to 10 per generation request. You can iterate by re-seeding with the best-performing variant.",
+    },
+    {
+      q: "Are Symphony-generated captions automatically optimized for the 100-char clamp?",
+      a: "Not reliably. Always preview generated variants in the simulator before promoting.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["tiktok/dynamic-showcase-character-limits", "tiktok/in-feed-ad-character-limits-2026", "meta/advantage-plus-character-limits"]} />

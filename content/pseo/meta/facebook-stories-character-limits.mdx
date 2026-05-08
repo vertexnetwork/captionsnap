@@ -1,0 +1,44 @@
+Facebook Stories share Instagram Stories' character limits exactly: 125-character primary text, 40-character headline, no description field. The placement is technically distinct in Ads Manager, but for the purposes of writing copy and checking truncation, treat it as identical to Instagram Stories.
+
+The one cosmetic difference is that Facebook's top progress bar takes slightly less vertical space than Instagram's profile-chip-plus-progress-bar — about 12% versus 14%. That gives you a marginally larger usable canvas. But the character clamps are identical, so the writing job is the same.
+
+Reach-wise, Facebook Stories tend to underperform Instagram Stories for most cohorts because the audience is older and less Stories-native. Many buyers run a single combined Stories campaign across both placements rather than separating them.
+
+<SimulatorPreset
+  placementId="meta-instagram-stories"
+  presetCopy={{
+    primary: "Facebook Stories track Instagram's clamps",
+    headline: "Same 30-char headline",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="meta-instagram-stories" />
+
+## Build once, ship twice
+
+The biggest operational win on Facebook Stories is that creative built for Instagram Stories runs cleanly without rework. Same canvas, same overlays, same character clamps. Treat them as a single placement at the production level.
+
+<FAQ
+  items={[
+    {
+      q: "Are Facebook Stories really identical to Instagram Stories?",
+      a: "For character limits and safe zones, yes. The audiences differ, and the in-app placement looks slightly different, but creative requirements are the same.",
+    },
+    {
+      q: "Can I run a single ad set across both Stories placements?",
+      a: "Yes — most buyers do. The auction handles routing to the higher-yielding surface.",
+    },
+    {
+      q: "Does Facebook Stories have a See more affordance?",
+      a: "Same as Instagram Stories — minimal expansion, low tap rate. Treat the visible window as the whole ad.",
+    },
+    {
+      q: "Why might I split them into separate ad sets?",
+      a: "If the audiences perform very differently. Older Facebook Stories audiences sometimes need different creative emphasis.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["meta/instagram-stories-character-limits", "meta/instagram-stories-safe-zones", "meta/facebook-reels-safe-zones"]} />

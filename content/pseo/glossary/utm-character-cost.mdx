@@ -1,0 +1,44 @@
+UTM parameters — `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term` — live in the destination URL, not in the ad copy. They do *not* eat into the visible character window of primary text, headline, or caption. A 200-character UTM string on your URL has zero effect on whether your "See more" cutoff is at 125.
+
+That said, UTMs do have a cost — they consume URL length, which matters for share-link budgets and click-through tracking. A typical UTM string adds 80–150 characters to the destination URL. For programmatic share links (like the `?s=` URL on this site), that is a real budget.
+
+The pattern that performs is short, descriptive UTM values. `utm_campaign=summer-sale-2026` is fine. `utm_campaign=Q3-2026-NORTH-AMERICA-GENERAL-CONVERSION-PROSPECTING-WIDE-AUDIENCE-TEST-A` is not. Long UTMs waste click-tracking storage, slow down page redirects, and make analytics queries harder.
+
+<SimulatorPreset
+  placementId="meta-facebook-feed"
+  presetCopy={{
+    primary: "UTMs live in the URL, not the copy. They do eat share-link size budgets.",
+    headline: "URL params ≠ caption chars",
+  }}
+/>
+
+## URL vs caption
+
+<SpecTable placementId="meta-facebook-feed" />
+
+## UTM hygiene
+
+Standardize a naming convention. Keep individual values under 30 characters. Document the convention so cross-team campaigns produce comparable analytics.
+
+<FAQ
+  items={[
+    {
+      q: "Do UTMs count toward primary text character limits?",
+      a: "No. UTMs live in the URL field, not the ad copy. They have no effect on the visible window.",
+    },
+    {
+      q: "Why do UTMs matter then?",
+      a: "For analytics attribution. They tell your tracking systems which campaign drove the click.",
+    },
+    {
+      q: "Can UTMs slow down page loads?",
+      a: "Marginally. The redirect chain adds a few hundred milliseconds. Most users don't notice; analytics teams do.",
+    },
+    {
+      q: "Should every ad have UTMs?",
+      a: "Yes — every paid placement should have UTMs. Without them, you lose multi-touch attribution.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["glossary/character-limit", "glossary/see-more-cutoff", "guides/how-to-test-ad-truncation-before-launch"]} />

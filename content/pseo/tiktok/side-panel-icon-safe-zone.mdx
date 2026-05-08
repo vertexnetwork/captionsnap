@@ -1,0 +1,43 @@
+The TikTok side panel — the right-rail column with like, comment, share, bookmark, and audio icons — covers the right 14% of the canvas from approximately 28% Y down to 82% Y. That's a 14% × 54% rectangle, more than half the height of the right edge of the screen. It is the largest single overlay region on any TikTok placement.
+
+Brands that compose product shots, logos, or copy on the right side of their TikTok creative routinely lose those elements behind the side panel. The side panel is also slightly translucent, so the obscured content remains visually present but unreadable. This is a worse failure mode than full occlusion — viewers see "something is there" but can't parse it, which reads as a low-quality ad.
+
+The side panel does dim during initial impression for ~1 second of fade-in, but otherwise stays at full opacity throughout the ad. Treat it as always-visible.
+
+<SimulatorPreset
+  placementId="tiktok-in-feed"
+  presetCopy={{
+    caption: "Right rail covers 14% × 54% — over half the right edge",
+  }}
+/>
+
+## Verified 2026 safe zones
+
+<SpecTable placementId="tiktok-in-feed" />
+
+## The 86% rule
+
+Treat 86% X as the right edge of your usable canvas. Anything past that vertical line is covered. Combined with the 92% Y rule for the CTA strip, your safe rectangle is bounded by 0–86% X and 0–92% Y, with the bottom-left 70% × 22% additionally obscured by the username block.
+
+<FAQ
+  items={[
+    {
+      q: "Is the side panel the same height across In-Feed, Spark Ads, and TopView?",
+      a: "In-Feed and Spark Ads share the same dimensions. TopView's UI is slightly different — the engagement icons may be smaller or absent during the non-skippable portion.",
+    },
+    {
+      q: "Why is the side panel translucent rather than opaque?",
+      a: "TikTok uses translucency to keep visual continuity with the underlying video. The trade-off is that obscured content reads as 'broken' rather than 'hidden'.",
+    },
+    {
+      q: "Does the side panel autohide?",
+      a: "No. It fades in during the first second and stays visible thereafter.",
+    },
+    {
+      q: "Can I include a 'tap the like button' instruction in my creative?",
+      a: "You can, but anything you write referring to the like button needs to coexist with the platform's visual treatment of that button. Test in the simulator first.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["tiktok/cta-overlay-safe-zone", "tiktok/username-overlay-safe-zone", "tiktok/portrait-9-16-safe-zones"]} />

@@ -1,0 +1,44 @@
+Meta Collection Ads pair a hero creative (image or video) with a 4-tile product grid below it. Hero copy uses Feed character limits — 125 visible primary text, 40 visible headline. Each product tile in the grid caps at 30 characters of title before truncation.
+
+The format is designed for catalog-style merchandising. Tap the hero, the user opens an Instant Experience full-screen view; tap a product tile, the user goes to that product's page. Both navigation paths have their own copy budgets.
+
+The 30-character product title clamp is the biggest catalog-feed surprise. Most product catalogs export titles like "Ultra-Soft Cotton Crewneck T-Shirt — Size M, Heather Gray" which clamp brutally to "Ultra-Soft Cotton Crewneck T-S…" in the tile. Plan a catalog-feed override for Collection Ads that uses 30-character titles, not the full marketing title.
+
+<SimulatorPreset
+  placementId="meta-facebook-feed"
+  presetCopy={{
+    primary: "Collection ad hero uses Feed primary limits",
+    headline: "Product tiles 30 chars",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="meta-facebook-feed" />
+
+## The catalog-feed override
+
+For Collection Ads, maintain a separate `display_title` field in your catalog feed that fits in 30 characters. Use that for the tile, and reserve the full marketing title for the product detail page.
+
+<FAQ
+  items={[
+    {
+      q: "How many product tiles can a Collection Ad show?",
+      a: "Four visible tiles in the grid. Tapping the hero opens an Instant Experience that can show the full catalog.",
+    },
+    {
+      q: "Are tile titles drawn from my catalog?",
+      a: "Yes. The tile pulls product data from your linked catalog. Override the title via a `display_title` field if your marketing title is too long.",
+    },
+    {
+      q: "What does Instant Experience inherit?",
+      a: "Instant Experience has its own per-block copy fields. See the dedicated Instant Experience page for limits.",
+    },
+    {
+      q: "Can I run Collection Ads on Stories?",
+      a: "Limited support. Most agencies run Collection Ads on Feed and Reels.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["meta/dynamic-creative-character-limits", "meta/instant-experience-character-limits", "meta/instagram-shopping-ad-character-limits"]} />

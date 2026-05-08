@@ -1,0 +1,43 @@
+A safe zone is the rectangular region of an ad creative that platform UI does not cover. The opposite of a safe zone is an unsafe zone — areas where platform-rendered overlays (CTA buttons, engagement icons, progress bars, captions, sticker stacks) will appear on top of your creative.
+
+Every social-ad placement defines a different safe zone. Instagram Stories' safe zone is the middle 72% of the vertical canvas, with the top 14% sacrificed to the progress bar and profile chip and the bottom 14% sacrificed to the swipe sticker and CTA. TikTok In-Feed's safe zone is the central-right rectangle bounded by 0–86% X and 8–78% Y, with additional bottom-left obstruction from the username block.
+
+Safe zones are about pixels, not text. They tell you where your visual elements — logos, product shots, composed copy, hero imagery — will survive without being covered. A creative that respects every character limit but ignores safe zones will still ship with critical elements obscured.
+
+<SimulatorPreset
+  placementId="meta-instagram-stories"
+  presetCopy={{
+    headline: "Safe zone = uncovered pixels",
+  }}
+/>
+
+## See safe zones for every placement
+
+<SpecTable placementId="meta-instagram-stories" />
+
+## Designing for the safe zone
+
+Two rules. First: place anything irreplaceable (your logo, your CTA, your hero subject) inside the safe rectangle. Second: place secondary elements (atmospheric texture, background detail, motion graphics) in the unsafe regions where partial obstruction is acceptable.
+
+<FAQ
+  items={[
+    {
+      q: "Are safe zones the same on every device?",
+      a: "Within ~1% drift. The numbers we publish are conservative enough to cover both iOS and Android worst cases.",
+    },
+    {
+      q: "Are safe zones the same across organic and paid?",
+      a: "Mostly. Paid placements add additional overlays (sponsored CTA strip on TikTok, headline strip on Meta) that organic posts don't have.",
+    },
+    {
+      q: "Can I get a list of every placement's safe zone?",
+      a: "Yes — every placement's safe-zone data lives in the simulator's source-of-truth file. Each pSEO page renders its placement's safe zones in the SpecTable component.",
+    },
+    {
+      q: "Why do safe zones matter more on vertical placements?",
+      a: "Because vertical placements pack more UI into the same canvas — engagement columns, captions, CTAs, progress bars all fight for space.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["glossary/character-limit", "glossary/aspect-ratio-9-16", "guides/safe-zone-vs-character-limit"]} />

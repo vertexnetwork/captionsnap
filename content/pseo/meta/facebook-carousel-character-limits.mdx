@@ -1,0 +1,45 @@
+Facebook Carousel ads stack two to ten cards horizontally, each with its own headline, description, and destination URL. The primary text floats above the entire carousel and behaves identically to a Feed placement: 500-character maximum, 125 visible before See more. The catch is the per-card metadata. Carousel headlines clamp at the same 40-character visible window as Feed, but descriptions clamp tighter — only 20 visible characters before they're absorbed under the headline strip.
+
+This is the placement where new buyers most often blow their character budget. They write a long, considered primary text, then forget that the carousel cards have their own micro-headlines. Card three with a 47-character headline silently clips on every phone narrower than 414 logical pixels, and the last word of the offer disappears.
+
+The 2026 carousel surface also added a new behavior: when the description field is left empty, Meta auto-generates a description from the page meta of the destination URL. That auto-description has been observed clipping at 18 characters, which is even tighter than the human-written field. If you care about the description copy, write it yourself.
+
+<SimulatorPreset
+  placementId="meta-facebook-carousel"
+  presetCopy={{
+    primary: "Multi-product carousel? Each card has its own headline. Run too long and the second line vanishes.",
+    headline: "Each carousel card needs its own short hook",
+    description: "Per-card description",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="meta-facebook-carousel" />
+
+## Per-card discipline
+
+The simplest safety rule: write every carousel card's headline as if it has 27 characters, not 40. The 27-character mark is the floor of the visible window on the smallest active iPhone. If your hook lands inside that floor on every card, you can trust the rest will scroll cleanly across all device sizes.
+
+<FAQ
+  items={[
+    {
+      q: "How many cards can a Facebook Carousel have?",
+      a: "Between 2 and 10. Most agencies publish 4–6 cards because engagement drops sharply past card 5 in scroll-tested cohorts.",
+    },
+    {
+      q: "Do carousel cards share primary text?",
+      a: "Yes. The primary text sits above the carousel itself and applies to all cards. Per-card text only applies to the headline and description.",
+    },
+    {
+      q: "What happens if I leave the description blank?",
+      a: "Meta auto-generates a description from the destination URL's page meta. It often clips earlier than human-written descriptions, so write your own.",
+    },
+    {
+      q: "Why does my second carousel card show truncated copy on iPhone but not desktop?",
+      a: "Carousel headlines have a smaller visible window on phones than on desktop preview. The simulator above reflects the worst-case mobile crop.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["meta/facebook-feed-character-limits-2026", "meta/dynamic-creative-character-limits", "guides/headline-vs-primary-text-strategy"]} />

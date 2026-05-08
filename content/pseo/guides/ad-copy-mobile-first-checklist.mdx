@@ -1,0 +1,56 @@
+An 8-point checklist for ad copy that survives the worst-case mobile placement. Print this and keep it next to your monitor. Every ad you ship should pass all 8 points.
+
+**1. The hook lands in the first 60 characters of primary text.** Anything past character 60 may not be read on Reels-class placements.
+
+**2. The headline is under 27 characters.** 40 is the technical limit; 27 is the safe budget that survives the smallest active phone screens.
+
+**3. The description is under 27 characters.** Same logic. Carousel descriptions clamp at 20.
+
+**4. No critical visual elements in the right 14% of the canvas on TikTok or Reels.** Right-rail engagement icons cover that region.
+
+**5. No critical visual elements in the bottom 22% on TikTok or 14% on Stories/Reels.** Username block, caption, and CTA strip all live there.
+
+**6. CTA copy in the creative does not compete with the platform's CTA strip.** Either remove the composed CTA or place it above 80% Y.
+
+**7. Hashtags are below the See more cutoff (after character 125 on Meta Feed, after character 100 on TikTok In-Feed).** Inside the visible window, hashtags eat hook space.
+
+**8. Verified in the simulator at the worst-case placement before launch.** No ad ships without a 5-minute pre-launch QA pass.
+
+<SimulatorPreset
+  placementId="meta-instagram-stories"
+  presetCopy={{
+    primary: "8-point mobile-first checklist for ad copy",
+    headline: "Pin this above your monitor",
+  }}
+/>
+
+## Spec context
+
+<SpecTable placementId="meta-instagram-stories" />
+
+## Mobile-first vs desktop-first
+
+Ad copy review on desktop is the source of most production failures. Desktop preview shows your ad in a width that doesn't exist in real impressions. Always preview at mobile width — the simulator above defaults to a 390 logical pixel iPhone-class device.
+
+<FAQ
+  items={[
+    {
+      q: "Should I run this checklist for every ad?",
+      a: "Yes. Every ad. Every time. Five minutes per ad pays for itself on the first averted clip.",
+    },
+    {
+      q: "What if my creative team pushes back on the constraints?",
+      a: "Show them the simulator output. The visual evidence of an obscured hero element ends the argument faster than verbal descriptions.",
+    },
+    {
+      q: "Are these constraints the same in 2026 as 2025?",
+      a: "Mostly. Some Reels-surface clamps tightened. The general discipline of writing for the worst-case mobile screen has not changed.",
+    },
+    {
+      q: "Can I automate the checklist?",
+      a: "Partially. The character-count checks (1, 2, 3) can be automated. The visual checks (4, 5, 6) require human review.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["guides/how-to-test-ad-truncation-before-launch", "guides/headline-vs-primary-text-strategy", "guides/why-ads-get-truncated"]} />

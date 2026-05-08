@@ -1,0 +1,44 @@
+Instagram Stories ads run inside a sealed 9:16 slot. Unlike Feed, where the UI sits above and below your creative, Stories overlays UI directly on top of your visual. The progress bar and profile chip cover the top 14% of the canvas, and the swipe-up sticker, CTA button, and reply field eat the bottom 14%. That leaves a usable design region of roughly 72% of the vertical canvas.
+
+Designers who build Stories the same way they build Feed inevitably lose product-shot real estate. A logo placed in the top-right "for branding" gets covered by the progress dots. A CTA button overlaid in the bottom third gets covered by the actual sticker CTA. The platform makes no effort to compose around your creative — it composes on top of it.
+
+Worse, the sealed-slot nature of Stories means there is no scroll. The viewer has 5 to 15 seconds to absorb the message before the next ad rolls in. Type-heavy designs underperform on Stories because the viewer doesn't have time to read in detail.
+
+<SimulatorPreset
+  placementId="meta-instagram-stories"
+  presetCopy={{
+    primary: "Top 14% covers progress + profile. Bottom 14% covers your CTA.",
+    headline: "Hero in the middle 72%",
+  }}
+/>
+
+## Verified 2026 safe zones
+
+<SpecTable placementId="meta-instagram-stories" />
+
+## The 14/72/14 rule
+
+Build every Stories creative against the 14/72/14 vertical split: 14% sacrificial top, 72% usable middle, 14% sacrificial bottom. Anything you place in the sacrificial bands must survive being half-covered. Anything in the middle 72% is yours.
+
+<FAQ
+  items={[
+    {
+      q: "Are the safe-zone numbers the same on iOS and Android?",
+      a: "Within roughly 1% of each other. The 14/72/14 rule is conservative enough to cover both. Some Android skins push the bottom CTA up by an additional 2%, so consider 16% the worst case.",
+    },
+    {
+      q: "Do Stories ads support text overlays?",
+      a: "You can compose text into the creative, but Meta's Studio also lets you add native text stickers. Native stickers are auto-placed in the bottom safe zone, so they don't help.",
+    },
+    {
+      q: "What about Reels-style swipe up?",
+      a: "Swipe up was retired for stickers in 2021. Today's Stories CTA is a tappable bar near the bottom. The simulator above reflects the current behavior.",
+    },
+    {
+      q: "Does the safe zone change for full-screen vertical video vs static image?",
+      a: "No. The UI overlays the same regions regardless of format. The simulator overlay is identical for both.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["meta/instagram-reels-safe-zones", "meta/facebook-reels-safe-zones", "glossary/safe-zone"]} />

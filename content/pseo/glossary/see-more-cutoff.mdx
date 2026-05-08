@@ -1,0 +1,44 @@
+The See more cutoff is the visible-character count at which Meta clamps primary text on Feed-style placements and adds a "See more" link. The number has been 125 characters since 2018 and shows no signs of changing.
+
+Tap-through rates on See more vary by category but typically fall between 3–8% of impressions. The remaining 92–97% of viewers read only what's inside the 125-character visible window. Anything past the cutoff exists for SEO indexing and for the small fraction who tap.
+
+The cutoff is enforced strictly by character count, not by sentence boundary. So a sentence that ends at character 130 is clipped mid-word: "Stop wasting ad spend on copy that gets cli… See more". Plan your copy so that character 125 falls at a natural break — end of sentence or end of clause — to avoid the awkward mid-word ellipsis.
+
+<SimulatorPreset
+  placementId="meta-facebook-feed"
+  presetCopy={{
+    primary: "See more cutoff = 125 visible characters on Meta. Period.",
+    headline: "125 chars, every time",
+  }}
+/>
+
+## Where the cutoff applies
+
+<SpecTable placementId="meta-facebook-feed" />
+
+## Designing around the cutoff
+
+Treat the cutoff as a literal cliff. Your most important word should not sit at character 124. Your most important phrase should be complete by character 110. Use the warning band as deliberate creative tension.
+
+<FAQ
+  items={[
+    {
+      q: "Has the See more cutoff ever changed?",
+      a: "It has been 125 characters on Feed surfaces since 2018. Other surfaces (Stories, Reels) have their own cutoffs.",
+    },
+    {
+      q: "Does the cutoff vary by device?",
+      a: "Visible-window behavior can vary by ~5% based on device width and font rendering. Plan to 110 as the safe budget.",
+    },
+    {
+      q: "What's the See more cutoff on TikTok?",
+      a: "TikTok uses '...more' at approximately 100 characters. Tap rates are even lower than Meta's.",
+    },
+    {
+      q: "Can I avoid See more by writing shorter primary text?",
+      a: "Yes. Primary text under 125 characters never shows See more.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["glossary/primary-text", "meta/primary-text-see-more-truncation", "guides/why-ads-get-truncated"]} />

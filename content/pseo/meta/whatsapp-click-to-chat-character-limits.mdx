@@ -1,0 +1,44 @@
+Click-to-WhatsApp ads route a user from a Meta placement directly into a WhatsApp conversation. The ad creative inherits Feed limits (125 visible primary text, 40 visible headline). The differentiator is the pre-filled message — the text that opens automatically in WhatsApp when the user taps the CTA. That pre-filled message caps at 256 characters.
+
+Pre-filled messages are easy to underestimate. They look like a small detail, but they are the first message in the conversation. They set the tone, frame what the user is asking about, and determine how the receiving sales agent responds. A 256-character pre-fill that's unclear gets routed to the wrong queue. A clear, specific pre-fill gets a fast, relevant reply.
+
+The recommended pattern is "[product name] inquiry" plus a single specific question. Example: "I'm interested in the Studio Bag. Is it available in black?" That's 60 characters and routes cleanly. Avoid generic openers — they're indistinguishable from spam in the receiving queue.
+
+<SimulatorPreset
+  placementId="meta-messenger"
+  presetCopy={{
+    primary: "Click-to-WhatsApp + 256-char prefilled message",
+    headline: "Lead with the offer",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="meta-messenger" />
+
+## The pre-fill discipline
+
+256 characters is plenty for a useful pre-fill. Most successful campaigns use 60–120 characters and include the specific product or query. Don't waste the pre-fill on greetings.
+
+<FAQ
+  items={[
+    {
+      q: "What WhatsApp number receives the conversation?",
+      a: "The phone number you've configured in Ads Manager for the WhatsApp Business account linked to the ad.",
+    },
+    {
+      q: "Can the user edit the pre-filled message before sending?",
+      a: "Yes. The pre-fill is editable; users can change it. Most don't.",
+    },
+    {
+      q: "Is the 256-character limit on the pre-fill hard?",
+      a: "Yes. Anything past 256 is silently truncated. Verify your pre-fill in the simulator or Ads Manager preview.",
+    },
+    {
+      q: "Does Click-to-WhatsApp work with carousel creative?",
+      a: "Yes. Carousel cards inherit standard 40-character headline, 20-character description per card.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["meta/messenger-ad-character-limits", "meta/facebook-feed-character-limits-2026", "guides/headline-vs-primary-text-strategy"]} />

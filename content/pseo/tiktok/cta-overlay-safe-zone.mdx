@@ -1,0 +1,43 @@
+TikTok's sponsored CTA strip sits at the very bottom of the canvas, covering the bottom 8% of vertical real estate across the full width. It contains the call-to-action button and the disclosure ("Sponsored", "Ad", or regional equivalent). It is always visible while the ad is on screen and cannot be dismissed by the viewer.
+
+The 8% number sounds small but it's larger than you'd think on a 9:16 canvas. On a 390 × 844 logical-pixel iPhone, 8% is 67 pixels — enough to fully cover a CTA button you've composed into your video, plus the lower edge of any product shot you've placed near the bottom.
+
+Compose creative against an upper bound of 92% Y. Anything below that line is either covered by the CTA strip or sitting directly above it where the eye is being pulled toward the platform-native CTA. Your composed CTA button — if you have one — should not exceed roughly 88% Y.
+
+<SimulatorPreset
+  placementId="tiktok-in-feed"
+  presetCopy={{
+    caption: "Sponsored CTA covers bottom 8%. Username + caption covers another 14%.",
+  }}
+/>
+
+## Verified 2026 safe zones
+
+<SpecTable placementId="tiktok-in-feed" />
+
+## The 92% rule
+
+Treat 92% Y as the bottom edge of your usable canvas. Logos, product shots, composed CTAs all live above that line. Anything below is sacrificed to the platform.
+
+<FAQ
+  items={[
+    {
+      q: "Is the sponsored CTA strip the same height across all TikTok ad formats?",
+      a: "Yes — 8% across the bottom on every paid format that uses the For You feed UI (In-Feed, Spark Ads, Pulse).",
+    },
+    {
+      q: "Does the CTA strip dim or fade out during the video?",
+      a: "It fades slightly during initial impression but stays visible throughout. Treat it as always-on for design purposes.",
+    },
+    {
+      q: "Can I match the CTA strip color to my creative?",
+      a: "Limited. TikTok provides a small set of CTA button color options. The strip background is dictated by the platform.",
+    },
+    {
+      q: "Does the CTA strip exist on TopView?",
+      a: "TopView has a slightly different bottom CTA card that covers ~12% of the canvas. The simulator above reflects the In-Feed strip.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["tiktok/spark-ads-safe-zones-2026", "tiktok/username-overlay-safe-zone", "tiktok/side-panel-icon-safe-zone"]} />

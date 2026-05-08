@@ -1,0 +1,43 @@
+TikTok Lead Generation Ads collect form fills inside the TikTok app — same mental model as Meta Lead Ads, different character math. The video creative inherits In-Feed clamps (2,200-character caption with ~100 visible, 40-character display name). When the user taps the CTA, an Instant Form opens with a 80-character form intro and configurable form fields.
+
+The 80-character form intro is the field most Lead Generation campaigns waste. Buyers default to "Fill out this form to get more info" — generic, low-conversion. The pattern that performs is "What product are you considering? We'll send a sample." Specific, specific, specific.
+
+Form fields support standard PII (name, email, phone) plus custom questions. Custom question labels cap at 90 characters — slightly tighter than Meta Lead Ads. The pre-fill behavior is identical: TikTok auto-fills from user profile data and the user can edit before submitting.
+
+<SimulatorPreset
+  placementId="tiktok-in-feed"
+  presetCopy={{
+    caption: "Lead Gen ads = In-Feed clamps + 80-char form intro",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="tiktok-in-feed" />
+
+## Form-intro discipline
+
+80 characters is enough for "Specific question + specific incentive." Don't waste them on greetings.
+
+<FAQ
+  items={[
+    {
+      q: "How many custom questions does TikTok Lead Gen support?",
+      a: "Up to 10 custom questions per form, in addition to standard PII fields.",
+    },
+    {
+      q: "Are leads exported in real time?",
+      a: "Yes, via the TikTok Ads API or CSV export. Most CRMs support direct integration.",
+    },
+    {
+      q: "Are TikTok lead costs lower than Meta?",
+      a: "Varies by category. TikTok Lead Gen often runs at lower CPL for younger demos; Meta is stronger for older demos.",
+    },
+    {
+      q: "Can the form be customized visually?",
+      a: "Limited. TikTok controls the form chrome; you control the questions and intro copy.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["tiktok/in-feed-ad-character-limits-2026", "tiktok/spark-ads-safe-zones-2026", "meta/lead-ad-character-limits"]} />

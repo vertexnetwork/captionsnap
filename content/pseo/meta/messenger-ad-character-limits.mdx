@@ -1,0 +1,45 @@
+Messenger Inbox is the most punishing character-limit placement Meta sells. The ad sits between conversations in the user's inbox, presenting itself as a row inside a list. Primary text caps at 125 characters total — not 125 visible, but 125 actual hard maximum. Headline space is even tighter at 25 visible characters. Description fields cap at 30 characters, with no See more affordance. Whatever you write is what the user reads.
+
+This placement rewards a completely different copy style than Feed. There is no warm-up sentence. No hook-then-payload. The user is in conversation mode — looking for messages from people they care about — and your ad is interrupting that flow. The most effective Messenger Inbox ads read like a headline with a short payoff, not like a paragraph.
+
+The placement also has no visible CTA strip the way Feed does. The CTA is implicit: tap to start a Messenger conversation. So your description field is doing the work of both the description and the CTA, in 30 characters.
+
+<SimulatorPreset
+  placementId="meta-messenger"
+  presetCopy={{
+    primary: "Messenger ads sit between conversations — there is no room for warm-up copy. Lead with the offer.",
+    headline: "Offer in 25 chars",
+    description: "30-char proof",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="meta-messenger" />
+
+## Inbox-mode discipline
+
+Treat Messenger Inbox the way you'd treat an SMS message. You have one shot at attention. You have no body copy. The 125-character primary text is the entire ad. Don't let early words go to setup.
+
+<FAQ
+  items={[
+    {
+      q: "Does Messenger Inbox support See more like Feed?",
+      a: "No. Whatever you write within the 125-character cap is what the user reads. There is no expansion affordance.",
+    },
+    {
+      q: "Why is the headline cap so much tighter than Feed?",
+      a: "Because the inbox row is a single horizontal line. Anything past 25 characters truncates with an ellipsis instead of expanding to a second line.",
+    },
+    {
+      q: "Are Messenger Inbox ads still available in 2026?",
+      a: "Yes, with restrictions on category. Some regulated categories (gambling, financial products) cannot run on the inbox surface in some regions.",
+    },
+    {
+      q: "Should I run separate creative for Messenger Inbox vs Feed?",
+      a: "Yes. The inbox-row format requires fundamentally different copy. Don't try to repurpose Feed creative.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["meta/facebook-feed-character-limits-2026", "meta/whatsapp-click-to-chat-character-limits", "guides/headline-vs-primary-text-strategy"]} />

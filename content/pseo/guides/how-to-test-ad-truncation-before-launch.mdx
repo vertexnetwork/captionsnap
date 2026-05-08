@@ -1,0 +1,50 @@
+Pre-launch ad QA is one of the highest-ROI activities a media buyer can do, and the entire workflow takes under five minutes per ad. Most ad teams skip it because Ads Manager's preview lies — it shows your ad in a desktop-width context where headlines rarely clip. Real impressions happen on phones where the visible window is significantly tighter.
+
+The four-step pre-launch QA:
+
+**Step 1 — Paste the copy.** Open the simulator, switch to your target placement, and paste your real ad copy into the relevant fields. Watch the live counter in green/yellow/red.
+
+**Step 2 — Switch placements.** Cycle through every placement your campaign will run on. Watch where the copy clips on each. Stories will probably clip earlier than Feed. Reels will probably clip earliest.
+
+**Step 3 — Theme-flip.** Toggle between dark and light mode preview. Some text contrasts that work in light mode disappear in dark mode (the user's setting controls which they see).
+
+**Step 4 — Screenshot the worst case.** Take a screenshot of whichever placement clipped most aggressively. Send it to your creative team alongside the proposed fix. The screenshot is non-negotiable — verbal descriptions of "the copy gets clipped" lose information.
+
+<SimulatorPreset
+  placementId="meta-facebook-feed"
+  presetCopy={{
+    primary: "4-step QA: paste, switch, theme-flip, screenshot the worst.",
+    headline: "Run before every launch",
+  }}
+/>
+
+## Spec context
+
+<SpecTable placementId="meta-facebook-feed" />
+
+## Why this routine works
+
+It catches both character-limit failures and safe-zone failures in a single 5-minute pass. Specifically: by switching placements you see character limit drift, and by viewing the canvas you see overlay collisions. Two failure modes, one workflow.
+
+<FAQ
+  items={[
+    {
+      q: "Why does Ads Manager preview lie?",
+      a: "Because it renders in a desktop-width context. Real impressions are on narrower phone screens. The simulator above renders the worst-case mobile crop.",
+    },
+    {
+      q: "Should I do this for every ad set?",
+      a: "Yes — every ad in every ad set. The marginal cost is minutes; the marginal benefit is avoiding a clipped offer.",
+    },
+    {
+      q: "What if my creative team doesn't have time to fix everything?",
+      a: "Triage by placement spend. Fix the placements with the most budget first. Document the rest as known issues.",
+    },
+    {
+      q: "Can I integrate this into an automated workflow?",
+      a: "Yes — the share-link encoding lets you save state and review programmatically. Some teams build internal QA dashboards on top.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["guides/ad-copy-mobile-first-checklist", "guides/why-ads-get-truncated", "guides/headline-vs-primary-text-strategy"]} />

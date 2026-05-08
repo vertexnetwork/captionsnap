@@ -1,0 +1,45 @@
+Meta Dynamic Creative auto-mixes your creative inputs into multiple ad variations. You can supply up to 5 primary texts, 5 headlines, and 5 descriptions per ad, and Meta combines them in real time based on user data. The character limits per input are identical to Feed — 500-character primary, 255-character headline, 200-character description — with the same 125 / 40 / 30 visible windows.
+
+The trap with Dynamic Creative is forgetting that every variation has to hit the per-field limit independently. If you supply five primary texts and one of them is 132 visible characters, that variation will clamp on every impression. Half your tested variants will look broken. The platform doesn't warn you. It just runs them.
+
+The smart pattern is to write all variations to the worst-case character budget. Write every primary text to 110 visible characters or less. Write every headline to 27 characters or less. Write every description to 27 characters or less. The discipline costs you a little creative ceiling but it ensures none of your variations clamp.
+
+<SimulatorPreset
+  placementId="meta-dynamic-creative"
+  presetCopy={{
+    primary: "Dynamic Creative will mix-and-match your inputs. If any single primary text exceeds 125 visible characters, half your variations get truncated.",
+    headline: "Every variation under 40 chars",
+    description: "Per-variant",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="meta-dynamic-creative" />
+
+## Per-variant discipline
+
+Treat the 5×5×5 grid as 125 unique combinations. Each combination has to look clean. The math says any one variation that clamps weakens 25 of the 125 combinations. That's a 20% degradation in visual quality from a single oversize input.
+
+<FAQ
+  items={[
+    {
+      q: "How many primary texts, headlines, and descriptions can I supply?",
+      a: "Up to 5 of each, for a maximum 125-combination grid. Meta picks the best-performing combination per impression.",
+    },
+    {
+      q: "Are character limits enforced per-input or per-combination?",
+      a: "Per-input. Each primary text individually has to hit the 500-character cap and the 125 visible budget. Meta does not adjust per-combination.",
+    },
+    {
+      q: "What happens if I supply just 1 primary text and 5 headlines?",
+      a: "Meta still mixes the available inputs. You'll get 5 combinations instead of 125. That's a valid pattern for low-budget tests.",
+    },
+    {
+      q: "Does Dynamic Creative work on Reels?",
+      a: "Yes, but Reels' tighter character clamps apply. Plan inputs to the most restrictive placement in your selected mix.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["meta/facebook-feed-character-limits-2026", "meta/facebook-carousel-character-limits", "guides/ad-copy-mobile-first-checklist"]} />

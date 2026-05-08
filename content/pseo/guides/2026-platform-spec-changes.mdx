@@ -1,0 +1,42 @@
+2026 brought meaningful spec drift across Meta and TikTok. The hard maximums on most fields stayed put, but visible-window behavior tightened on Reels surfaces, expanded on TikTok Shop Ads, and shifted on Marketplace. Here's the running list of what we've verified changed.
+
+Meta tightened the visible window on Facebook Reels and Instagram Reels primary text from ~80 characters to a cleaner 72. The soft warning is now 60 characters. This was a silent change in February 2026 — the documentation didn't update for several weeks. Brands running Reels-first creative felt the effect immediately.
+
+TikTok expanded Shop Ads to several additional regions and clarified that product titles always truncate at exactly 34 characters in the pinned card. Previously the truncation was dynamic and varied by device width. The new behavior is consistent and easier to plan for.
+
+Marketplace adjusted the description-field truncation to be slightly more aggressive — 30 characters where the previous behavior allowed 35–40 in some markets. This brought Marketplace into line with Feed.
+
+<SimulatorPreset
+  placementId="meta-facebook-reels"
+  presetCopy={{
+    primary: "2026 brought tighter Reels clamps, expanded Shop Ads, and clearer Marketplace truncation.",
+    headline: "Spec drift hit every placement",
+  }}
+/>
+
+## Where the simulator gets its data
+
+The simulator's `lib/platform-specs.ts` file holds every limit and safe zone, with a `lastVerified` ISO date per placement. We re-verify by paying real ad spend to live placements and observing the clamp positions. When something changes, the date bumps and the spec updates ship to the site within a day.
+
+<FAQ
+  items={[
+    {
+      q: "How often do platform specs change?",
+      a: "Hard maximums change roughly once a year. Visible-window and truncation behavior changes silently several times a year.",
+    },
+    {
+      q: "Where can I track spec changes?",
+      a: "This page is updated when we re-verify. Each placement has a `lastVerified` date displayed inline.",
+    },
+    {
+      q: "Why don't platforms publish change logs?",
+      a: "Most product changes ship without external comms. Visible-window tweaks fall under 'optimization' and are rarely announced.",
+    },
+    {
+      q: "Are there any expected changes for late 2026?",
+      a: "Reels' visible window may continue to tighten as the platform pushes toward shorter-form copy. TikTok Shop Ads will likely expand to more markets.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["guides/why-ads-get-truncated", "tiktok/shop-ads-character-limits", "meta/marketplace-ad-character-limits"]} />

@@ -1,0 +1,43 @@
+TikTok Branded Effect is a custom AR effect a brand sponsors. Users discover it via the effect tray and apply it to their own content. From a buyer's perspective the "ad" is the effect itself — the safe zones are about which pixels of the user's video are obscured by the effect tray and the "Use this effect" CTA.
+
+The effect tray sits at the bottom of the recording UI, covering the bottom 14% of the canvas. Below it, the "Use this effect" CTA covers another 8%. So the bottom 22% is permanently obscured during creator preview. Brand identity that needs to live in the safe canvas should sit between approximately 0–78% Y.
+
+The caption / effect description field caps at 100 characters with a visible window of ~50 characters. This is the only TikTok placement where caption space is meaningfully constrained because the effect itself does the talking.
+
+<SimulatorPreset
+  placementId="tiktok-branded-effect"
+  presetCopy={{
+    caption: "Bottom 22% is covered by effect tray + CTA",
+  }}
+/>
+
+## Verified 2026 safe zones
+
+<SpecTable placementId="tiktok-branded-effect" />
+
+## Effect-as-ad discipline
+
+Branded Effect is a creative-format play, not a copy-format play. Spend your investment on the effect's visual quality. The 50-character caption budget is for descriptive labeling, not for selling.
+
+<FAQ
+  items={[
+    {
+      q: "Are Branded Effects sold through self-serve?",
+      a: "No. Branded Effects are sold through TikTok's enterprise creative team. They require effect production, which takes 3–6 weeks lead time.",
+    },
+    {
+      q: "What does a Branded Effect cost?",
+      a: "Pricing is custom and tiered by region. Expect six-figure budgets for major-market campaigns.",
+    },
+    {
+      q: "Why is the caption window so short on Branded Effect?",
+      a: "Because the effect itself is the message. The caption space is for describing what the effect does, not for selling.",
+    },
+    {
+      q: "Can a Branded Effect run alongside In-Feed ads?",
+      a: "Yes — they are different products and can run simultaneously. Many enterprise campaigns pair them.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["tiktok/spark-ads-safe-zones-2026", "tiktok/cta-overlay-safe-zone", "tiktok/side-panel-icon-safe-zone"]} />

@@ -1,0 +1,45 @@
+Meta Advantage+ Shopping is the platform's automated catalog-driven ad product. You upload product creative and copy variations, and Advantage+ remixes them per impression based on user data. Character limits per input are identical to Feed Dynamic Creative — 500-character primary, 255-character headline, 200-character description, with 125/40/30 visible windows.
+
+The crucial difference between Advantage+ and Dynamic Creative is that Advantage+ automatically pulls product data from your linked catalog, so the description field often gets auto-filled from your catalog's `description` attribute. If your catalog descriptions are 250 characters, the visible region clamps at 30 anyway, and the rest disappears. Plan a `display_description` catalog field for Advantage+ at 30 characters or less.
+
+Headline overrides work similarly. Advantage+ will use a marketing headline you provide, but if you leave it blank, the platform auto-generates from product title. Auto-generated headlines often clamp ungracefully — a 60-character product title clips to "Vintage Sterling Silver Earrings—…" which reads awkwardly.
+
+<SimulatorPreset
+  placementId="meta-dynamic-creative"
+  presetCopy={{
+    primary: "Advantage+ remixes your inputs. Each must hit limits independently.",
+    headline: "Per-input clamps still apply",
+    description: "Per-variant",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="meta-dynamic-creative" />
+
+## Catalog-feed override pattern
+
+Maintain three parallel title/description fields in your catalog: full marketing title (any length), display title (30 chars), display description (30 chars). Map Advantage+ inputs to the display variants.
+
+<FAQ
+  items={[
+    {
+      q: "How is Advantage+ different from Dynamic Creative?",
+      a: "Advantage+ pulls from your catalog automatically and is more aggressively ML-driven. Dynamic Creative is a manual mix-and-match of inputs you supply.",
+    },
+    {
+      q: "Can I disable auto-generation of headlines on Advantage+?",
+      a: "Yes — supply your own headline variations. The platform will use yours instead of auto-generating.",
+    },
+    {
+      q: "Do per-variant character clamps still apply?",
+      a: "Yes. Every primary text variation must hit the 500-character cap and the 125 visible budget independently.",
+    },
+    {
+      q: "Is Advantage+ available worldwide?",
+      a: "Yes, with availability across major markets. Some regions have specific catalog feed requirements.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["meta/dynamic-creative-character-limits", "meta/facebook-feed-character-limits-2026", "guides/headline-vs-primary-text-strategy"]} />

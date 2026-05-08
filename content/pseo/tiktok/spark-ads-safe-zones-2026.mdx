@@ -1,0 +1,43 @@
+TikTok Spark Ads boost an existing organic post into paid placement. They inherit the organic post's For You feed UI exactly — same right-rail engagement column, same username block, same caption clamp. The 2026 spec maps the right rail to the right 14% of the canvas from approximately 28% Y down to 82% Y, the username block to the bottom-left 70% × 8%, and the sponsored CTA strip to the bottom 8% across the full width.
+
+Spark Ads outperform In-Feed for many advertisers precisely because they look organic. The downside: any creative that doesn't respect TikTok's safe zones looks broken in a way users associate with low-quality content. A Spark Ad with a clipped logo or covered CTA reads as careless, and TikTok audiences punish careless content with skip rate.
+
+The 22% bottom band is double-occupied: the username + caption sit there alongside the sponsored CTA strip. If you compose copy or product shots into the bottom of your video, plan for both overlays simultaneously.
+
+<SimulatorPreset
+  placementId="tiktok-spark-ads"
+  presetCopy={{
+    caption: "Right rail icons cover the right 14%. Bottom CTA + caption cover the bottom 22%.",
+  }}
+/>
+
+## Verified 2026 safe zones
+
+<SpecTable placementId="tiktok-spark-ads" />
+
+## The Spark trust premium
+
+Because Spark Ads borrow organic-post visual styling, they earn an attention premium — but lose it instantly when the creative breaks safe zones. Treat the safe zones as non-negotiable, not as guidelines.
+
+<FAQ
+  items={[
+    {
+      q: "What's the difference between Spark Ads and In-Feed?",
+      a: "Spark Ads boost an existing organic post. In-Feed places dedicated paid creative in the feed. Spark Ads tend to outperform on perceived authenticity.",
+    },
+    {
+      q: "Do Spark Ads have different safe zones from In-Feed?",
+      a: "Functionally identical. Both inherit the same For You feed UI. The simulator above reflects either.",
+    },
+    {
+      q: "Can I edit a Spark Ad's caption after boosting?",
+      a: "No. The caption is locked to the organic post's caption. Plan the caption when you publish organically.",
+    },
+    {
+      q: "Why do Spark Ads cost more per impression than In-Feed in some auctions?",
+      a: "Auction dynamics. The perceived authenticity of Spark Ads makes them desirable for premium audiences, which can push CPMs up.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["tiktok/in-feed-ad-character-limits-2026", "tiktok/cta-overlay-safe-zone", "tiktok/portrait-9-16-safe-zones"]} />

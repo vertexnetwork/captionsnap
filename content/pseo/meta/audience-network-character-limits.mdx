@@ -1,0 +1,44 @@
+Meta Audience Network shows ads inside third-party apps that have integrated the Meta SDK — typically smaller apps and games that monetize via banner, interstitial, and native ad units. Character limits inherit from Feed (125 visible primary text, 40 visible headline, 30 visible description), but the actual visible space varies dramatically by host app.
+
+In a banner unit, you might see only the headline. In an interstitial, you might see all three fields. In a native unit, the host app chooses how to render your copy — and many host apps render only the first 80 characters of primary text.
+
+This makes Audience Network the most unpredictable Meta placement for character planning. The safe budget is ruthless: write your hook in the first 50 characters of primary text and trust nothing past 80 will be visible to anyone.
+
+<SimulatorPreset
+  placementId="meta-facebook-feed"
+  presetCopy={{
+    primary: "Audience Network reuses Feed's 125-char visible primary text",
+    headline: "40-char headline",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="meta-facebook-feed" />
+
+## The host-app variance problem
+
+Because host apps render Audience Network creative in their own UI, you cannot guarantee what the viewer sees. The only safe pattern is to write the entire message in the first 80 characters of primary text and the first 27 of headline.
+
+<FAQ
+  items={[
+    {
+      q: "Is Audience Network still worth running?",
+      a: "Performance varies. Some agencies see strong volume at low CPMs; others see brand-safety concerns. Test small before scaling.",
+    },
+    {
+      q: "Can I exclude specific apps from Audience Network?",
+      a: "Yes, Meta provides a publisher block list. Many advertisers maintain block lists by category.",
+    },
+    {
+      q: "Do Audience Network ads use the same creative as Feed?",
+      a: "Inherit the same character limits, but you may need to design specifically for the smaller, more constrained host-app contexts.",
+    },
+    {
+      q: "Why is the visible region so variable?",
+      a: "Because each host app implements the Meta SDK differently. Some apps show full creative; others show only banners.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["meta/facebook-feed-character-limits-2026", "meta/dynamic-creative-character-limits", "guides/ad-copy-mobile-first-checklist"]} />

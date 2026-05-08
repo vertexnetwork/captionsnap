@@ -1,0 +1,44 @@
+Meta Lead Ads collect form fills inside Facebook and Instagram without sending users to a landing page. The ad creative inherits Feed limits — 125 visible primary text, 40 visible headline, 30 visible description — and adds a contextual card that opens after the user taps the CTA. The form intro on that card caps at 60 characters of headline and 200 characters of subheadline.
+
+The form itself collects standard PII (name, email, phone) plus up to 15 custom questions. Each custom question caps at 100 characters of label text. If you exceed 100 characters in a custom question label, the platform truncates with no expansion affordance — meaning your question becomes ambiguous to the user.
+
+The most common mistake on Lead Ads is treating the ad creative the same way as Feed creative. The CTA isn't "Shop now" or "Learn more"; it's "tap to fill out a form." The copy needs to set up the form-fill expectation explicitly, in fewer characters than a Feed ad would use.
+
+<SimulatorPreset
+  placementId="meta-facebook-feed"
+  presetCopy={{
+    primary: "Lead ads inherit Feed limits + add a 60-char form intro",
+    headline: "40-char headline",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="meta-facebook-feed" />
+
+## The form-fill mental model
+
+Treat Lead Ads as two-stage copy. Stage one (the ad) earns the tap. Stage two (the form intro) earns the submit. Don't try to do both in the ad copy.
+
+<FAQ
+  items={[
+    {
+      q: "Where does the form intro live?",
+      a: "On a contextual card that opens after the user taps the ad's CTA. The card has its own headline (60 chars) and subheadline (200 chars).",
+    },
+    {
+      q: "How many custom questions can I add?",
+      a: "Up to 15 per Lead Ad form. Each question label caps at 100 characters.",
+    },
+    {
+      q: "Can I add a thank-you screen?",
+      a: "Yes. The thank-you screen has its own copy fields with similar limits to the form intro.",
+    },
+    {
+      q: "Are Lead Ads available on Instagram?",
+      a: "Yes, both Feed and Stories. Stories Lead Ads use the tighter Stories character limits for the ad creative itself.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["meta/facebook-feed-character-limits-2026", "meta/messenger-ad-character-limits", "guides/headline-vs-primary-text-strategy"]} />
