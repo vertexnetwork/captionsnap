@@ -28,22 +28,32 @@ function renderSurface(
       return <MetaMessengerSurface placement={placement} truncated={truncated} />;
     return <MetaFeedSurface placement={placement} truncated={truncated} />;
   }
-  if (placement.surface === "topview")
-    return <TikTokTopViewSurface placement={placement} truncated={truncated} />;
-  if (placement.surface === "branded-effect")
-    return <TikTokBrandedEffectSurface placement={placement} truncated={truncated} />;
-  return <TikTokForYouSurface placement={placement} truncated={truncated} />;
+  if (placement.platform === "tiktok") {
+    if (placement.surface === "topview")
+      return <TikTokTopViewSurface placement={placement} truncated={truncated} />;
+    if (placement.surface === "branded-effect")
+      return <TikTokBrandedEffectSurface placement={placement} truncated={truncated} />;
+    return <TikTokForYouSurface placement={placement} truncated={truncated} />;
+  }
+  return <MetaFeedSurface placement={placement} truncated={truncated} />;
+}
+
+// Pre-compute a sensible default scale for SSR/initial render so the phone
+// doesn't visibly jump once the ResizeObserver fires post-hydration.
+function initialScale(placement: Placement): number {
+  return Math.min(720 / placement.device.h, 1);
 }
 
 export function SafeZoneCanvas({ embedded = false }: { embedded?: boolean }) {
   const placement = useCurrentPlacement();
   const { state } = useSimulator();
   const wrapRef = useRef<HTMLDivElement>(null);
-  const [scale, setScale] = useState(1);
+  const [scale, setScale] = useState(() => initialScale(placement));
 
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
+    let raf = 0;
     const update = () => {
       const w = el.clientWidth;
       const h = el.clientHeight;
@@ -53,9 +63,15 @@ export function SafeZoneCanvas({ embedded = false }: { embedded?: boolean }) {
       setScale(s);
     };
     update();
-    const ro = new ResizeObserver(update);
+    const ro = new ResizeObserver(() => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(update);
+    });
     ro.observe(el);
-    return () => ro.disconnect();
+    return () => {
+      cancelAnimationFrame(raf);
+      ro.disconnect();
+    };
   }, [placement.device.w, placement.device.h]);
 
   const truncated = truncatePlacement(state.fields, placement);

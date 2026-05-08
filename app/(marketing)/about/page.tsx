@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { LAST_VERIFIED_GLOBAL } from "@/lib/platform-specs";
+import { LAST_VERIFIED_GLOBAL, PLACEMENTS } from "@/lib/platform-specs";
+import { PSEO_INDEX } from "@/data/pseo-index";
 
 export const metadata: Metadata = {
   title: "About CaptionSnap",
@@ -40,8 +41,8 @@ export default function AboutPage() {
       </p>
       <h2>Changelog</h2>
       <ul>
-        <li><strong>{LAST_VERIFIED_GLOBAL}</strong> — Re-verified all 2026 Meta + TikTok placements.</li>
-        <li>Initial launch — 17 placements, 60 pSEO pages, share-link OG images, iframe embed.</li>
+        <li><strong>{LAST_VERIFIED_GLOBAL}</strong> — Re-verified all 2026 placements.</li>
+        <li>Initial launch — {PLACEMENTS.length} placements, {PSEO_INDEX.length} pSEO pages, share-link OG images, iframe embed.</li>
       </ul>
     </article>
   );

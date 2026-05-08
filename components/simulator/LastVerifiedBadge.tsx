@@ -1,4 +1,4 @@
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/cn";
 
 export function LastVerifiedBadge({
@@ -17,8 +17,11 @@ export function LastVerifiedBadge({
   });
   const inner = (
     <span className="inline-flex items-center gap-1.5">
-      <CheckCircle2 className="h-3.5 w-3.5 text-accent" />
+      <CheckCircle2 className="h-3.5 w-3.5 text-accent" aria-hidden="true" />
       <span>Last verified {formatted}</span>
+      {sourceUrl ? (
+        <ExternalLink className="h-3 w-3 opacity-70" aria-hidden="true" />
+      ) : null}
     </span>
   );
   return (
@@ -29,7 +32,13 @@ export function LastVerifiedBadge({
       )}
     >
       {sourceUrl ? (
-        <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="hover:text-foreground">
+        <a
+          href={sourceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-foreground"
+          aria-label={`Last verified ${formatted} — opens platform documentation in a new tab`}
+        >
           {inner}
         </a>
       ) : (

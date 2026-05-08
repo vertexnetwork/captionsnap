@@ -12,6 +12,12 @@ export type TruncateResult = {
 const ELLIPSIS: Record<Platform, string> = {
   meta: "… See more",
   tiktok: "...more",
+  linkedin: "… see more",
+  x: "… Show more",
+  youtube: "…",
+  pinterest: "…",
+  snapchat: "…",
+  reddit: "…",
 };
 
 function segments(input: string): string[] {
@@ -49,7 +55,10 @@ export function truncateField(
 export function counterState(text: string, field: SpecField): CounterState {
   const len = graphemeLength(text ?? "");
   const warnAt = field.warnAt ?? Math.floor(field.truncateAt * 0.85);
-  if (len > field.max) return "red";
+  // Red = past the visible truncation point (copy is being clipped) OR past the hard max.
+  // Yellow = inside the warn window (approaching the cut).
+  // Green = comfortably under the warn threshold.
+  if (len > field.truncateAt || len > field.max) return "red";
   if (len >= warnAt) return "yellow";
   return "green";
 }

@@ -12,14 +12,6 @@ export function SiteHeader() {
         <nav className="flex items-center gap-5 text-sm text-muted">
           <Link href="/embed" className="hover:text-foreground">Embed</Link>
           <Link href="/about" className="hover:text-foreground">About</Link>
-          <a
-            href="https://github.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-foreground"
-          >
-            Source
-          </a>
         </nav>
       </div>
     </header>

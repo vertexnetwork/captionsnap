@@ -8,6 +8,12 @@ import { cn } from "@/lib/cn";
 const PLATFORMS: { id: Platform; label: string }[] = [
   { id: "meta", label: "Meta" },
   { id: "tiktok", label: "TikTok" },
+  { id: "linkedin", label: "LinkedIn" },
+  { id: "x", label: "X" },
+  { id: "youtube", label: "YouTube" },
+  { id: "pinterest", label: "Pinterest" },
+  { id: "snapchat", label: "Snapchat" },
+  { id: "reddit", label: "Reddit" },
 ];
 
 export function PlatformPicker() {
@@ -16,19 +22,21 @@ export function PlatformPicker() {
 
   return (
     <div
-      role="tablist"
+      role="group"
       aria-label="Platform"
-      className="inline-flex rounded-full border border-border bg-card p-1"
+      className="inline-flex flex-wrap gap-1 rounded-full border border-border bg-card p-1"
     >
       {PLATFORMS.map((p) => {
+        const placements = getPlacementsByPlatform(p.id);
+        if (placements.length === 0) return null;
         const active = placement.platform === p.id;
         return (
           <button
             key={p.id}
-            role="tab"
-            aria-selected={active}
+            type="button"
+            aria-pressed={active}
             onClick={() => {
-              const first = getPlacementsByPlatform(p.id)[0];
+              const first = placements[0];
               if (!first) return;
               if (placement.platform !== p.id) {
                 track("platform_switched", { from: placement.platform, to: p.id });
@@ -36,7 +44,7 @@ export function PlatformPicker() {
               setPlacementId(first.id);
             }}
             className={cn(
-              "px-4 py-1.5 text-sm font-medium rounded-full transition-colors",
+              "px-3 py-1.5 text-sm font-medium rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent",
               active
                 ? "bg-accent text-black"
                 : "text-muted hover:text-foreground",

@@ -3,7 +3,8 @@ import { SimulatorProvider } from "@/components/simulator/SimulatorProvider";
 import { Simulator } from "@/components/simulator/Simulator";
 import { MediaVineSlot } from "@/components/ads/MediaVineSlot";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { decodeOrDefault } from "@/lib/share";
+import { decode, DEFAULT_STATE } from "@/lib/share";
+import { PLACEMENTS } from "@/lib/platform-specs";
 
 export const metadata: Metadata = {
   title: "CaptionSnap — Stop ad copy from getting truncated",
@@ -18,7 +19,10 @@ export default async function HomePage({
   searchParams: Promise<{ s?: string }>;
 }) {
   const params = await searchParams;
-  const initialState = decodeOrDefault(params.s ?? null);
+  const decoded = decode(params.s ?? null);
+  const initialState = decoded ?? DEFAULT_STATE;
+  const decodeFailed = Boolean(params.s) && decoded === null;
+  const hasInitialShareLink = Boolean(params.s) && decoded !== null;
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
@@ -31,14 +35,18 @@ export default async function HomePage({
           truncation, and which UI overlays cover your hook. Free, no signup, the URL is the database.
         </p>
         <ul className="mt-4 flex flex-wrap gap-3 text-xs text-muted">
-          <li className="rounded-full border border-border bg-card px-3 py-1">17 placements</li>
-          <li className="rounded-full border border-border bg-card px-3 py-1">Meta + TikTok</li>
+          <li className="rounded-full border border-border bg-card px-3 py-1">{PLACEMENTS.length} placements</li>
+          <li className="rounded-full border border-border bg-card px-3 py-1">Every major ad platform</li>
           <li className="rounded-full border border-border bg-card px-3 py-1">Share via URL</li>
           <li className="rounded-full border border-border bg-card px-3 py-1">No tracking of copy</li>
         </ul>
       </section>
 
-      <SimulatorProvider initialState={initialState}>
+      <SimulatorProvider
+        initialState={initialState}
+        decodeFailed={decodeFailed}
+        hasInitialShareLink={hasInitialShareLink}
+      >
         <Simulator />
       </SimulatorProvider>
 

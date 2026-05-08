@@ -1,4 +1,5 @@
 import type { SurfaceProps } from "./types";
+import { SafeZoneOverlays } from "./SafeZoneOverlays";
 
 export function MetaFeedSurface({ placement, truncated }: SurfaceProps) {
   const isCarousel = placement.id === "meta-facebook-carousel";
@@ -106,6 +107,8 @@ export function MetaFeedSurface({ placement, truncated }: SurfaceProps) {
           </>
         )}
       </div>
+
+      <SafeZoneOverlays zones={placement.safeZones} />
     </div>
   );
 }

@@ -6,7 +6,10 @@ import { PlacementPicker } from "./PlacementPicker";
 import { CopyInputs } from "./CopyInputs";
 import { SafeZoneCanvas } from "./SafeZoneCanvas";
 import { ShareLinkButton } from "./ShareLinkButton";
+import { ResetButton } from "./ResetButton";
 import { LastVerifiedBadge } from "./LastVerifiedBadge";
+import { SafeZoneLegend } from "./SafeZoneLegend";
+import { SimulatorStatusBanner } from "./SimulatorStatusBanner";
 import { useCurrentPlacement, useSimulator } from "./SimulatorProvider";
 import { encode } from "@/lib/share";
 import { track } from "@/lib/analytics";
@@ -21,6 +24,7 @@ export function Simulator({ embedded = false }: Props) {
   useEffect(() => {
     if (!embedded) return;
     if (typeof window === "undefined") return;
+    let raf = 0;
     const post = () => {
       window.parent?.postMessage(
         {
@@ -37,9 +41,15 @@ export function Simulator({ embedded = false }: Props) {
       window.parent?.postMessage({ type: "captionsnap:resize", height: h }, "*");
     };
     sendResize();
-    const ro = new ResizeObserver(sendResize);
+    const ro = new ResizeObserver(() => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(sendResize);
+    });
     ro.observe(document.documentElement);
-    return () => ro.disconnect();
+    return () => {
+      cancelAnimationFrame(raf);
+      ro.disconnect();
+    };
   }, [state, embedded]);
 
   useEffect(() => {
@@ -56,6 +66,7 @@ export function Simulator({ embedded = false }: Props) {
       data-placement-id={placement.id}
     >
       <div className="flex flex-col gap-4 order-2 lg:order-1">
+        <SimulatorStatusBanner />
         <div className="flex flex-wrap items-center gap-3">
           <PlatformPicker />
           <LastVerifiedBadge date={placement.lastVerified} sourceUrl={placement.sourceUrl} />
@@ -65,12 +76,16 @@ export function Simulator({ embedded = false }: Props) {
         {!embedded ? (
           <div className="flex flex-wrap items-center gap-3 pt-2">
             <ShareLinkButton />
+            <ResetButton />
             <span className="text-xs text-muted">URL is the database. No signup, ever.</span>
           </div>
         ) : null}
       </div>
-      <div className="order-1 lg:order-2">
+      <div className="order-1 lg:order-2 flex flex-col gap-2">
         <SafeZoneCanvas embedded={embedded} />
+        <div className="flex justify-center">
+          <SafeZoneLegend />
+        </div>
       </div>
     </section>
   );

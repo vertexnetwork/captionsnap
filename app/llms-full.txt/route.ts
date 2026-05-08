@@ -7,19 +7,147 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://captionsnap.io";
 
 export const revalidate = 3600;
 
+// Find the closing `/>` for a JSX self-closing tag starting at index `start`,
+// while honoring nested brackets, strings, and template literals.
+function findSelfCloseEnd(src: string, start: number): number {
+  let depthBracket = 0;
+  let depthBrace = 0;
+  let i = start;
+  while (i < src.length) {
+    const c = src[i];
+    if (c === '"' || c === "'" || c === "`") {
+      const quote = c;
+      i++;
+      while (i < src.length && src[i] !== quote) {
+        if (src[i] === "\\") i++;
+        i++;
+      }
+      i++;
+      continue;
+    }
+    if (c === "[") depthBracket++;
+    else if (c === "]") depthBracket--;
+    else if (c === "{") depthBrace++;
+    else if (c === "}") depthBrace--;
+    else if (c === "/" && src[i + 1] === ">" && depthBracket === 0 && depthBrace === 0) {
+      return i + 2;
+    }
+    i++;
+  }
+  return -1;
+}
+
+// Strip a self-closing JSX component, returning replacement text.
+function stripComponent(src: string, name: string, replacer: (raw: string) => string): string {
+  const tag = "<" + name;
+  let out = "";
+  let i = 0;
+  while (i < src.length) {
+    const idx = src.indexOf(tag, i);
+    if (idx === -1) {
+      out += src.slice(i);
+      break;
+    }
+    const after = src.charCodeAt(idx + tag.length);
+    // ensure boundary char (space/newline/>) — skip false positives like <FAQItem
+    const ok = after === 32 /* space */ || after === 9 /* tab */ || after === 10 /* lf */ || after === 13 /* cr */ || after === 62 /* > */;
+    if (!ok) {
+      out += src.slice(i, idx + tag.length);
+      i = idx + tag.length;
+      continue;
+    }
+    const end = findSelfCloseEnd(src, idx + tag.length);
+    if (end === -1) {
+      out += src.slice(i);
+      break;
+    }
+    out += src.slice(i, idx);
+    out += replacer(src.slice(idx, end));
+    i = end;
+  }
+  return out;
+}
+
+// Pull the items array literal off a FAQ tag and convert to Q/A markdown.
+function faqToMarkdown(raw: string): string {
+  const m = raw.match(/items=\{([\s\S]*)\}/);
+  if (!m) return "";
+  const arr = m[1].trim();
+  // Walk the JS array, extracting q/a pairs heuristically by string literal.
+  const items: { q: string; a: string }[] = [];
+  let i = 0;
+  let pendingQ: string | null = null;
+  while (i < arr.length) {
+    if (arr[i] === "q" && /\s*:/.test(arr.slice(i + 1))) {
+      const colon = arr.indexOf(":", i);
+      const valueStart = colon + 1;
+      const [val, end] = readString(arr, valueStart);
+      if (val !== null) {
+        pendingQ = val;
+        i = end;
+        continue;
+      }
+    }
+    if (arr[i] === "a" && /\s*:/.test(arr.slice(i + 1)) && pendingQ !== null) {
+      const colon = arr.indexOf(":", i);
+      const valueStart = colon + 1;
+      const [val, end] = readString(arr, valueStart);
+      if (val !== null) {
+        items.push({ q: pendingQ, a: val });
+        pendingQ = null;
+        i = end;
+        continue;
+      }
+    }
+    i++;
+  }
+  if (items.length === 0) return "";
+  const lines = ["## FAQ", ""];
+  for (const it of items) {
+    lines.push(`### ${it.q}`);
+    lines.push(it.a);
+    lines.push("");
+  }
+  return lines.join("\n");
+}
+
+function readString(src: string, from: number): [string | null, number] {
+  let i = from;
+  while (i < src.length && /\s/.test(src[i])) i++;
+  const quote = src[i];
+  if (quote !== '"' && quote !== "'" && quote !== "`") return [null, from];
+  i++;
+  let out = "";
+  while (i < src.length && src[i] !== quote) {
+    if (src[i] === "\\" && i + 1 < src.length) {
+      const next = src[i + 1];
+      if (next === "n") out += "\n";
+      else if (next === "t") out += "\t";
+      else out += next;
+      i += 2;
+      continue;
+    }
+    out += src[i];
+    i++;
+  }
+  i++; // closing quote
+  return [out, i];
+}
+
 async function readMdx(slug: string): Promise<string> {
   const file = path.join(process.cwd(), "content", "pseo", `${slug}.mdx`);
+  let raw = "";
   try {
-    const raw = await fs.readFile(file, "utf-8");
-    return raw
-      .replace(/<SimulatorPreset[\s\S]*?\/>/g, "")
-      .replace(/<SpecTable[\s\S]*?\/>/g, "")
-      .replace(/<FAQ[\s\S]*?items=\{(\[[\s\S]*?\])\}[\s\S]*?\/>/g, "$1")
-      .replace(/<RelatedPages[\s\S]*?\/>/g, "")
-      .replace(/<LastVerifiedBadge[\s\S]*?\/>/g, "");
+    raw = await fs.readFile(file, "utf-8");
   } catch {
     return "";
   }
+  raw = stripComponent(raw, "SimulatorPreset", () => "");
+  raw = stripComponent(raw, "SpecTable", () => "");
+  raw = stripComponent(raw, "RelatedPages", () => "");
+  raw = stripComponent(raw, "LastVerifiedBadge", () => "");
+  raw = stripComponent(raw, "FAQ", faqToMarkdown);
+  return raw.trim();
 }
 
 function placementMarkdown(): string {
@@ -63,7 +191,7 @@ export async function GET() {
     out.push(entry.description);
     out.push("");
     const body = await readMdx(entry.slug);
-    if (body) out.push(body.trim());
+    if (body) out.push(body);
     out.push("");
     out.push("---");
     out.push("");

@@ -20,7 +20,6 @@ const nextConfig: NextConfig = {
         source: "/embed/render",
         headers: [
           { key: "Content-Security-Policy", value: "frame-ancestors *" },
-          { key: "X-Frame-Options", value: "ALLOWALL" },
         ],
       },
     ];

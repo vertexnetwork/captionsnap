@@ -1,6 +1,7 @@
 import type { SurfaceProps } from "./types";
+import { SafeZoneOverlays } from "./SafeZoneOverlays";
 
-export function MetaMessengerSurface({ truncated }: SurfaceProps) {
+export function MetaMessengerSurface({ placement, truncated }: SurfaceProps) {
   return (
     <div className="absolute inset-0 flex flex-col bg-zinc-950 text-white">
       {/* Messenger top nav */}
@@ -74,6 +75,8 @@ export function MetaMessengerSurface({ truncated }: SurfaceProps) {
         <span>📞 Calls</span>
         <span>👥 People</span>
       </div>
+
+      <SafeZoneOverlays zones={placement.safeZones} />
     </div>
   );
 }

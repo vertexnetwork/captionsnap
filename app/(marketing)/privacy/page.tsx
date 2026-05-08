@@ -42,7 +42,11 @@ export default function PrivacyPage() {
       <h2>Data subject rights</h2>
       <p>
         Because we don&apos;t store user data, there is nothing to export, delete, or
-        correct. If you have questions, reach out via the contact page.
+        correct. If you have questions, reach out at{" "}
+        <a href="mailto:hello@captionsnap.io" className="underline hover:text-accent">
+          hello@captionsnap.io
+        </a>
+        .
       </p>
     </article>
   );

@@ -35,7 +35,11 @@ export default function TermsPage() {
       <p>
         The site is provided without warranty of any kind. We are not liable for ad
         spend lost due to spec drift or simulator errors. If you spot a spec error,
-        let us know.
+        email{" "}
+        <a href="mailto:hello@captionsnap.io" className="underline hover:text-accent">
+          hello@captionsnap.io
+        </a>
+        .
       </p>
       <h2>Changes</h2>
       <p>

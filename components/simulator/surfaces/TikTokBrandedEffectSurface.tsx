@@ -1,4 +1,5 @@
 import type { SurfaceProps } from "./types";
+import { SafeZoneOverlays } from "./SafeZoneOverlays";
 
 export function TikTokBrandedEffectSurface({ placement, truncated }: SurfaceProps) {
   return (
@@ -56,23 +57,7 @@ export function TikTokBrandedEffectSurface({ placement, truncated }: SurfaceProp
         </button>
       </div>
 
-      {/* Safe-zone overlays */}
-      {placement.safeZones.map((z) => (
-        <div
-          key={z.id}
-          className="pointer-events-none absolute"
-          style={{
-            left: `${z.x}%`,
-            top: `${z.y}%`,
-            width: `${z.w}%`,
-            height: `${z.h}%`,
-            background: "rgba(255,61,110,0.18)",
-            outline: "1px dashed rgba(255,61,110,0.7)",
-          }}
-          title={z.reason}
-          aria-label={`Safe zone: ${z.reason}`}
-        />
-      ))}
+      <SafeZoneOverlays zones={placement.safeZones} />
     </div>
   );
 }

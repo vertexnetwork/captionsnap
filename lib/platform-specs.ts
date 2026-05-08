@@ -1,4 +1,12 @@
-export type Platform = "meta" | "tiktok";
+export type Platform =
+  | "meta"
+  | "tiktok"
+  | "linkedin"
+  | "x"
+  | "youtube"
+  | "pinterest"
+  | "snapchat"
+  | "reddit";
 
 export type FieldId = "primary" | "headline" | "description" | "caption";
 
@@ -144,6 +152,23 @@ export const PLACEMENTS: Placement[] = [
     device: { w: 390, h: 844 },
     lastVerified: "2026-04-15",
     sourceUrl: "https://www.facebook.com/business/ads-guide/instagram-stories",
+  },
+  {
+    id: "meta-facebook-stories",
+    platform: "meta",
+    label: "Facebook Stories",
+    surface: "stories",
+    fields: [
+      { id: "primary", label: "Primary text", max: 125, truncateAt: 90, warnAt: 80, multiline: true },
+      { id: "headline", label: "Headline", max: 40, truncateAt: 40, warnAt: 30 },
+    ],
+    safeZones: [
+      { id: "top-progress", x: 0, y: 0, w: 100, h: 14, reason: "Progress bar + profile" },
+      { id: "cta", x: 0, y: 86, w: 100, h: 14, reason: "Sticker / swipe-up CTA" },
+    ],
+    device: { w: 390, h: 844 },
+    lastVerified: "2026-04-15",
+    sourceUrl: "https://www.facebook.com/business/ads-guide/facebook-stories",
   },
   {
     id: "meta-instagram-reels",
@@ -350,5 +375,22 @@ export const LAST_VERIFIED_GLOBAL = PLACEMENTS.reduce(
 );
 
 export function platformLabel(p: Platform): string {
-  return p === "meta" ? "Meta" : "TikTok";
+  switch (p) {
+    case "meta":
+      return "Meta";
+    case "tiktok":
+      return "TikTok";
+    case "linkedin":
+      return "LinkedIn";
+    case "x":
+      return "X";
+    case "youtube":
+      return "YouTube";
+    case "pinterest":
+      return "Pinterest";
+    case "snapchat":
+      return "Snapchat";
+    case "reddit":
+      return "Reddit";
+  }
 }

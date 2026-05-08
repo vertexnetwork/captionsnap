@@ -17,8 +17,14 @@ describe("counterState", () => {
   it("yellow at warnAt", () => {
     expect(counterState("x".repeat(70), field)).toBe("yellow");
   });
-  it("yellow at max", () => {
-    expect(counterState("x".repeat(100), field)).toBe("yellow");
+  it("yellow at truncateAt", () => {
+    expect(counterState("x".repeat(80), field)).toBe("yellow");
+  });
+  it("red just past truncateAt", () => {
+    expect(counterState("x".repeat(81), field)).toBe("red");
+  });
+  it("red between truncateAt and max", () => {
+    expect(counterState("x".repeat(95), field)).toBe("red");
   });
   it("red above max", () => {
     expect(counterState("x".repeat(101), field)).toBe("red");
@@ -28,6 +34,7 @@ describe("counterState", () => {
     // floor(40 * 0.85) = 34 → warnAt
     expect(counterState("x".repeat(33), f)).toBe("green");
     expect(counterState("x".repeat(34), f)).toBe("yellow");
-    expect(counterState("x".repeat(51), f)).toBe("red");
+    expect(counterState("x".repeat(40), f)).toBe("yellow");
+    expect(counterState("x".repeat(41), f)).toBe("red");
   });
 });

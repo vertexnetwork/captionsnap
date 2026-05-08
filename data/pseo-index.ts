@@ -412,7 +412,7 @@ export const PSEO_INDEX: PseoEntry[] = [
     slug: "meta/facebook-stories-character-limits",
     title: "Facebook Stories Ad Character Limits",
     description: "Facebook Stories share Instagram Stories' character limits but have a slightly wider safe zone for type.",
-    placementId: "meta-instagram-stories",
+    placementId: "meta-facebook-stories",
     presetCopy: { primary: "Facebook Stories track Instagram's clamps", headline: "Same 30-char headline" },
     related: ["meta/instagram-stories-character-limits", "meta/instagram-stories-safe-zones", "meta/facebook-reels-safe-zones"],
     category: "meta",
