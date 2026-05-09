@@ -8,7 +8,7 @@ import { RoiEstimator } from "@/components/pro/RoiEstimator";
 export const metadata: Metadata = {
   title: "Pricing — CaptionSnap Pro",
   description:
-    "Pro at $49/mo or $499/yr (save 15%). Bulk paste 10 headlines × every placement, export simulator output as PNG, and skip the ads. Built for performance marketers and small agencies. Cancel anytime via Stripe.",
+    "Pro at $49/mo or $499/yr (save 15%). Bulk paste 10 headlines × every placement, export simulator output as PNG, and get priority spec re-verification. Built for performance marketers and small agencies. Cancel anytime via Stripe.",
   alternates: { canonical: "/pricing" },
 };
 
@@ -20,7 +20,6 @@ const features: { name: string; free: boolean; pro: boolean }[] = [
   { name: "Chrome extension popup", free: true, pro: true },
   { name: "Bulk paste — 10 headlines × every placement", free: false, pro: true },
   { name: "Export simulator output as PNG (2x resolution)", free: false, pro: true },
-  { name: "Ad-free", free: false, pro: true },
   { name: "Priority spec re-verification", free: false, pro: true },
 ];
 

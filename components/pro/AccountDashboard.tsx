@@ -52,8 +52,8 @@ export function AccountDashboard() {
       {welcomeShown && isPro ? (
         <div className="rounded-md border border-accent/60 bg-accent/10 px-4 py-3 text-sm text-foreground">
           <strong className="text-accent">You&apos;re in.</strong> Bulk paste,
-          PNG export, and an ad-free experience are unlocked on this device.
-          Try{" "}
+          PNG export, and priority spec re-verification are unlocked on this
+          device. Try{" "}
           <Link href="/bulk" className="underline hover:text-accent">
             /bulk
           </Link>{" "}
@@ -143,7 +143,6 @@ function ProActiveCard({
           — 10 headlines × every placement of a platform
         </li>
         <li>· PNG export at 2x resolution from any simulator preview</li>
-        <li>· Ad-free across pSEO + simulator</li>
         <li>· Priority spec re-verification on platform UI changes</li>
       </ul>
     </section>
@@ -156,8 +155,8 @@ function ProInactiveCard() {
       <h2 className="text-lg font-semibold">No active subscription</h2>
       <p className="mt-2 text-sm text-muted">
         You&apos;re using the free single-placement simulator. Pro adds bulk
-        paste, PNG export, and an ad-free experience for performance marketers
-        and small agencies running campaigns weekly.
+        paste, PNG export, and priority spec re-verification for performance
+        marketers and small agencies running campaigns weekly.
       </p>
       <Link
         href="/pricing"

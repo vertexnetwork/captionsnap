@@ -21,9 +21,9 @@ export default function ExtensionPage() {
       </p>
       <p>
         Pro features — <Link href="/bulk">bulk paste of 10 headlines</Link>,
-        PNG export, ad-free browsing — live on the website. The popup&apos;s
-        &ldquo;Open full simulator&rdquo; button hands your current copy off to
-        captionsnap.io with one click.
+        PNG export, priority spec re-verification — live on the website. The
+        popup&apos;s &ldquo;Open full simulator&rdquo; button hands your current
+        copy off to captionsnap.io with one click.
       </p>
 
       {EXTENSION_AVAILABLE && CHROME_WEBSTORE_URL ? (

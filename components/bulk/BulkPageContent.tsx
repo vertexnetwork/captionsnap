@@ -58,7 +58,7 @@ function UpsellCard() {
         <li>· 10 headlines × every placement grid</li>
         <li>· Live truncation indicator per cell</li>
         <li>· Color-coded counters (green · yellow · red)</li>
-        <li>· Plus PNG export, ad-free browsing, and priority spec re-verification</li>
+        <li>· Plus PNG export and priority spec re-verification</li>
       </ul>
       <div className="mt-6 flex flex-wrap gap-3">
         <Link

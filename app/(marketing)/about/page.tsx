@@ -24,7 +24,7 @@ export default function AboutPage() {
       <p>
         Free to use forever. <Link href="/pricing">Pro</Link> at $49/mo unlocks
         bulk paste of 10 headlines × every placement, PNG export for creative
-        handoff, and an ad-free experience.
+        handoff, and priority spec re-verification.
       </p>
 
       <h2>Why this exists</h2>
@@ -139,10 +139,6 @@ export default function AboutPage() {
           <strong>PNG export</strong> — capture the simulator preview at 2x
           resolution for creative-handoff decks. Account managers stop reading
           screenshots back over Zoom.
-        </li>
-        <li>
-          <strong>Ad-free</strong> on every page, no display takeovers between
-          you and the spec.
         </li>
         <li>
           <strong>Priority spec re-verification</strong> when a platform ships

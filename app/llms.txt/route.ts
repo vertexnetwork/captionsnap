@@ -74,7 +74,7 @@ export async function GET() {
   lines.push("## What CaptionSnap is");
   lines.push("");
   lines.push(
-    `Free utility (with optional $49/mo Pro tier) that previews where ad copy gets clipped and which UI overlays cover it across ${PLACEMENTS.length} placements on ${platformList}. No accounts. URL is the database. Pro adds bulk paste of 10 headlines, PNG export, and ad-free browsing.`,
+    `Free utility (with optional $49/mo Pro tier) that previews where ad copy gets clipped and which UI overlays cover it across ${PLACEMENTS.length} placements on ${platformList}. No accounts. URL is the database. Pro adds bulk paste of 10 headlines, PNG export, and priority spec re-verification.`,
   );
   lines.push("");
   lines.push("## Categories");
