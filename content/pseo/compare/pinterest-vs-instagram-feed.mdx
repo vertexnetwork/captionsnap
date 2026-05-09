@@ -1,0 +1,37 @@
+Pinterest Pin Ads and Instagram Feed Ads are visually similar — both are vertical-leaning image formats inside a feed — but the user mental models could not be more different. Instagram users are in a "what's happening now" mode (scroll, react, move on). Pinterest users are in a "save for later" mode (browse, save, return).
+
+The character economics reflect the difference. Pinterest title clamps at 40 visible chars; description at ~50 visible on mobile. Instagram primary text clamps at 125 visible. Instagram is more generous on body text because the platform expects in-feed reading. Pinterest is tight on title because the title functions more like a search-result H1 than feed copy.
+
+Aspect ratios also diverge. Pinterest favors 2:3 vertical (1000×1500). Instagram Feed favors 1:1 square. Pin Ads cropped from Instagram Feed creatives lose composition; plan separate visual treatments.
+
+<SimulatorPreset
+  placementId="pinterest-standard-pin"
+  presetCopy={{
+    headline: "Pinterest titles: 40 visible",
+    primary: "Instagram primary: 125 visible. Different shapes, different clamps.",
+  }}
+/>
+
+## Side-by-side specs
+
+<SpecTable placementId="pinterest-standard-pin" />
+<SpecTable placementId="meta-instagram-feed" />
+
+<FAQ
+  items={[
+    {
+      q: "Can I reuse Instagram creative on Pinterest?",
+      a: "Not without recropping. Instagram favors 1:1; Pinterest favors 2:3. Reusing 1:1 creative on Pinterest looks letterboxed and underperforms.",
+    },
+    {
+      q: "Which platform pulls higher save rate?",
+      a: "Pinterest by 5-10x. Saves are the leading indicator of organic-search amplification. Instagram saves are private and don't drive recommendations.",
+    },
+    {
+      q: "Are Pinterest Pin Ads indexed by Google?",
+      a: "Yes — Pin Ads are indexed for Google image search and rich results. Instagram posts are not indexed similarly.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["pinterest/standard-pin-ad-character-limits", "meta/instagram-feed-ad-character-limits", "compare/pinterest-idea-vs-instagram-stories"]} />

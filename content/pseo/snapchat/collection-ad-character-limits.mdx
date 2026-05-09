@@ -1,0 +1,38 @@
+Snapchat Collection Ads pair a hero snap (image or video) with a 4-product tile strip rendered along the bottom of the screen. The hero inherits Single Image / Video limits — 25-character brand name, 34-character headline, both fully visible. The product tiles below pull from a connected catalog and don't expose customizable text directly; product names render only after a user taps a tile.
+
+The format is purpose-built for direct-response commerce: the hero snap creates aspiration, the tile strip lets the user tap straight into product detail without leaving the snap. The 4-tile constraint is hard — Collection cannot show 5 or more products at once. Catalog feeds with more than 4 products rotate the visible tiles per impression based on user signals.
+
+<SimulatorPreset
+  placementId="snap-collection"
+  presetCopy={{
+    headline: "Brand: 25 chars",
+    primary: "Headline: 34-char clamp; tiles do the catalog work",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="snap-collection" />
+
+## Catalog vs static tiles
+
+Collection Ads support two tile modes: catalog-driven (tiles auto-pull from a connected product feed) or static (4 manually-uploaded tiles). Catalog mode delivers higher click-through but requires a maintained feed. Static mode is faster to ship for one-off promotions.
+
+<FAQ
+  items={[
+    {
+      q: "How many product tiles does a Collection Ad show?",
+      a: "Exactly 4 visible at a time. Catalog-driven Collection Ads can rotate the 4 visible tiles based on user signals.",
+    },
+    {
+      q: "Do product tiles have customizable text?",
+      a: "No — tile labels pull from the catalog product name. Customize the catalog product names if you want different tile text.",
+    },
+    {
+      q: "What happens when a user taps a product tile?",
+      a: "The user opens a product detail view inside Snapchat (or the brand's website if no Snap-native catalog). They can swipe back to the snap.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["snapchat/single-image-video-character-limits", "snapchat/story-ad-character-limits", "tiktok/shop-ads-character-limits"]} />

@@ -1,0 +1,38 @@
+LinkedIn Carousel Ads use a tighter intro-text limit than the rest of Sponsored Content: 255 characters total instead of 600, with the same ~150 visible "see more" clamp. The reasoning from LinkedIn is that carousels carry their own narrative inside the cards, so the intro text only needs to set up the swipe — but in practice the 255-character cap punishes media buyers who try to ship single-image and carousel variations from the same copy doc. Each card has its own headline (45 characters max) and the carousel itself supports between 2 and 10 cards. There is no description field on cards.
+
+The interesting structural difference vs Meta carousel: LinkedIn renders the carousel arrow on the right edge at roughly 88% X for the first 30% of the card height, which means a per-card hero image with a right-aligned product needs to clear that arrow zone. Plan creative with the central 70% of the card width as the safe canvas.
+
+<SimulatorPreset
+  placementId="linkedin-carousel"
+  presetCopy={{
+    primary: "LinkedIn Carousel ads cap intro at 255 chars — Meta lets you write 500. Plan tighter.",
+    headline: "Each card needs a 45-char hook",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="linkedin-carousel" />
+
+## Card-by-card strategy
+
+Each card headline is its own 45-character commitment. Treat the carousel as a 5-frame storyboard: card 1 = hook, cards 2–4 = proof points or product variants, card 5 = CTA. Avoid generic numbering ("1. Why we're better") — the headline space is too tight to waste.
+
+<FAQ
+  items={[
+    {
+      q: "How many cards can a LinkedIn carousel have?",
+      a: "Between 2 and 10 cards. The first card is auto-displayed; cards 2+ require a swipe.",
+    },
+    {
+      q: "Do carousel cards have description text?",
+      a: "No. Cards have a headline only — no description field. Treat the headline as the entire card-level copy.",
+    },
+    {
+      q: "Why is the LinkedIn carousel intro shorter than single-image?",
+      a: "LinkedIn assumes the carousel cards carry the narrative, so the platform clips the intro to encourage swipe behavior. The 255-char hard limit is the smallest intro budget on Sponsored Content.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["linkedin/single-image-character-limits-2026", "linkedin/document-ad-character-limits", "compare/linkedin-vs-meta-feed"]} />

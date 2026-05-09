@@ -1,0 +1,38 @@
+Pinterest Carousel Ads stack 2 to 5 cards in a single Pin slot. Each card has its own title (100 chars / ~40 visible) and description (800 chars / ~50 visible mobile, ~200 visible desktop). Carousel cards swipe horizontally inside the same pin tile, with a small dot indicator at the bottom showing position.
+
+Unlike Meta carousel ads, Pinterest carousel cards do not change the destination URL per card by default — all 2-5 cards point to the same destination unless explicitly overridden. The format is best suited for "shown 5 ways" or "step 1 through 5" narratives where the cards serve a single underlying concept.
+
+<SimulatorPreset
+  placementId="pinterest-carousel"
+  presetCopy={{
+    headline: "Card titles: 40 visible",
+    primary: "Per-card description clips at ~50 chars on mobile feed.",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="pinterest-carousel" />
+
+## Per-card destination
+
+The default is single-destination across all cards. To run per-card destination URLs, configure each card individually at upload time — useful for category-level carousels where each card pushes to a different product page.
+
+<FAQ
+  items={[
+    {
+      q: "How many cards can a Pinterest Carousel Ad have?",
+      a: "Between 2 and 5 cards per pin.",
+    },
+    {
+      q: "Do carousel cards support per-card URLs?",
+      a: "Yes, but the default is shared destination. Per-card URLs must be explicitly configured at upload time.",
+    },
+    {
+      q: "Are carousel cards indexed individually?",
+      a: "No. Pinterest indexes the carousel as a single pin object. Title + description SEO comes from card 1.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["pinterest/standard-pin-ad-character-limits", "pinterest/idea-ad-character-limits", "meta/facebook-carousel-character-limits"]} />

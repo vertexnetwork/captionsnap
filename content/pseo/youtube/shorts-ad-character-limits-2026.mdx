@@ -1,0 +1,38 @@
+YouTube Shorts ads inherit the organic Shorts UI: a full-bleed 9:16 video, a right-side engagement column with like / dislike / comment / share / remix icons, channel info on the bottom-left, and a sponsored CTA strip at the very bottom. Description text below the channel name clips at roughly 60 visible characters before "Show more" — the tightest description clamp on any major short-form video platform (TikTok = 100, X vertical = 100). Channel/display name caps at 50 chars with about 30 visible.
+
+The right-rail engagement column on Shorts has six icons (vs five on TikTok and four on X), so it covers slightly more vertical space — roughly 14% × 54% from 28%Y to 82%Y. Plan creative with the central 70% of the frame as the unobstructed canvas. The bottom 8% is the sponsored CTA strip; the bottom 14% above it is the channel + description block.
+
+<SimulatorPreset
+  placementId="youtube-shorts"
+  presetCopy={{
+    primary: "Shorts ads clip description at ~60 chars. Right-rail icons cover the right 14%. Channel block covers bottom-left.",
+    headline: "@brand · Sponsored",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="youtube-shorts" />
+
+## Why YouTube Shorts is tighter than TikTok
+
+YouTube's right-rail has six engagement icons (the "Remix" icon is unique to Shorts) versus TikTok's five, and the channel block on the bottom-left includes a "Subscribe" pill that TikTok's @username row doesn't have. The result is more pixels claimed by UI and a tighter description clamp.
+
+<FAQ
+  items={[
+    {
+      q: "How long can a YouTube Shorts ad be?",
+      a: "Up to 60 seconds, matching organic Shorts. Most high-performing creatives are 15-30 seconds.",
+    },
+    {
+      q: "Does YouTube Shorts autoplay with sound?",
+      a: "Yes — sound-on autoplay is the default. Plan for sound on but caption for accessibility.",
+    },
+    {
+      q: "Can a Shorts ad include a clickable CTA inside the video?",
+      a: "Yes — the bottom CTA strip is clickable, and Action Buttons can be configured to drop a brand-defined call-to-action.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["youtube/skippable-in-stream-character-limits", "youtube/bumper-ad-character-limits", "compare/youtube-shorts-vs-tiktok-in-feed"]} />

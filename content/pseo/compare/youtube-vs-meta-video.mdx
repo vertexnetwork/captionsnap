@@ -1,0 +1,35 @@
+YouTube and Meta deliver video ads with fundamentally different mental models. YouTube treats video as the destination — viewers chose to be on YouTube, the ad interrupts the chosen content, and the companion banner provides the click-through path. Meta treats video as a mid-feed disruption — viewers are scrolling, the autoplay video competes with the next post for attention, and primary text plus headline carry the persuasion job.
+
+Character economics reflect the difference. YouTube companion banner: 45 visible headline chars + 60 visible description chars = ~105 visible characters total. Meta Reels primary text: 72 visible chars + 10-char headline = ~82 visible characters total. Meta is tighter on the headline, more generous on intro text. YouTube is the inverse.
+
+<SimulatorPreset
+  placementId="youtube-skippable-instream"
+  presetCopy={{
+    headline: "45 visible companion chars",
+    description: "60-char description tier",
+  }}
+/>
+
+## Side-by-side specs
+
+<SpecTable placementId="youtube-skippable-instream" />
+<SpecTable placementId="meta-instagram-reels" />
+
+<FAQ
+  items={[
+    {
+      q: "Which has higher click-through rate?",
+      a: "Meta Reels typically pulls higher in-feed CTR. YouTube wins on view-through and brand-recall measurement.",
+    },
+    {
+      q: "Should the same video creative run on both?",
+      a: "The hook landing point differs. YouTube allows up to 5 seconds before the skip mechanic; Meta has no skip but immediate scroll-away. Front-load on Meta, build to climax on YouTube.",
+    },
+    {
+      q: "Are completion-rate benchmarks comparable?",
+      a: "Not directly — YouTube measures view-through past 30s billed view; Meta measures 3-second and complete views. Different definitions, different denominators.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["youtube/skippable-in-stream-character-limits", "meta/facebook-reels-safe-zones", "compare/youtube-shorts-vs-tiktok-in-feed"]} />

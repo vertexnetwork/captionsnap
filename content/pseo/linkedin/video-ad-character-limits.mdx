@@ -1,0 +1,38 @@
+LinkedIn Video Ads inherit the Sponsored Content shell but trade the static creative for autoplay video. The platform allows 700 characters of introductory text — 100 more than the single-image allowance — under the assumption that video viewers will linger longer in the post region after the auto-play hooks them. In practice, the visible "see more" clamp does not change: roughly 150 characters on mobile, 210 on desktop. The extra 100 characters of intro headroom only matters for the audience that taps "see more" after watching the video.
+
+Headlines accept up to 70 characters with about 50 visible on mobile (a slightly more generous window than single-image because the video occupies more vertical real estate, leaving less room for the bottom CTA strip to truncate). The most expensive mistake on LinkedIn video is letting the video do all the work: viewers with autoplay-with-sound disabled will only read the intro text, and 80% of LinkedIn impressions happen with sound off.
+
+<SimulatorPreset
+  placementId="linkedin-video"
+  presetCopy={{
+    primary: "Video ads on LinkedIn allow 700 characters of intro text — but only ~150 show before See more. Front-load the metric, front-load the offer.",
+    headline: "Hook the scroll in the first 50 characters",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="linkedin-video" />
+
+## What changed in 2026
+
+LinkedIn now penalizes video ads with intro text shorter than 80 characters in the relevance score — short intros are treated as low-effort and demoted in delivery. The 700-character ceiling has not changed since 2024.
+
+<FAQ
+  items={[
+    {
+      q: "Should I caption my LinkedIn video ad?",
+      a: "Yes. Roughly 80% of LinkedIn impressions happen with sound off. Closed captions are required for any narration-driven concept.",
+    },
+    {
+      q: "Does autoplay-with-sound work for LinkedIn ads?",
+      a: "No. LinkedIn defaults to muted autoplay for sponsored video. Plan for sound-off comprehension end-to-end.",
+    },
+    {
+      q: "How long can my LinkedIn video ad be?",
+      a: "Hard cap is 30 minutes, but completion rates collapse past 30 seconds. Plan to land the offer in the first 6 seconds.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["linkedin/single-image-character-limits-2026", "linkedin/document-ad-character-limits", "compare/linkedin-video-vs-meta-video"]} />

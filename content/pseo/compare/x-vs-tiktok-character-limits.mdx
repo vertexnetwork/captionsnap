@@ -1,0 +1,35 @@
+X and TikTok approach character limits from opposite philosophies. X enforces a hard 280-character body cap on Promoted Posts (regardless of account tier as of 2026). TikTok allows 2,200 characters of caption — eight times longer — but clips at roughly 100 visible characters before "...more" on every placement.
+
+The convergence is interesting: both platforms effectively give you ~100 characters of attention to work with. X's hard cap is your visible budget; TikTok's soft clamp is your visible budget. The difference shows up in how to think about copy structure: X copy is one tight statement (280 chars total). TikTok copy is a hook followed by hashtags, mentions, and structured detail past the cut. Both demand front-loading the value prop.
+
+<SimulatorPreset
+  placementId="x-promoted-tweet"
+  presetCopy={{
+    primary: "X: 280 hard cap. TikTok: 2,200 hard / 100 visible. Both give you ~100 chars to land the hook.",
+    headline: "@brand · Ad",
+  }}
+/>
+
+## Side-by-side specs
+
+<SpecTable placementId="x-promoted-tweet" />
+<SpecTable placementId="tiktok-in-feed" />
+
+<FAQ
+  items={[
+    {
+      q: "Why does TikTok allow 2,200 chars if only 100 show?",
+      a: "TikTok indexes the full caption for search and recommendation signals. Past the 100-char clamp, the additional text influences delivery without showing in-feed.",
+    },
+    {
+      q: "Are URLs counted differently?",
+      a: "X counts every URL as 23 characters via t.co. TikTok counts the literal URL length. URLs eat heavily into TikTok's visible 100-char budget.",
+    },
+    {
+      q: "Does X Premium change anything?",
+      a: "Not for Promoted Posts. As of 2026, X enforces the 280-char cap on Promoted Posts regardless of account tier.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["x/promoted-post-character-limits-2026", "tiktok/in-feed-ad-character-limits-2026", "compare/x-vertical-vs-youtube-shorts"]} />

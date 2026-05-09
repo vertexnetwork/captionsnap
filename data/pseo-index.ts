@@ -1,6 +1,17 @@
 import type { FieldId } from "@/lib/platform-specs";
 
-export type PseoCategory = "meta" | "tiktok" | "guides" | "compare" | "glossary";
+export type PseoCategory =
+  | "meta"
+  | "tiktok"
+  | "linkedin"
+  | "x"
+  | "youtube"
+  | "pinterest"
+  | "reddit"
+  | "snapchat"
+  | "guides"
+  | "compare"
+  | "glossary";
 
 export type PseoEntry = {
   slug: string;
@@ -700,6 +711,517 @@ export const PSEO_INDEX: PseoEntry[] = [
     presetCopy: { primary: "UTMs live in the URL, not the copy. They do eat share-link size budgets.", headline: "URL params ≠ caption chars" },
     related: ["glossary/character-limit", "glossary/see-more-cutoff", "guides/how-to-test-ad-truncation-before-launch"],
     category: "glossary",
+    publishedAt: "2026-04-15",
+  },
+
+  // ────────────── LinkedIn (5) ──────────────
+  {
+    slug: "linkedin/single-image-character-limits-2026",
+    title: "LinkedIn Single Image Ad Character Limits (2026)",
+    description: "LinkedIn Sponsored Content single-image ads cap intro text at 600 chars but show ~150 before the see-more clamp. Headline visible at 40, description often hidden.",
+    placementId: "linkedin-single-image",
+    presetCopy: {
+      primary: "B2B audiences scroll fast. LinkedIn Sponsored Content shows roughly 150 characters of intro text before the See more clamp — write the value prop in the first sentence.",
+      headline: "Land the offer in the first 40 chars",
+      description: "Description often hidden",
+    },
+    related: ["linkedin/video-ad-character-limits", "linkedin/carousel-character-limits", "compare/linkedin-vs-meta-feed"],
+    category: "linkedin",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "linkedin/video-ad-character-limits",
+    title: "LinkedIn Video Ad Character Limits",
+    description: "LinkedIn video ads allow 700 characters of intro text but only ~150 visible. Headlines cap at 70 with ~50 visible on mobile.",
+    placementId: "linkedin-video",
+    presetCopy: {
+      primary: "Video ads on LinkedIn allow 700 characters of intro text — but only ~150 show before See more. Front-load the metric, front-load the offer.",
+      headline: "Hook the scroll in the first 50 characters",
+    },
+    related: ["linkedin/single-image-character-limits-2026", "linkedin/document-ad-character-limits", "compare/linkedin-video-vs-meta-video"],
+    category: "linkedin",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "linkedin/carousel-character-limits",
+    title: "LinkedIn Carousel Ad Character Limits",
+    description: "LinkedIn Carousel ads cap intro text at 255 chars (visible 150) and per-card headlines at 45 chars max. Tighter than Meta carousel.",
+    placementId: "linkedin-carousel",
+    presetCopy: {
+      primary: "LinkedIn Carousel ads cap intro at 255 chars — Meta lets you write 500. Plan tighter.",
+      headline: "Each card needs a 45-char hook",
+    },
+    related: ["linkedin/single-image-character-limits-2026", "linkedin/document-ad-character-limits", "compare/linkedin-vs-meta-feed"],
+    category: "linkedin",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "linkedin/document-ad-character-limits",
+    title: "LinkedIn Document Ad Character Limits",
+    description: "Document ads (lead-gating PDFs) cap intro text at 150 chars total — among the tightest on LinkedIn. The headline does the persuasion work.",
+    placementId: "linkedin-document",
+    presetCopy: {
+      primary: "Document ads only allow 150 chars of intro text total. The PDF preview is the hook.",
+      headline: "Headline carries the offer",
+    },
+    related: ["linkedin/single-image-character-limits-2026", "linkedin/lead-gen-form-strategy", "linkedin/carousel-character-limits"],
+    category: "linkedin",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "linkedin/message-vs-conversation-ads",
+    title: "LinkedIn Message vs Conversation Ads — Character Limits",
+    description: "Message ads send a single InMail with 1500-char body and one CTA. Conversation ads use multiple choice CTAs (max 5 buttons, 25 chars each).",
+    placementId: "linkedin-message",
+    presetCopy: {
+      primary: "Message ads = single 1500-char InMail with one CTA. Conversation ads = branching choices, each 25-char button max.",
+      headline: "Subject line: 40 chars visible",
+      description: "CTA: 20 chars",
+    },
+    related: ["linkedin/single-image-character-limits-2026", "linkedin/lead-gen-form-strategy", "compare/linkedin-vs-meta-feed"],
+    category: "linkedin",
+    publishedAt: "2026-04-15",
+  },
+
+  // ────────────── X (3) ──────────────
+  {
+    slug: "x/promoted-post-character-limits-2026",
+    title: "X Promoted Post Character Limits (2026)",
+    description: "X Promoted Posts use the standard 280-char body. Premium/X Verified accounts get 4000 chars but only the first 280 typically render in-feed.",
+    placementId: "x-promoted-tweet",
+    presetCopy: {
+      primary: "X clips Promoted Posts at 280 visible chars in-feed even when Premium accounts allow 4,000 — assume 280 always.",
+      headline: "Card headline: 50 chars visible",
+    },
+    related: ["x/vertical-video-ad-character-limits", "x/amplify-pre-roll-character-limits", "compare/x-vs-tiktok-character-limits"],
+    category: "x",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "x/vertical-video-ad-character-limits",
+    title: "X Vertical Video Ad Character Limits",
+    description: "X vertical video ads (For You feed) clip post text at ~100 chars to leave room for the right-rail engagement column. Display name visible at 30 chars.",
+    placementId: "x-vertical-video",
+    presetCopy: {
+      primary: "X vertical video clips post text at ~100 chars on the bottom-left. Right-rail engagement icons cover the right 14%.",
+      headline: "@brand · Ad",
+    },
+    related: ["x/promoted-post-character-limits-2026", "compare/x-vs-tiktok-character-limits", "compare/x-vertical-vs-youtube-shorts"],
+    category: "x",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "x/amplify-pre-roll-character-limits",
+    title: "X Amplify Pre-Roll Character Limits",
+    description: "Amplify pre-roll runs 6-15 seconds before partner publisher video. Companion post text caps at 280 chars with skip enabled by default.",
+    placementId: "x-amplify-preroll",
+    presetCopy: {
+      primary: "Amplify pre-roll = 6–15s video before partner content. 280-char companion post still applies.",
+      headline: "@brand · Ad",
+    },
+    related: ["x/promoted-post-character-limits-2026", "x/vertical-video-ad-character-limits", "compare/x-vs-youtube-pre-roll"],
+    category: "x",
+    publishedAt: "2026-04-15",
+  },
+
+  // ────────────── YouTube (5) ──────────────
+  {
+    slug: "youtube/skippable-in-stream-character-limits",
+    title: "YouTube Skippable In-Stream Ad Character Limits",
+    description: "YouTube skippable in-stream ads use a companion banner: long headline ~45 chars visible, description ~60. Skip enables after 5s.",
+    placementId: "youtube-skippable-instream",
+    presetCopy: {
+      headline: "Skip arrives after 5 seconds",
+      description: "60-char companion description",
+    },
+    related: ["youtube/bumper-ad-character-limits", "youtube/shorts-ad-character-limits", "compare/youtube-vs-meta-video"],
+    category: "youtube",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "youtube/bumper-ad-character-limits",
+    title: "YouTube Bumper Ad Character Limits",
+    description: "Bumper ads run 6 seconds, non-skippable. Headline space is tight — only ~30 visible characters in the companion overlay.",
+    placementId: "youtube-bumper",
+    presetCopy: {
+      headline: "6 seconds. 30 visible chars.",
+    },
+    related: ["youtube/skippable-in-stream-character-limits", "youtube/shorts-ad-character-limits", "compare/youtube-bumper-vs-meta-stories"],
+    category: "youtube",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "youtube/shorts-ad-character-limits-2026",
+    title: "YouTube Shorts Ad Character Limits (2026)",
+    description: "YouTube Shorts ads inherit organic Shorts UI: right-rail icons cover 14% of the screen, channel info covers the bottom-left, description clips at ~60 chars.",
+    placementId: "youtube-shorts",
+    presetCopy: {
+      primary: "Shorts ads clip description at ~60 chars. Right-rail icons cover the right 14%. Channel block covers bottom-left.",
+      headline: "@brand · Sponsored",
+    },
+    related: ["youtube/skippable-in-stream-character-limits", "youtube/bumper-ad-character-limits", "compare/youtube-shorts-vs-tiktok-in-feed"],
+    category: "youtube",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "youtube/in-feed-video-character-limits",
+    title: "YouTube In-Feed Video Ad Character Limits",
+    description: "In-Feed Video Ads (formerly Discovery) use a 100-char long headline (~40 visible) plus two 35-char description lines. The thumbnail does the heavy lifting.",
+    placementId: "youtube-discovery",
+    presetCopy: {
+      headline: "Long headline 100 chars total, 40 visible",
+      primary: "Description line 1 — 35 chars",
+      description: "Description line 2 — 35 chars",
+    },
+    related: ["youtube/skippable-in-stream-character-limits", "youtube/masthead-character-limits", "compare/youtube-vs-meta-video"],
+    category: "youtube",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "youtube/masthead-character-limits",
+    title: "YouTube Masthead Ad Character Limits",
+    description: "YouTube Masthead is reservation inventory on the homepage. Long headline up to 90 chars (~40 visible) plus 70-char description (50 visible).",
+    placementId: "youtube-masthead",
+    presetCopy: {
+      headline: "Reservation inventory: 40 visible headline chars",
+      primary: "50-char description rolls under the autoplay video.",
+    },
+    related: ["youtube/in-feed-video-character-limits", "youtube/skippable-in-stream-character-limits", "compare/youtube-vs-meta-video"],
+    category: "youtube",
+    publishedAt: "2026-04-15",
+  },
+
+  // ────────────── Pinterest (4) ──────────────
+  {
+    slug: "pinterest/standard-pin-ad-character-limits",
+    title: "Pinterest Standard Pin Ad Character Limits",
+    description: "Pinterest Standard Pin Ads cap title at 100 chars (~40 visible) and description at 800 chars (~50 visible on mobile). The image is the hook.",
+    placementId: "pinterest-standard-pin",
+    presetCopy: {
+      headline: "Pin titles: 40 chars visible",
+      primary: "Description allows 800 chars total but only the first ~50 show on mobile feed before truncation.",
+    },
+    related: ["pinterest/video-pin-character-limits", "pinterest/idea-ad-character-limits", "pinterest/carousel-character-limits"],
+    category: "pinterest",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "pinterest/video-pin-character-limits",
+    title: "Pinterest Video Pin Ad Character Limits",
+    description: "Video Pin ads share Standard Pin limits: 100-char title (40 visible), 800-char description (~50 visible). Auto-play in-feed without sound.",
+    placementId: "pinterest-video-pin",
+    presetCopy: {
+      headline: "Video Pin: 40-char title window",
+      primary: "Auto-play in-feed without sound — captions matter.",
+    },
+    related: ["pinterest/standard-pin-ad-character-limits", "pinterest/idea-ad-character-limits", "compare/pinterest-vs-instagram-feed"],
+    category: "pinterest",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "pinterest/idea-ad-character-limits",
+    title: "Pinterest Idea Ad Character Limits",
+    description: "Idea Ads are multi-page (3-20 pages) with per-page text overlay capped at 100 visible chars. Title: 100 chars total, 40 visible.",
+    placementId: "pinterest-idea",
+    presetCopy: {
+      headline: "Idea Ads: 40-char title window",
+      primary: "Per-page overlay text clips at ~100 chars. Plan each page like a story panel.",
+    },
+    related: ["pinterest/standard-pin-ad-character-limits", "pinterest/video-pin-character-limits", "compare/pinterest-idea-vs-instagram-stories"],
+    category: "pinterest",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "pinterest/carousel-character-limits",
+    title: "Pinterest Carousel Ad Character Limits",
+    description: "Pinterest Carousel ads run 2-5 cards. Each card has its own title (100 chars / 40 visible) and description (800 / ~50 visible).",
+    placementId: "pinterest-carousel",
+    presetCopy: {
+      headline: "Card titles: 40 visible",
+      primary: "Per-card description clips at ~50 chars on mobile feed.",
+    },
+    related: ["pinterest/standard-pin-ad-character-limits", "pinterest/idea-ad-character-limits", "meta/facebook-carousel-character-limits"],
+    category: "pinterest",
+    publishedAt: "2026-04-15",
+  },
+
+  // ────────────── Reddit (3) ──────────────
+  {
+    slug: "reddit/promoted-post-character-limits",
+    title: "Reddit Promoted Post Character Limits",
+    description: "Reddit Promoted Posts cap titles at 300 chars (~70 visible mobile feed). Body text varies by post type — usually invisible on feed.",
+    placementId: "reddit-promoted-post",
+    presetCopy: {
+      headline: "Reddit titles: 70 chars visible on mobile feed",
+      primary: "Body text appears after tap — title carries the entire feed-stage hook.",
+    },
+    related: ["reddit/conversation-ad-character-limits", "reddit/free-form-ad-character-limits", "compare/reddit-vs-x-promoted-post"],
+    category: "reddit",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "reddit/conversation-ad-character-limits",
+    title: "Reddit Conversation Ad Character Limits",
+    description: "Conversation ads place a sponsored top-comment-style post under organic threads. Title 70 visible chars; first-comment body ~150 visible chars.",
+    placementId: "reddit-conversation",
+    presetCopy: {
+      headline: "Title: 70 chars visible",
+      primary: "First-comment body: ~150 visible chars before clamp.",
+    },
+    related: ["reddit/promoted-post-character-limits", "reddit/free-form-ad-character-limits", "compare/reddit-vs-x-promoted-post"],
+    category: "reddit",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "reddit/free-form-ad-character-limits",
+    title: "Reddit Free-Form Ad Character Limits",
+    description: "Free-Form ads support up to 4000 chars of rich body text but show ~200 chars on the feed before truncation. Title cap is 300 / 70 visible.",
+    placementId: "reddit-free-form",
+    presetCopy: {
+      headline: "Free-Form titles: 70 chars visible",
+      primary: "Body allows 4000 chars total — feed clamps at ~200 visible.",
+    },
+    related: ["reddit/promoted-post-character-limits", "reddit/conversation-ad-character-limits", "guides/why-ads-get-truncated"],
+    category: "reddit",
+    publishedAt: "2026-04-15",
+  },
+
+  // ────────────── Snapchat (4) ──────────────
+  {
+    slug: "snapchat/single-image-video-character-limits",
+    title: "Snapchat Single Image / Video Ad Character Limits",
+    description: "Snapchat Single Image / Video ads cap brand name at 25 chars and headline at 34 chars — among the tightest text limits in social.",
+    placementId: "snap-single-image-video",
+    presetCopy: {
+      headline: "Brand: 25 chars",
+      primary: "Headline: 34 chars max",
+    },
+    related: ["snapchat/story-ad-character-limits", "snapchat/spotlight-ad-character-limits", "snapchat/collection-ad-character-limits"],
+    category: "snapchat",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "snapchat/story-ad-character-limits",
+    title: "Snapchat Story Ad Character Limits",
+    description: "Story Ads run 3-20 snaps tiled on the Discover surface. Tile headline 34 chars, brand 25 chars. Per-snap text overlays use the same limits.",
+    placementId: "snap-story-ad",
+    presetCopy: {
+      headline: "Discover tile: 25-char brand",
+      primary: "Tile headline: 34-char clamp",
+    },
+    related: ["snapchat/single-image-video-character-limits", "snapchat/spotlight-ad-character-limits", "compare/snapchat-vs-tiktok-character-limits"],
+    category: "snapchat",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "snapchat/spotlight-ad-character-limits",
+    title: "Snapchat Spotlight Ad Character Limits",
+    description: "Spotlight is Snapchat's TikTok-style vertical feed. Caption clips at ~60 visible chars; display name at 25 chars.",
+    placementId: "snap-spotlight",
+    presetCopy: {
+      headline: "@brand · Sponsored",
+      primary: "Spotlight clips caption at ~60 chars — front-load the hook.",
+    },
+    related: ["snapchat/single-image-video-character-limits", "snapchat/story-ad-character-limits", "compare/snapchat-vs-tiktok-character-limits"],
+    category: "snapchat",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "snapchat/collection-ad-character-limits",
+    title: "Snapchat Collection Ad Character Limits",
+    description: "Collection ads pair a hero snap with 4 product tiles. Hero uses Single Image limits — 25-char brand + 34-char headline.",
+    placementId: "snap-collection",
+    presetCopy: {
+      headline: "Brand: 25 chars",
+      primary: "Headline: 34-char clamp; tiles do the catalog work",
+    },
+    related: ["snapchat/single-image-video-character-limits", "snapchat/story-ad-character-limits", "tiktok/shop-ads-character-limits"],
+    category: "snapchat",
+    publishedAt: "2026-04-15",
+  },
+
+  // ────────────── Cross-platform comparisons (8) ──────────────
+  {
+    slug: "compare/linkedin-vs-meta-feed",
+    title: "LinkedIn Sponsored Content vs Meta Feed",
+    description: "LinkedIn shows ~150 chars of intro text vs Meta's 125. Headline visibility is similar (40 chars). LinkedIn's audience reads more.",
+    placementId: "linkedin-single-image",
+    presetCopy: {
+      primary: "LinkedIn = 150 visible intro. Meta = 125 visible primary. LinkedIn audiences read more before bouncing.",
+      headline: "Different ceilings, same discipline",
+    },
+    related: ["linkedin/single-image-character-limits-2026", "meta/facebook-feed-character-limits-2026", "compare/linkedin-video-vs-meta-video"],
+    category: "compare",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "compare/linkedin-video-vs-meta-video",
+    title: "LinkedIn Video vs Meta Video Character Limits",
+    description: "LinkedIn video allows 700 chars of intro (150 visible). Meta video uses Feed primary (500 / 125 visible). LinkedIn rewards longer thought-leadership intros.",
+    placementId: "linkedin-video",
+    presetCopy: {
+      primary: "LinkedIn video: 700 chars / 150 visible. Meta video: 500 / 125. LinkedIn rewards longer intros.",
+      headline: "Longer intros, same rules",
+    },
+    related: ["linkedin/video-ad-character-limits", "meta/facebook-video-ad-character-limits", "compare/linkedin-vs-meta-feed"],
+    category: "compare",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "compare/x-vs-tiktok-character-limits",
+    title: "X vs TikTok — Caption Character Limits",
+    description: "X Promoted Posts cap at 280 chars. TikTok captions allow 2,200 but visible cuts at ~100. Different math, similar attention budgets.",
+    placementId: "x-promoted-tweet",
+    presetCopy: {
+      primary: "X: 280 hard cap. TikTok: 2,200 hard / 100 visible. Both give you ~100 chars to land the hook.",
+      headline: "@brand · Ad",
+    },
+    related: ["x/promoted-post-character-limits-2026", "tiktok/in-feed-ad-character-limits-2026", "compare/x-vertical-vs-youtube-shorts"],
+    category: "compare",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "compare/x-vertical-vs-youtube-shorts",
+    title: "X Vertical Video vs YouTube Shorts",
+    description: "Both are 9:16 vertical with right-rail engagement icons. X clips post text at ~100 chars; YouTube clips description at ~60 chars. YT Shorts is tighter.",
+    placementId: "x-vertical-video",
+    presetCopy: {
+      primary: "X vertical: 100 visible chars. YouTube Shorts: 60 visible. Same canvas, different clamps.",
+      headline: "@brand",
+    },
+    related: ["x/vertical-video-ad-character-limits", "youtube/shorts-ad-character-limits-2026", "compare/youtube-shorts-vs-tiktok-in-feed"],
+    category: "compare",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "compare/x-vs-youtube-pre-roll",
+    title: "X Amplify vs YouTube Skippable In-Stream",
+    description: "Amplify runs 6-15s on partner publisher video. YouTube skippable enables skip after 5s and runs up to 3 minutes. Different ceilings.",
+    placementId: "x-amplify-preroll",
+    presetCopy: {
+      primary: "Amplify: 6–15s. YouTube skippable: skip at 5s, up to 3 min total. Different runtime budgets.",
+      headline: "@brand · Ad",
+    },
+    related: ["x/amplify-pre-roll-character-limits", "youtube/skippable-in-stream-character-limits", "youtube/bumper-ad-character-limits"],
+    category: "compare",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "compare/youtube-shorts-vs-tiktok-in-feed",
+    title: "YouTube Shorts vs TikTok In-Feed",
+    description: "Both 9:16, both right-rail engagement, both bottom CTA. TikTok clips caption at 100 chars; Shorts clips description at 60. Plan the tighter clamp.",
+    placementId: "youtube-shorts",
+    presetCopy: {
+      primary: "TikTok In-Feed: 100 visible. YouTube Shorts: 60 visible. Plan to YouTube's tighter ceiling.",
+      headline: "@brand · Sponsored",
+    },
+    related: ["youtube/shorts-ad-character-limits-2026", "tiktok/in-feed-ad-character-limits-2026", "compare/x-vertical-vs-youtube-shorts"],
+    category: "compare",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "compare/youtube-vs-meta-video",
+    title: "YouTube Skippable vs Meta Reels — Where Does the Hook Go?",
+    description: "YouTube companion banner shows 45 visible headline chars; Meta Reels primary text shows 72 visible. Different mental models.",
+    placementId: "youtube-skippable-instream",
+    presetCopy: {
+      headline: "45 visible companion chars",
+      description: "60-char description tier",
+    },
+    related: ["youtube/skippable-in-stream-character-limits", "meta/facebook-reels-safe-zones", "compare/youtube-shorts-vs-tiktok-in-feed"],
+    category: "compare",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "compare/youtube-bumper-vs-meta-stories",
+    title: "YouTube Bumper vs Meta Stories — Six-Second Ad Math",
+    description: "Bumper ads run 6 seconds. Stories slots run 6 seconds typical. Both reward visual brevity. Comparison + 30-char rule of thumb.",
+    placementId: "youtube-bumper",
+    presetCopy: {
+      headline: "Six seconds, 30 visible chars",
+    },
+    related: ["youtube/bumper-ad-character-limits", "meta/instagram-stories-character-limits", "guides/ad-copy-mobile-first-checklist"],
+    category: "compare",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "compare/pinterest-vs-instagram-feed",
+    title: "Pinterest Pin Ad vs Instagram Feed",
+    description: "Pinterest pins favor 2:3 vertical; Instagram Feed favors 1:1 square. Pinterest titles clip at 40 visible; Instagram primary clips at 125.",
+    placementId: "pinterest-standard-pin",
+    presetCopy: {
+      headline: "Pinterest titles: 40 visible",
+      primary: "Instagram primary: 125 visible. Different shapes, different clamps.",
+    },
+    related: ["pinterest/standard-pin-ad-character-limits", "meta/instagram-feed-ad-character-limits", "compare/pinterest-idea-vs-instagram-stories"],
+    category: "compare",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "compare/pinterest-idea-vs-instagram-stories",
+    title: "Pinterest Idea Ad vs Instagram Stories",
+    description: "Both are multi-page vertical formats. Pinterest Idea allows 100 visible per-page chars; Instagram Stories caps primary at 90 visible.",
+    placementId: "pinterest-idea",
+    presetCopy: {
+      headline: "Pinterest Idea: 40-char title",
+      primary: "Per-page overlay clips at ~100 chars. Stories at 90.",
+    },
+    related: ["pinterest/idea-ad-character-limits", "meta/instagram-stories-character-limits", "compare/pinterest-vs-instagram-feed"],
+    category: "compare",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "compare/reddit-vs-x-promoted-post",
+    title: "Reddit Promoted Post vs X Promoted Post",
+    description: "Reddit titles run up to 300 chars (70 visible). X bodies cap at 280 chars total. Reddit's headline carries more, X's body carries the offer.",
+    placementId: "reddit-promoted-post",
+    presetCopy: {
+      headline: "Reddit titles: 70 visible",
+      primary: "X bodies cap at 280. Reddit titles at 300, but only 70 show in feed.",
+    },
+    related: ["reddit/promoted-post-character-limits", "x/promoted-post-character-limits-2026", "guides/why-ads-get-truncated"],
+    category: "compare",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "compare/snapchat-vs-tiktok-character-limits",
+    title: "Snapchat vs TikTok — Character Limits Compared",
+    description: "Snapchat caps headline at 34 chars total. TikTok In-Feed clips caption at 100 visible. Snapchat is the tightest mainstream ad text platform.",
+    placementId: "snap-spotlight",
+    presetCopy: {
+      headline: "Snapchat: 34-char headline",
+      primary: "TikTok: 100 visible caption. Snapchat is tighter than every TikTok placement.",
+    },
+    related: ["snapchat/single-image-video-character-limits", "tiktok/in-feed-ad-character-limits-2026", "snapchat/spotlight-ad-character-limits"],
+    category: "compare",
+    publishedAt: "2026-04-15",
+  },
+
+  // ────────────── Guide for the new platforms ──────────────
+  {
+    slug: "linkedin/lead-gen-form-strategy",
+    title: "LinkedIn Lead Gen Form Strategy",
+    description: "Lead Gen Form ads inherit Sponsored Content character limits and add a pre-filled form. Each field counts against engagement — keep it under 5 fields.",
+    placementId: "linkedin-single-image",
+    presetCopy: {
+      primary: "Lead Gen Form ads inherit Sponsored Content limits. Each form field costs you a fraction of completion rate.",
+      headline: "Keep the form under 5 fields",
+    },
+    related: ["linkedin/single-image-character-limits-2026", "linkedin/document-ad-character-limits", "linkedin/message-vs-conversation-ads"],
+    category: "linkedin",
+    publishedAt: "2026-04-15",
+  },
+  {
+    slug: "guides/which-platform-for-which-niche",
+    title: "Which Ad Platform For Which Niche?",
+    description: "B2B → LinkedIn. Visual commerce → Pinterest + Instagram. Vertical video → TikTok + YouTube Shorts + Spotlight. Community → Reddit. Quick-decision matrix.",
+    placementId: "linkedin-single-image",
+    presetCopy: {
+      primary: "B2B → LinkedIn. Visual commerce → Pinterest + IG. Vertical video → TikTok / Shorts / Spotlight. Community → Reddit.",
+      headline: "Pick the surface, then the spec",
+    },
+    related: ["compare/linkedin-vs-meta-feed", "compare/youtube-shorts-vs-tiktok-in-feed", "compare/pinterest-vs-instagram-feed"],
+    category: "guides",
     publishedAt: "2026-04-15",
   },
 ];

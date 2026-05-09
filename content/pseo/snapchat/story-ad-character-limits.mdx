@@ -1,0 +1,38 @@
+Snapchat Story Ads run as a multi-snap collection (3 to 20 snaps) that lives on the Discover surface — Snapchat's curated content tab. Users tap a tile on Discover to enter the story, and the brand's snaps play sequentially with skip-between-snaps available. Brand name on the tile is capped at 25 characters; tile headline at 34 characters. Each individual snap inside the story has its own text-overlay budget tied to creative design (no platform-enforced caption limit on the snap content itself, but text overlays are capped at 250 chars in the editor).
+
+The Discover-tile chrome covers the top 14% of the screen with the tile's brand and headline rendered over the cover snap. Plan creative with the central 72% as the safe canvas, mirroring the Stories pattern from Instagram and Facebook.
+
+<SimulatorPreset
+  placementId="snap-story-ad"
+  presetCopy={{
+    headline: "Discover tile: 25-char brand",
+    primary: "Tile headline: 34-char clamp",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="snap-story-ad" />
+
+## Snap count optimization
+
+Story Ads with 3-5 snaps have the highest completion rate. Story Ads with 10+ snaps lose roughly 15% completion per additional snap past 5. Plan tight; expand only if the narrative requires it.
+
+<FAQ
+  items={[
+    {
+      q: "How many snaps can a Story Ad have?",
+      a: "Between 3 and 20. The 3-5 range maximizes completion rate.",
+    },
+    {
+      q: "Where do Story Ads appear?",
+      a: "On the Discover surface, alongside curated Snapchat publisher content. Story Ads do not run inline in user-to-user story chains.",
+    },
+    {
+      q: "Can a Story Ad include a Lens?",
+      a: "Not directly. Lenses are a separate ad product (AR Lens Ads). Story Ads are static-snap or video-snap collections.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["snapchat/single-image-video-character-limits", "snapchat/spotlight-ad-character-limits", "compare/snapchat-vs-tiktok-character-limits"]} />

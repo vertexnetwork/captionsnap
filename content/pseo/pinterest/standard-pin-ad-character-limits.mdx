@@ -1,0 +1,38 @@
+Pinterest Standard Pin Ads are the platform's default format: a single 2:3 vertical image with a title and description rendered below. The title field allows up to 100 characters but only the first ~40 render on mobile feed before truncation by the bottom CTA strip. The description allows up to 800 characters but the visible window on mobile is roughly 50 characters before "...more" — desktop is more generous at ~200 visible characters.
+
+Pinterest's strategic constraint is the inverse of every other social platform: the image does the entire selling job. Pinterest users are in active "save for later" mode, not feed-scroll-and-react mode. The text fields exist for SEO and rich-results matching, not for in-feed copy persuasion. Plan the title as a search-optimized keyword phrase and the description as a paragraph of long-tail keywords — visitors who tap into the pin detail view will read more than visitors anywhere else.
+
+<SimulatorPreset
+  placementId="pinterest-standard-pin"
+  presetCopy={{
+    headline: "Pin titles: 40 chars visible",
+    primary: "Description allows 800 chars total but only the first ~50 show on mobile feed before truncation.",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="pinterest-standard-pin" />
+
+## SEO-driven copy
+
+Pinterest is closer to a search engine than a social feed in user intent. Title text functions as the keyword phrase; description functions as the long-form keyword body. Generic copy like "Beautiful sweater for fall" is wasted; specific copy like "Cream merino crew neck sweater for fall under $80" hits multiple search clusters.
+
+<FAQ
+  items={[
+    {
+      q: "What aspect ratio do Pinterest Standard Pin Ads use?",
+      a: "2:3 vertical (1000×1500 px is the standard upload). Other ratios are accepted but render with letterboxing.",
+    },
+    {
+      q: "How long is the description on Pinterest mobile?",
+      a: "About 50 visible characters before \"...more\" truncation on mobile feed. Desktop is closer to 200 visible.",
+    },
+    {
+      q: "Are Pinterest Pin Ads searchable?",
+      a: "Yes. Pin Ads are indexed for both Pinterest internal search and Google's image search. Title + description matter for rich-results.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["pinterest/video-pin-character-limits", "pinterest/idea-ad-character-limits", "pinterest/carousel-character-limits"]} />

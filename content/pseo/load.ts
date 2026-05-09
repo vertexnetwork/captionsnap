@@ -72,6 +72,60 @@ const loaders: Record<string, () => Promise<MdxModule>> = {
   "glossary/see-more-cutoff": () => import("./glossary/see-more-cutoff.mdx"),
   "glossary/aspect-ratio-9-16": () => import("./glossary/aspect-ratio-9-16.mdx"),
   "glossary/utm-character-cost": () => import("./glossary/utm-character-cost.mdx"),
+
+  // LinkedIn
+  "linkedin/single-image-character-limits-2026": () => import("./linkedin/single-image-character-limits-2026.mdx"),
+  "linkedin/video-ad-character-limits": () => import("./linkedin/video-ad-character-limits.mdx"),
+  "linkedin/carousel-character-limits": () => import("./linkedin/carousel-character-limits.mdx"),
+  "linkedin/document-ad-character-limits": () => import("./linkedin/document-ad-character-limits.mdx"),
+  "linkedin/message-vs-conversation-ads": () => import("./linkedin/message-vs-conversation-ads.mdx"),
+  "linkedin/lead-gen-form-strategy": () => import("./linkedin/lead-gen-form-strategy.mdx"),
+
+  // X
+  "x/promoted-post-character-limits-2026": () => import("./x/promoted-post-character-limits-2026.mdx"),
+  "x/vertical-video-ad-character-limits": () => import("./x/vertical-video-ad-character-limits.mdx"),
+  "x/amplify-pre-roll-character-limits": () => import("./x/amplify-pre-roll-character-limits.mdx"),
+
+  // YouTube
+  "youtube/skippable-in-stream-character-limits": () => import("./youtube/skippable-in-stream-character-limits.mdx"),
+  "youtube/bumper-ad-character-limits": () => import("./youtube/bumper-ad-character-limits.mdx"),
+  "youtube/shorts-ad-character-limits-2026": () => import("./youtube/shorts-ad-character-limits-2026.mdx"),
+  "youtube/in-feed-video-character-limits": () => import("./youtube/in-feed-video-character-limits.mdx"),
+  "youtube/masthead-character-limits": () => import("./youtube/masthead-character-limits.mdx"),
+
+  // Pinterest
+  "pinterest/standard-pin-ad-character-limits": () => import("./pinterest/standard-pin-ad-character-limits.mdx"),
+  "pinterest/video-pin-character-limits": () => import("./pinterest/video-pin-character-limits.mdx"),
+  "pinterest/idea-ad-character-limits": () => import("./pinterest/idea-ad-character-limits.mdx"),
+  "pinterest/carousel-character-limits": () => import("./pinterest/carousel-character-limits.mdx"),
+
+  // Reddit
+  "reddit/promoted-post-character-limits": () => import("./reddit/promoted-post-character-limits.mdx"),
+  "reddit/conversation-ad-character-limits": () => import("./reddit/conversation-ad-character-limits.mdx"),
+  "reddit/free-form-ad-character-limits": () => import("./reddit/free-form-ad-character-limits.mdx"),
+
+  // Snapchat
+  "snapchat/single-image-video-character-limits": () => import("./snapchat/single-image-video-character-limits.mdx"),
+  "snapchat/story-ad-character-limits": () => import("./snapchat/story-ad-character-limits.mdx"),
+  "snapchat/spotlight-ad-character-limits": () => import("./snapchat/spotlight-ad-character-limits.mdx"),
+  "snapchat/collection-ad-character-limits": () => import("./snapchat/collection-ad-character-limits.mdx"),
+
+  // Cross-platform compare (new)
+  "compare/linkedin-vs-meta-feed": () => import("./compare/linkedin-vs-meta-feed.mdx"),
+  "compare/linkedin-video-vs-meta-video": () => import("./compare/linkedin-video-vs-meta-video.mdx"),
+  "compare/x-vs-tiktok-character-limits": () => import("./compare/x-vs-tiktok-character-limits.mdx"),
+  "compare/x-vertical-vs-youtube-shorts": () => import("./compare/x-vertical-vs-youtube-shorts.mdx"),
+  "compare/x-vs-youtube-pre-roll": () => import("./compare/x-vs-youtube-pre-roll.mdx"),
+  "compare/youtube-shorts-vs-tiktok-in-feed": () => import("./compare/youtube-shorts-vs-tiktok-in-feed.mdx"),
+  "compare/youtube-vs-meta-video": () => import("./compare/youtube-vs-meta-video.mdx"),
+  "compare/youtube-bumper-vs-meta-stories": () => import("./compare/youtube-bumper-vs-meta-stories.mdx"),
+  "compare/pinterest-vs-instagram-feed": () => import("./compare/pinterest-vs-instagram-feed.mdx"),
+  "compare/pinterest-idea-vs-instagram-stories": () => import("./compare/pinterest-idea-vs-instagram-stories.mdx"),
+  "compare/reddit-vs-x-promoted-post": () => import("./compare/reddit-vs-x-promoted-post.mdx"),
+  "compare/snapchat-vs-tiktok-character-limits": () => import("./compare/snapchat-vs-tiktok-character-limits.mdx"),
+
+  // New cross-platform guide
+  "guides/which-platform-for-which-niche": () => import("./guides/which-platform-for-which-niche.mdx"),
 };
 
 export async function loadPseoMdx(slug: string): Promise<ComponentType | null> {

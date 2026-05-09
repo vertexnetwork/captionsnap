@@ -1,0 +1,36 @@
+YouTube Bumper and Meta Stories represent two different approaches to the 6-second ad slot. Bumper is non-skippable in-stream pre-roll on YouTube; Stories is in-line full-screen interruption on Instagram and Facebook. Both are 6 seconds typical. Both reward visual brevity. The text economics, however, are wildly different.
+
+Bumper exposes a single headline (90 chars max, ~30 visible on the bottom-overlay strip). No description. No body. The 30-character window functions as a tagline.
+
+Meta Stories exposes 90-char primary text (visible) + 30-char headline. That's effectively 4x the text budget of Bumper, plus a Stories-native sticker CTA. Stories rewards in-creative composed text overlays; Bumper rewards no-text-needed visuals.
+
+<SimulatorPreset
+  placementId="youtube-bumper"
+  presetCopy={{
+    headline: "Six seconds, 30 visible chars",
+  }}
+/>
+
+## Side-by-side specs
+
+<SpecTable placementId="youtube-bumper" />
+<SpecTable placementId="meta-instagram-stories" />
+
+<FAQ
+  items={[
+    {
+      q: "Which is better for brand recall?",
+      a: "Both are recall-optimized formats. YouTube Bumper has higher per-impression frequency (Reach Planner shows ~3-5x daily frequency vs Stories' 1-2x).",
+    },
+    {
+      q: "Can I run identical 6-second creative?",
+      a: "Yes, but Meta Stories rewards composed-into-creative text where Bumper rewards no-text visuals. Plan separate text-overlay strategies.",
+    },
+    {
+      q: "Are CPMs comparable?",
+      a: "YouTube Bumper CPMs typically run $4-8. Meta Stories CPMs run $5-12. Bumper is usually cheaper per impression, Stories more efficient per click.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["youtube/bumper-ad-character-limits", "meta/instagram-stories-character-limits", "guides/ad-copy-mobile-first-checklist"]} />

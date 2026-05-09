@@ -1,0 +1,37 @@
+Reddit Promoted Posts and X Promoted Posts are both feed-stage interruption formats with audiences that skew media-savvy and ad-resistant. They handle text differently in ways that matter for cross-platform creative.
+
+Reddit titles allow 300 chars (~70 visible on mobile feed). X bodies cap at 280 chars total. Reddit's title carries the entire feed-stage hook. X's body works as the full post — title concept doesn't really exist on X. The bottom card on link-attached X posts adds a 50-char visible headline; Reddit doesn't have an equivalent card-headline.
+
+Audience tone matters too. Reddit users actively downvote tone-deaf ads and surface them in r/AssholeDesign — that's free organic reach if the ad is good. X users mute or block. Reddit demands subreddit-tone matching; X demands brevity.
+
+<SimulatorPreset
+  placementId="reddit-promoted-post"
+  presetCopy={{
+    headline: "Reddit titles: 70 visible",
+    primary: "X bodies cap at 280. Reddit titles at 300, but only 70 show in feed.",
+  }}
+/>
+
+## Side-by-side specs
+
+<SpecTable placementId="reddit-promoted-post" />
+<SpecTable placementId="x-promoted-tweet" />
+
+<FAQ
+  items={[
+    {
+      q: "Which has lower CPM?",
+      a: "Reddit typically pulls $1-3 CPMs. X pulls $4-8. Reddit is materially cheaper per impression.",
+    },
+    {
+      q: "Which has higher engagement rate?",
+      a: "Reddit Promoted Posts in subreddit-tone-matched copy can pull 2-3x X's engagement rate. Off-tone Reddit ads pull half X's rate.",
+    },
+    {
+      q: "Are URLs counted differently?",
+      a: "Reddit shows URLs literally and counts every character. X counts URLs as 23 characters via t.co regardless of length.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["reddit/promoted-post-character-limits", "x/promoted-post-character-limits-2026", "guides/why-ads-get-truncated"]} />

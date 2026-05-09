@@ -1,0 +1,38 @@
+X's vertical video feed (the "For You" tab when entered via the video player) is X's answer to TikTok and YouTube Shorts. The format borrows the same UI vocabulary: a full-bleed 9:16 video, a right-side engagement column with reply/repost/like/bookmark icons, a username block at bottom-left, and a sponsored CTA strip across the very bottom. Post text on the video clips at roughly 100 visible characters before the "Show more" tap — significantly tighter than the 280-character body limit X uses everywhere else.
+
+The right-rail engagement column covers the right 14% of the screen from roughly 28% Y down to 82% Y, identical to TikTok's safe-zone footprint. Display name above the post text is capped at 50 characters with about 30 visible. If your creative has product detail on the right side of the frame (logos, price tags, packaging), expect the engagement column to cover it.
+
+<SimulatorPreset
+  placementId="x-vertical-video"
+  presetCopy={{
+    primary: "X vertical video clips post text at ~100 chars on the bottom-left. Right-rail engagement icons cover the right 14%.",
+    headline: "@brand · Ad",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="x-vertical-video" />
+
+## Why post text clips at 100 not 280
+
+The vertical video UI dedicates the entire bottom-left to caption and username, and the right-rail engagement column eats horizontal space. X chose the same 100-character clamp TikTok uses to keep the visible caption inside the safe canvas. Anything past character 100 is hidden behind a "Show more" tap that almost no one performs while watching vertical video.
+
+<FAQ
+  items={[
+    {
+      q: "How long can X vertical video ads be?",
+      a: "Up to 2 minutes 20 seconds (140 seconds). Most high-performing creatives are 6-15 seconds.",
+    },
+    {
+      q: "Is the 280-character body limit enforced on vertical video?",
+      a: "Yes at upload, but only ~100 chars are visible without tapping Show more. Plan to 100.",
+    },
+    {
+      q: "Does X vertical video autoplay with sound?",
+      a: "Sound-on autoplay is the default for users entering the vertical video feed via the video tab. Plan for sound on.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["x/promoted-post-character-limits-2026", "compare/x-vs-tiktok-character-limits", "compare/x-vertical-vs-youtube-shorts"]} />

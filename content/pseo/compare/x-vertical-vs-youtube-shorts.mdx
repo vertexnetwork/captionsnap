@@ -1,0 +1,37 @@
+X Vertical Video Ads and YouTube Shorts Ads use nearly identical UI vocabulary — full-bleed 9:16 video, right-rail engagement column, bottom-left username block, sponsored CTA strip — but with different visible caption windows.
+
+X Vertical Video clips post text at roughly 100 visible characters. YouTube Shorts clips description at roughly 60. The difference traces to the right-rail icon count: X has four icons (reply, repost, like, bookmark), YouTube has six (like, dislike, comment, share, remix, subscribe), so YouTube's UI claims more pixels for itself and leaves less for the caption.
+
+Plan to YouTube's tighter clamp when running cross-platform vertical video creative. A 60-character hook works on both; a 100-character X-optimized hook will get clipped on Shorts.
+
+<SimulatorPreset
+  placementId="x-vertical-video"
+  presetCopy={{
+    primary: "X vertical: 100 visible chars. YouTube Shorts: 60 visible. Same canvas, different clamps.",
+    headline: "@brand",
+  }}
+/>
+
+## Side-by-side specs
+
+<SpecTable placementId="x-vertical-video" />
+<SpecTable placementId="youtube-shorts" />
+
+<FAQ
+  items={[
+    {
+      q: "Are the safe zones identical between X Vertical and YouTube Shorts?",
+      a: "Nearly — both use the same right-rail footprint (14% × 54% from 28% Y to 82% Y) and bottom-left username block. The bottom CTA strip is similar.",
+    },
+    {
+      q: "Which platform has higher completion rate?",
+      a: "YouTube Shorts typically pulls 8-15% higher completion rate than X Vertical on identical creative, mostly due to YouTube's broader logged-in viewing context.",
+    },
+    {
+      q: "Should creative be identical?",
+      a: "The video can be identical but caption strategy must differ. Plan separate captions for each platform's visible clamp.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["x/vertical-video-ad-character-limits", "youtube/shorts-ad-character-limits-2026", "compare/youtube-shorts-vs-tiktok-in-feed"]} />

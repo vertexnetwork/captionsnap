@@ -1,0 +1,38 @@
+Reddit Conversation Ads place a sponsored post into the comments thread of a relevant organic post — the ad renders in the position of a top-comment, with the brand acting as the "u/" user. The format works because Reddit's audience reads comments more carefully than feeds; a well-written conversation ad reads like helpful first-party commentary rather than an interruption. Title caps remain at 300 chars (~70 visible). The body is more permissive on Conversation Ads than Promoted Posts: about 150 visible characters before clamp.
+
+The trade-off is creative effort. Conversation Ads do not work with generic ad copy. The brand voice has to match the subreddit tone, the body has to sound like it was written by a human who actually uses the product, and the CTA has to be earned. Done well, Conversation Ads pull engagement rates 2-3x typical Reddit Promoted Post rates.
+
+<SimulatorPreset
+  placementId="reddit-conversation"
+  presetCopy={{
+    headline: "Title: 70 chars visible",
+    primary: "First-comment body: ~150 visible chars before clamp.",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="reddit-conversation" />
+
+## Subreddit-tone matching
+
+Conversation Ads in r/PPC, r/marketing, r/sysadmin, and other professional subs reward technical detail. Conversation Ads in r/AskReddit, r/funny, and other casual subs reward humor and brevity. Cross-pollinating the wrong tone gets the ad downvoted into oblivion.
+
+<FAQ
+  items={[
+    {
+      q: "Where does a Reddit Conversation Ad render?",
+      a: "Inside the comments section of a relevant organic post, in the visual position of a top comment. The Promoted label is small but visible.",
+    },
+    {
+      q: "Can I target Conversation Ads to specific subreddits?",
+      a: "Yes. Subreddit-level targeting is the standard delivery mode. You can also exclude subreddits.",
+    },
+    {
+      q: "Does the body text show in full?",
+      a: "Approximately 150 visible characters before truncation. Tap the body to expand.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["reddit/promoted-post-character-limits", "reddit/free-form-ad-character-limits", "compare/reddit-vs-x-promoted-post"]} />

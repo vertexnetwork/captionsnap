@@ -1,0 +1,37 @@
+LinkedIn Video Ads and Meta Video Feed Ads share the same architectural pattern — autoplay video inside a vertical feed — but with different intro-text ceilings and reading expectations.
+
+LinkedIn Video allows 700 characters of intro text (Meta video uses Feed primary at 500 chars). Both clip at similar visible windows: LinkedIn at ~150 visible, Meta at 125. The 100-character LinkedIn headroom past the visible clamp matters because LinkedIn's audience taps "see more" at 2-3x Meta's rate on professional content.
+
+A second difference: LinkedIn's video autoplay is muted by default for sponsored content, and the platform reports that 80% of video impressions happen sound-off. Meta also defaults muted but with sound-on behavior more common when users actively engage. Both require closed captions for accessibility and comprehension parity.
+
+<SimulatorPreset
+  placementId="linkedin-video"
+  presetCopy={{
+    primary: "LinkedIn video: 700 chars / 150 visible. Meta video: 500 / 125. LinkedIn rewards longer intros.",
+    headline: "Longer intros, same rules",
+  }}
+/>
+
+## Side-by-side specs
+
+<SpecTable placementId="linkedin-video" />
+<SpecTable placementId="meta-facebook-feed" />
+
+<FAQ
+  items={[
+    {
+      q: "Which video format produces longer view duration?",
+      a: "Meta typically pulls higher absolute view counts at lower per-view depth. LinkedIn pulls fewer views with longer per-view duration on B2B content.",
+    },
+    {
+      q: "Should I caption my LinkedIn video?",
+      a: "Yes — sound-off impressions are 80% of LinkedIn video traffic. Captions are mandatory for full comprehension.",
+    },
+    {
+      q: "How long should B2B video creative be?",
+      a: "30-60 seconds is the sweet spot for both LinkedIn and Meta on B2B campaigns. Past 90 seconds completion rates collapse.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["linkedin/video-ad-character-limits", "meta/facebook-video-ad-character-limits", "compare/linkedin-vs-meta-feed"]} />

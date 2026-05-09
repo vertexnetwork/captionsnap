@@ -1,0 +1,38 @@
+LinkedIn Document Ads gate a multi-page PDF or whitepaper behind a Sponsored Content shell — viewers can flip through pages inside the feed and download the full asset (sometimes with a lead form gate). Among Sponsored Content formats, document ads have the tightest intro-text budget: just 150 characters total, with about 100 visible before clamp. The PDF preview itself is the hook. The headline still allows 70 characters with ~50 visible.
+
+The strategic implication is the inverse of single-image: instead of front-loading the value prop in intro text, document ads front-load it on the PDF cover page. The 100 visible characters of intro work better as a one-line tease ("12-page benchmark report — download the full data") than as a value-prop summary. The cover page does the rest.
+
+<SimulatorPreset
+  placementId="linkedin-document"
+  presetCopy={{
+    primary: "Document ads only allow 150 chars of intro text total. The PDF preview is the hook.",
+    headline: "Headline carries the offer",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="linkedin-document" />
+
+## Lead-gate vs no-gate
+
+Document ads support a download gate that captures lead-form data before the full PDF unlocks. Gated downloads pull lower CTRs (15–30% drop) but produce qualified leads. Ungated downloads optimize for brand-awareness reach.
+
+<FAQ
+  items={[
+    {
+      q: "What file types does a LinkedIn document ad support?",
+      a: "PDF, DOC, DOCX, PPT, and PPTX. Maximum file size is 100MB and 300 pages.",
+    },
+    {
+      q: "How many characters of intro text show on document ads?",
+      a: "About 100 visible before clamp on mobile feed. The hard cap is 150.",
+    },
+    {
+      q: "Does the lead-gen form increase qualification?",
+      a: "Yes — gating cuts top-of-funnel volume but increases SQL rate. For pure brand awareness, leave it ungated.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["linkedin/single-image-character-limits-2026", "linkedin/lead-gen-form-strategy", "linkedin/carousel-character-limits"]} />

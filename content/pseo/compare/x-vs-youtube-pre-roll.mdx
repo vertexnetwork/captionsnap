@@ -1,0 +1,39 @@
+X Amplify and YouTube Skippable In-Stream are both publisher-pre-roll formats, but the inventory and runtime models differ significantly.
+
+X Amplify runs against a curated publisher list (NFL, MLB, ESPN, Bloomberg, etc.) for 6-15 seconds before partner video. Skippable Amplify enables skip after 5 seconds. The companion post is a standard 280-character X post.
+
+YouTube Skippable In-Stream runs against any monetized YouTube content (4M+ creators) for up to 3 minutes. Skip enables after 5 seconds, but YouTube only bills on 30+ second views or click-through, so unwanted impressions are essentially free.
+
+The trade-off: X Amplify offers brand-safe premium placement at a 3-5x CPM premium. YouTube Skippable offers massive scale at lower CPMs but with broader inventory variability.
+
+<SimulatorPreset
+  placementId="x-amplify-preroll"
+  presetCopy={{
+    primary: "Amplify: 6–15s. YouTube skippable: skip at 5s, up to 3 min total. Different runtime budgets.",
+    headline: "@brand · Ad",
+  }}
+/>
+
+## Side-by-side specs
+
+<SpecTable placementId="x-amplify-preroll" />
+<SpecTable placementId="youtube-skippable-instream" />
+
+<FAQ
+  items={[
+    {
+      q: "Which has higher completion rate?",
+      a: "X Amplify typically pulls 90%+ completion on 6-second creative. YouTube Skippable averages 30-40% past the 5-second skip point on 30-60 second creative.",
+    },
+    {
+      q: "Are CPMs comparable?",
+      a: "X Amplify CPMs run 3-5x typical X CPMs (premium publisher inventory). YouTube Skippable runs at standard YouTube CPMs.",
+    },
+    {
+      q: "Which is better for brand awareness?",
+      a: "X Amplify wins on brand-safety and premium adjacency. YouTube Skippable wins on raw reach.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["x/amplify-pre-roll-character-limits", "youtube/skippable-in-stream-character-limits", "youtube/bumper-ad-character-limits"]} />

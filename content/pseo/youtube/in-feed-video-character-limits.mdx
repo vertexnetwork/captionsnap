@@ -1,0 +1,39 @@
+YouTube In-Feed Video Ads (formerly Discovery Ads) appear inside the YouTube search results, the home feed, and the related-videos rail. The format renders as a video thumbnail with text below — visually indistinguishable from organic search results except for a small "Ad" badge. The text bundle is structured: a long headline up to 100 chars (about 40 visible on mobile feed), and two description lines of 35 chars each that render below the headline.
+
+Because In-Feed ads compete head-to-head with organic search results, copy strategy looks more like SEO than display advertising. Lead the long headline with the search intent ("How to set up X" / "X reviews 2026" / "Best X for Y"). The two description lines work as a Q+A pair: line 1 = problem, line 2 = solution.
+
+<SimulatorPreset
+  placementId="youtube-discovery"
+  presetCopy={{
+    headline: "Long headline 100 chars total, 40 visible",
+    primary: "Description line 1 — 35 chars",
+    description: "Description line 2 — 35 chars",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="youtube-discovery" />
+
+## Two description lines
+
+Both description lines render below the headline on mobile feed (only line 1 renders on certain low-priority placements). Each line caps at 35 characters hard. There is no auto-wrap — write each line as a complete thought.
+
+<FAQ
+  items={[
+    {
+      q: "What is the difference between In-Feed Video Ads and Discovery Ads?",
+      a: "They are the same format. Google rebranded Discovery Ads to In-Feed Video Ads in 2023 to emphasize cross-surface delivery beyond YouTube search.",
+    },
+    {
+      q: "Where do In-Feed Video Ads appear?",
+      a: "YouTube search results, YouTube home feed, related-video rail, and select Google Discover surfaces.",
+    },
+    {
+      q: "Are In-Feed Video Ads skippable?",
+      a: "Click-to-watch — the user opts in. There is no skip mechanic because the video only plays after engagement.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["youtube/skippable-in-stream-character-limits", "youtube/masthead-character-limits", "compare/youtube-vs-meta-video"]} />

@@ -1,0 +1,38 @@
+YouTube Skippable In-Stream Ads run before, during, or after host video content. The video itself does the heavy lifting — text on the ad lives in the companion banner that renders below the video player on mobile. The companion banner pulls a long headline (90 chars max, ~45 visible) and description (70 chars max, ~60 visible) from the underlying Google Ads asset bundle. The skip button enables after exactly 5 seconds of playback and lives in the bottom-right corner of the player.
+
+The most expensive mistake on Skippable In-Stream is treating the companion banner as decoration. The companion stays visible for the entire ad duration on mobile and persists for several seconds after the video ends — so the headline and description are doing real work for click-through. Plan the companion text as if it were the only thing the viewer reads.
+
+<SimulatorPreset
+  placementId="youtube-skippable-instream"
+  presetCopy={{
+    headline: "Skip arrives after 5 seconds",
+    description: "60-char companion description",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="youtube-skippable-instream" />
+
+## What changed in 2026
+
+YouTube extended the long-headline visible window from 40 to 45 characters in 2026 on iPhone 14-class devices but kept the hard cap at 90. The description hard cap moved from 60 to 70 characters in the same update.
+
+<FAQ
+  items={[
+    {
+      q: "How long can a YouTube Skippable In-Stream ad be?",
+      a: "Up to 3 minutes total runtime. Skip enables at 5 seconds; everything past 30 seconds is billed differently.",
+    },
+    {
+      q: "Where does the companion banner appear?",
+      a: "Below the video player on mobile, alongside the player on desktop. Persists for the duration of the ad plus a few seconds after.",
+    },
+    {
+      q: "Does YouTube charge for skipped views?",
+      a: "No. CPV billing only triggers on 30+ second views or any click on the companion banner.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["youtube/bumper-ad-character-limits", "youtube/shorts-ad-character-limits-2026", "compare/youtube-vs-meta-video"]} />

@@ -1,0 +1,38 @@
+Reddit Promoted Posts inherit the platform's organic post structure: a title, an optional body, and a creative attachment (image, video, link card, or text-only). Titles cap at 300 characters but the visible window on mobile feed is approximately 70 characters before truncation. The body text on link-card and image posts typically does not render in the feed — viewers see it only after tapping into the post detail view.
+
+The strategic implication is that the title is doing 100% of the persuasion work in the feed. Reddit's audience is keyword-savvy and ad-allergic, so generic CTA-style titles ("Tired of slow software?") underperform versus specific, "this might actually be useful" framing ("We benchmarked 12 BI tools — here are the 3 fastest"). The "Promoted" label is unobtrusive but unmistakable; users who tap into a Promoted Post are pre-qualified.
+
+<SimulatorPreset
+  placementId="reddit-promoted-post"
+  presetCopy={{
+    headline: "Reddit titles: 70 chars visible on mobile feed",
+    primary: "Body text appears after tap — title carries the entire feed-stage hook.",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="reddit-promoted-post" />
+
+## Audience-aware copy
+
+Reddit users actively downvote tone-deaf ads and surface them in r/AssholeDesign / r/AdHall — for the brand, that's free organic reach if the ad is good and a brand-safety nightmare if it isn't. Match the subreddit voice; avoid corporate-formal copy in casual subs.
+
+<FAQ
+  items={[
+    {
+      q: "How long is a Reddit Promoted Post title?",
+      a: "Hard cap is 300 characters. Visible window is approximately 70 characters on mobile feed before truncation.",
+    },
+    {
+      q: "Does the body text show on the feed?",
+      a: "Rarely. On link-card and image posts the body is hidden until the user taps into the detail view.",
+    },
+    {
+      q: "Can users downvote a Promoted Post?",
+      a: "Yes. Downvotes do not affect cost but do affect feed-rank and can demote the ad in subsequent impressions.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["reddit/conversation-ad-character-limits", "reddit/free-form-ad-character-limits", "compare/reddit-vs-x-promoted-post"]} />

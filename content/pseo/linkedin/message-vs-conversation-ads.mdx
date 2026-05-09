@@ -1,0 +1,40 @@
+LinkedIn Message Ads (formerly Sponsored InMail) and Conversation Ads share a common shell — both arrive in the recipient's Messaging inbox as a sponsored conversation — but the response model is fundamentally different. Message Ads are one-shot: a single 1500-character message body, a 60-character subject line, and one CTA button capped at 20 characters. The recipient either clicks or doesn't. Conversation Ads are branching: the same shell, but the first message presents up to 5 multi-choice CTA buttons (25 characters each) that branch into follow-up messages, each with their own 500-character body and 25-character button options.
+
+For B2B media buyers running account-based marketing campaigns, conversation ads consistently outperform message ads on engagement (typical 2-4x reply rate) but require considerably more copy to script the branching tree. A complete conversation ad with 3 branches needs roughly 5,000 words of copy across all the message bodies and button options.
+
+<SimulatorPreset
+  placementId="linkedin-message"
+  presetCopy={{
+    primary: "Message ads = single 1500-char InMail with one CTA. Conversation ads = branching choices, each 25-char button max.",
+    headline: "Subject line: 40 chars visible",
+    description: "CTA: 20 chars",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="linkedin-message" />
+<SpecTable placementId="linkedin-conversation" />
+
+## Decision framework
+
+Use Message Ads when the offer is a single dense download (whitepaper, demo, calendar). Use Conversation Ads when the prospect needs help self-segmenting (industry, role, problem). The conversation flow doubles as a qualification quiz.
+
+<FAQ
+  items={[
+    {
+      q: "How long is the LinkedIn Message Ad subject line?",
+      a: "60 characters maximum, with about 40 visible on the inbox preview before truncation.",
+    },
+    {
+      q: "How many CTA buttons can a Conversation Ad use?",
+      a: "Up to 5 in the first message. Each subsequent branch can have its own button set, up to 5 per node.",
+    },
+    {
+      q: "What is the open rate for LinkedIn Message Ads?",
+      a: "Industry benchmarks land in the 30–50% open range. Reply rates are 2–8% for Message Ads, typically 5–15% for Conversation Ads.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["linkedin/single-image-character-limits-2026", "linkedin/lead-gen-form-strategy", "compare/linkedin-vs-meta-feed"]} />

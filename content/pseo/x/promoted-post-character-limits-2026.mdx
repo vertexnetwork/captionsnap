@@ -1,0 +1,38 @@
+X Promoted Posts (formerly Promoted Tweets) inherit the standard 280-character body limit that has defined the platform since 2017. X Premium and X Verified accounts can post up to 4,000 characters of body text on organic posts, but in-feed rendering still clips at 280 visible characters with a "Show more" tap to expand — and Promoted Posts almost universally enforce the 280 cap regardless of account tier. Plan as if 280 is the absolute ceiling.
+
+The bottom card on link-attached Promoted Posts pulls a headline from the destination page or from the Cards API: 70 characters maximum, with about 50 visible on mobile feed before clipping by the right-side scroll-arrow. The engagement bar at the very bottom (reply / repost / like / view count) covers the bottom 10% of the post and never truncates copy directly, but its presence shrinks the visual real estate available for the link card.
+
+<SimulatorPreset
+  placementId="x-promoted-tweet"
+  presetCopy={{
+    primary: "X clips Promoted Posts at 280 visible chars in-feed even when Premium accounts allow 4,000 — assume 280 always.",
+    headline: "Card headline: 50 chars visible",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="x-promoted-tweet" />
+
+## What changed in 2026
+
+X re-tightened Promoted Post enforcement in early 2026: previously, Premium-tier accounts could ship Promoted Posts with up to 4,000 chars of body text, but the in-feed clamp made anything past 280 inaccessible. The platform now hard-rejects Promoted Posts above 280 chars at upload time.
+
+<FAQ
+  items={[
+    {
+      q: "Can X Premium accounts run longer Promoted Posts?",
+      a: "No. As of 2026, the Promoted Post upload validator enforces the 280-character cap regardless of account tier.",
+    },
+    {
+      q: "How long is a URL in X character counting?",
+      a: "All URLs count as 23 characters via t.co shortening, regardless of original length.",
+    },
+    {
+      q: "Does the Card headline truncate?",
+      a: "Yes — the link card headline shows about 50 visible characters on mobile before clipping. Hard cap is 70.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["x/vertical-video-ad-character-limits", "x/amplify-pre-roll-character-limits", "compare/x-vs-tiktok-character-limits"]} />

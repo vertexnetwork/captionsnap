@@ -1,0 +1,38 @@
+LinkedIn Lead Gen Forms attach to any Sponsored Content format — single image, video, carousel, or document — and pre-fill from the user's LinkedIn profile when they click the CTA. Because every field is auto-filled, completion rates are an order of magnitude higher than custom landing-page forms (typical 12-20% vs 2-5%), but only if the form stays short. LinkedIn caps the form at 12 fields total. The platform's own data shows a steep completion-rate cliff past field 5: a 5-field form typically closes at 15-20%, a 9-field form drops to 6-8%.
+
+Character limits on the form itself: form name 256 chars (admin-only), offer headline 60 chars (visible), offer detail 160 chars, privacy policy URL plus 2,000 chars of optional custom terms. The body of the ad inherits its parent format's limits — single image, video, carousel, or document.
+
+<SimulatorPreset
+  placementId="linkedin-single-image"
+  presetCopy={{
+    primary: "Lead Gen Form ads inherit Sponsored Content limits. Each form field costs you a fraction of completion rate.",
+    headline: "Keep the form under 5 fields",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="linkedin-single-image" />
+
+## Field-count rule of thumb
+
+Every field past 5 cuts completion rate by roughly 1.5 percentage points. If you're collecting more than 5 fields, you should be running a custom landing page instead — the qualification gain isn't worth the funnel collapse.
+
+<FAQ
+  items={[
+    {
+      q: "How many form fields can a LinkedIn Lead Gen Form have?",
+      a: "Up to 12 total, but completion rate collapses past 5. Most high-performing campaigns use 3-5 fields.",
+    },
+    {
+      q: "Are Lead Gen Forms auto-filled?",
+      a: "Yes, from the user's LinkedIn profile. This is why completion rates are 3-10x higher than custom landing-page forms.",
+    },
+    {
+      q: "Can I attach a Lead Gen Form to a Document Ad?",
+      a: "Yes — gating the document download with a Lead Gen Form is the standard B2B asset distribution pattern on LinkedIn.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["linkedin/single-image-character-limits-2026", "linkedin/document-ad-character-limits", "linkedin/message-vs-conversation-ads"]} />
