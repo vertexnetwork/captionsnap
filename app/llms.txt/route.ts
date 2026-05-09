@@ -1,14 +1,62 @@
-import { PSEO_INDEX } from "@/data/pseo-index";
+import { PSEO_INDEX, type PseoCategory } from "@/data/pseo-index";
+import { PLACEMENTS, platformLabel, type Platform } from "@/lib/platform-specs";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://captionsnap.io";
 
 export const revalidate = 3600;
 
+const PLATFORMS: Platform[] = [
+  "meta",
+  "tiktok",
+  "linkedin",
+  "x",
+  "youtube",
+  "pinterest",
+  "snapchat",
+  "reddit",
+];
+
+const CATEGORY_ORDER: PseoCategory[] = [
+  "meta",
+  "tiktok",
+  "linkedin",
+  "x",
+  "youtube",
+  "pinterest",
+  "reddit",
+  "snapchat",
+  "compare",
+  "guides",
+  "glossary",
+];
+
+const CATEGORY_LABEL: Record<PseoCategory, string> = {
+  meta: "Meta",
+  tiktok: "TikTok",
+  linkedin: "LinkedIn",
+  x: "X",
+  youtube: "YouTube",
+  pinterest: "Pinterest",
+  reddit: "Reddit",
+  snapchat: "Snapchat",
+  compare: "Cross-platform comparisons",
+  guides: "Guides",
+  glossary: "Glossary",
+};
+
 export async function GET() {
+  const platformList = PLATFORMS.filter(
+    (p) => PLACEMENTS.some((pl) => pl.platform === p),
+  )
+    .map(platformLabel)
+    .join(", ");
+
   const lines: string[] = [];
   lines.push("# CaptionSnap");
   lines.push("");
-  lines.push("> Free utility that previews where Meta and TikTok ad copy gets truncated and which UI overlays cover it.");
+  lines.push(
+    `> Free utility that previews where ad copy gets truncated and which UI overlays cover it across ${PLACEMENTS.length} placements on ${platformList}.`,
+  );
   lines.push("");
   lines.push("## Primary URLs");
   lines.push(`- [Home / simulator](${BASE}/)`);
@@ -18,10 +66,10 @@ export async function GET() {
   lines.push(`- [Full content (LLM-friendly)](${BASE}/llms-full.txt)`);
   lines.push("");
   lines.push("## Categories");
-  for (const category of ["meta", "tiktok", "guides", "compare", "glossary"]) {
+  for (const category of CATEGORY_ORDER) {
     const entries = PSEO_INDEX.filter((e) => e.category === category);
     if (entries.length === 0) continue;
-    lines.push(`### ${category}`);
+    lines.push(`### ${CATEGORY_LABEL[category]}`);
     for (const e of entries) {
       lines.push(`- [${e.title}](${BASE}/${e.slug}) — ${e.description}`);
     }

@@ -79,6 +79,7 @@ const loaders: Record<string, () => Promise<MdxModule>> = {
   "linkedin/carousel-character-limits": () => import("./linkedin/carousel-character-limits.mdx"),
   "linkedin/document-ad-character-limits": () => import("./linkedin/document-ad-character-limits.mdx"),
   "linkedin/message-vs-conversation-ads": () => import("./linkedin/message-vs-conversation-ads.mdx"),
+  "linkedin/conversation-ad-character-limits": () => import("./linkedin/conversation-ad-character-limits.mdx"),
   "linkedin/lead-gen-form-strategy": () => import("./linkedin/lead-gen-form-strategy.mdx"),
 
   // X

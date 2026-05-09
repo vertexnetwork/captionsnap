@@ -1,0 +1,39 @@
+LinkedIn Conversation Ads turn a Sponsored Messaging slot into a branching choose-your-own-path experience. The recipient opens an InMail-style message and is presented with up to 5 CTA buttons (25 characters each), each of which routes to a follow-up message with its own body and its own button set. A complete conversation ad is essentially a directed graph of messages and choices — a 3-branch tree with 2 follow-ups per branch needs roughly 7 message nodes plus 11 button labels, all written and reviewed.
+
+Subject line caps at 60 characters with about 40 visible in the inbox preview. The first message body is generous (500 characters with about 300 visible before clamp) — significantly more than Message Ads' 1500-char body that's only used as a one-shot. Each follow-up message has its own 500-char body and its own 5-button CTA set. The primary use-case is ABM-style account engagement where the prospect self-segments by clicking the button that matches their context (industry, role, problem).
+
+<SimulatorPreset
+  placementId="linkedin-conversation"
+  presetCopy={{
+    headline: "Subject: 40 chars visible",
+    primary: "Conversation Ads branch into up to 5 CTA buttons (25 chars each). The first-message body shows ~300 visible chars before clamp.",
+    description: "CTA: 25 chars",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="linkedin-conversation" />
+
+## When Conversation Ads beat Message Ads
+
+Use Conversation Ads when the audience is heterogeneous and self-segmentation matters more than a single dense pitch. Use Message Ads when the offer is one specific call-to-action (book a demo, download a report, register for an event) where branching adds friction without insight.
+
+<FAQ
+  items={[
+    {
+      q: "How many CTA buttons can a Conversation Ad use?",
+      a: "Up to 5 in the first message and up to 5 per follow-up branch. Each button label caps at 25 characters.",
+    },
+    {
+      q: "Are Conversation Ad branches infinite?",
+      a: "No — LinkedIn caps tree depth at 5 levels and total nodes at 25. Most performant flows stay 2-3 levels deep.",
+    },
+    {
+      q: "What is the typical reply rate for Conversation Ads?",
+      a: "Industry benchmarks land in the 5-15% reply range — roughly 2-3x typical Message Ad reply rate, at the cost of significantly more copy production.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["linkedin/message-vs-conversation-ads", "linkedin/single-image-character-limits-2026", "linkedin/lead-gen-form-strategy"]} />

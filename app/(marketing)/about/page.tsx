@@ -41,7 +41,7 @@ export default function AboutPage() {
       </p>
       <h2>Changelog</h2>
       <ul>
-        <li><strong>{LAST_VERIFIED_GLOBAL}</strong> — Re-verified all 2026 placements.</li>
+        <li><strong>{LAST_VERIFIED_GLOBAL}</strong> — Re-verified all 2026 placements across Meta, TikTok, LinkedIn, X, YouTube, Pinterest, Reddit, and Snapchat.</li>
         <li>Initial launch — {PLACEMENTS.length} placements, {PSEO_INDEX.length} pSEO pages, share-link OG images, iframe embed.</li>
       </ul>
     </article>

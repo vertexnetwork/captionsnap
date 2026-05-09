@@ -19,17 +19,23 @@ export const metadata: Metadata = {
     template: "%s · CaptionSnap",
   },
   description:
-    "Paste your ad copy and instantly see character-limit violations and UI safe-zone collisions across Meta and TikTok placements.",
+    "Paste your ad copy and instantly see character-limit violations and UI safe-zone collisions across Meta, TikTok, LinkedIn, X, YouTube, Pinterest, Reddit, and Snapchat placements.",
   applicationName: "CaptionSnap",
   authors: [{ name: "CaptionSnap" }],
   keywords: [
     "ad copy",
     "character limits",
-    "Meta ads",
-    "TikTok ads",
     "safe zones",
     "media buying",
     "PPC",
+    "Meta ads",
+    "TikTok ads",
+    "LinkedIn ads",
+    "X ads",
+    "YouTube ads",
+    "Pinterest ads",
+    "Reddit ads",
+    "Snapchat ads",
   ],
   openGraph: {
     type: "website",
@@ -37,7 +43,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     title: "CaptionSnap — Stop ad copy from getting truncated",
     description:
-      "Paste your ad copy and instantly see character-limit violations and UI safe-zone collisions across Meta and TikTok placements.",
+      "Paste your ad copy and instantly see character-limit violations and UI safe-zone collisions across Meta, TikTok, LinkedIn, X, YouTube, Pinterest, Reddit, and Snapchat placements.",
     images: [{ url: "/og-default.png", width: 1200, height: 630 }],
   },
   twitter: {

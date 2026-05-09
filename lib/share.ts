@@ -13,7 +13,7 @@ export const DEFAULT_STATE: SimulatorState = {
   v: 1,
   placementId: DEFAULT_PLACEMENT_ID,
   fields: {
-    primary: "Stop guessing where your ad copy gets cut off — preview Meta and TikTok truncation in real time.",
+    primary: "Stop guessing where your ad copy gets cut off — preview truncation across every major ad platform in real time.",
     headline: "See exactly where your ad cuts off",
     description: "Free, no signup, no database",
   },

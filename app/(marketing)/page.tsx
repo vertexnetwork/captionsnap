@@ -9,7 +9,7 @@ import { PLACEMENTS } from "@/lib/platform-specs";
 export const metadata: Metadata = {
   title: "CaptionSnap — Stop ad copy from getting truncated",
   description:
-    "Free Meta + TikTok ad-copy simulator. Paste your copy, see exactly where it truncates and which UI overlays cover it.",
+    "Free ad-copy simulator for every major platform — Meta, TikTok, LinkedIn, X, YouTube, Pinterest, Reddit, Snapchat. Paste your copy, see exactly where it truncates and which UI overlays cover it.",
   alternates: { canonical: "/" },
 };
 
@@ -31,8 +31,9 @@ export default async function HomePage({
           Stop guessing where your ad copy gets <span className="text-accent glow">cut off</span>.
         </h1>
         <p className="mt-4 max-w-2xl text-base text-muted sm:text-lg">
-          Paste your Meta or TikTok ad copy and instantly see character-limit violations, see-more
-          truncation, and which UI overlays cover your hook. Free, no signup, the URL is the database.
+          Paste your ad copy for Meta, TikTok, LinkedIn, X, YouTube, Pinterest, Reddit, or Snapchat
+          and instantly see character-limit violations, see-more truncation, and which UI overlays cover
+          your hook. Free, no signup, the URL is the database.
         </p>
         <ul className="mt-4 flex flex-wrap gap-3 text-xs text-muted">
           <li className="rounded-full border border-border bg-card px-3 py-1">{PLACEMENTS.length} placements</li>
@@ -64,7 +65,7 @@ export default async function HomePage({
           offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
           url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://captionsnap.io",
           description:
-            "Free ad-copy simulator that previews Meta and TikTok character limits and UI safe zones in real time.",
+            "Free ad-copy simulator that previews character limits and UI safe zones across Meta, TikTok, LinkedIn, X, YouTube, Pinterest, Reddit, and Snapchat in real time.",
         }}
       />
     </div>
