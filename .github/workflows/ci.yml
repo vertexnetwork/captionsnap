@@ -52,4 +52,3 @@ jobs:
       - run: npm run test:e2e
         env:
           NEXT_PUBLIC_SITE_URL: http://localhost:3000
-          NEXT_PUBLIC_ADS_ENABLED: "false"

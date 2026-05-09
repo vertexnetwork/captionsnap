@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
-import { MediaVineSlot } from "@/components/ads/MediaVineSlot";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { BreadcrumbListJsonLd } from "@/components/seo/BreadcrumbList";
 import { LastVerifiedBadge } from "@/components/simulator/LastVerifiedBadge";
@@ -82,9 +81,6 @@ export default async function PseoPage({ params }: { params: Promise<RouteParams
         </header>
         <div className="prose prose-invert max-w-none [&_p]:leading-relaxed [&_h2]:mt-10 [&_h2]:text-xl [&_h2]:font-semibold [&_h3]:mt-6 [&_h3]:font-semibold [&_a]:text-accent">
           <Mdx />
-        </div>
-        <div className="my-6">
-          <MediaVineSlot id={`pseo-${entry.slug}-after-faq`} />
         </div>
       </article>
       <SiteFooter />

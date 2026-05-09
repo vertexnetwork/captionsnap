@@ -1,8 +1,0 @@
-# CaptionSnap app-ads.txt
-# https://iabtechlab.com/app-ads-txt/
-#
-# Mirrors ads.txt for any future app-store listing (Chrome Web Store,
-# Shopify App Store, mobile). Replace with MediaVine-supplied line when
-# the first listing goes live.
-
-contact=hello@captionsnap.io

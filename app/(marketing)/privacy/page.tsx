@@ -10,7 +10,7 @@ export default function PrivacyPage() {
   return (
     <article className="mx-auto max-w-3xl px-4 py-12 prose prose-invert">
       <h1>Privacy Policy</h1>
-      <p>Last updated: 2026-05-09</p>
+      <p>Last updated: 2026-05-09 (Pro-only revenue; advertising program retired)</p>
       <h2>What we collect</h2>
       <p>
         CaptionSnap does not require a CaptionSnap account, does not store your
@@ -42,13 +42,6 @@ export default function PrivacyPage() {
         may set first-party cookies, and is loaded only after you accept cookies
         in the consent banner. You can also opt out via the Clarity opt-out page.
       </p>
-      <h2>Advertising</h2>
-      <p>
-        When MediaVine ads are enabled (only on long-tail content pages, never on
-        the simulator or pricing surfaces), MediaVine&apos;s ad partners may use
-        cookies and local storage to serve relevant advertising. Pro subscribers
-        do not see ads. See MediaVine&apos;s privacy policy for full disclosure.
-      </p>
       <h2>Cookies</h2>
       <p>
         First-party cookies we set:
@@ -70,7 +63,8 @@ export default function PrivacyPage() {
         </li>
       </ul>
       <p>
-        Third-party cookies may be set by Clarity and (when enabled) MediaVine.
+        Third-party cookies may be set by Microsoft Clarity (after you accept
+        the cookie banner).
       </p>
       <h2>Data subject rights</h2>
       <p>

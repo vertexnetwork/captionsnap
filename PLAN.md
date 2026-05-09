@@ -4,7 +4,7 @@
 
 CaptionSnap is a free utility that lets media buyers paste ad copy and instantly see character-limit violations and UI safe-zone collisions across Meta and TikTok placements. This document is the executable spec for a solo engineer building the Next.js + Vercel app.
 
-The intended outcome is a single shippable repo with: a homepage simulator, a stateless URL-share mechanism, an iframe-embed page, an About page, ~30–60 curated pSEO pages, full SEO/GEO/`llms.txt` coverage, MediaVine-ready ad slots (unfilled until approval), Vercel Analytics + Microsoft Clarity, and a hook to add a Chrome extension later. **No auth, no database.**
+The intended outcome is a single shippable repo with: a homepage simulator, a stateless URL-share mechanism, an iframe-embed page, an About page, ~30–60 curated pSEO pages, full SEO/GEO/`llms.txt` coverage, a Pro tier (Stripe subscriptions) as the sole revenue lever, Vercel Analytics + Microsoft Clarity, and a hook to add a Chrome extension later. **No auth, no database.**
 
 ---
 
@@ -26,10 +26,10 @@ These items belong in marketing copy, the homepage, the About page, and meta tag
 
 ### Public-facing pages
 1. **Home** — split-screen tool (Part D) with hero "Stop guessing where your ad copy gets cut off" and proof bar (platforms supported, no signup, free).
-2. **About** — origin/mission, who built it, why it's free (ad-supported), changelog of platform-spec updates.
+2. **About** — origin/mission, who built it, the Pro-tier revenue model, changelog of platform-spec updates.
 3. **Embed** — public route documenting how to embed the simulator on third-party sites (snippet generator + live preview).
 4. **pSEO pages** — see Part E. Each: unique factual content, embedded mini-simulator preset, FAQ schema.
-5. **Privacy** and **Terms** — standard, with explicit Clarity / Analytics / ads disclosures.
+5. **Privacy** and **Terms** — standard, with explicit Clarity / Analytics disclosures.
 
 ### Marketing claims to keep accurate
 - TikTok caption: 2,200 char expanded.
@@ -42,11 +42,10 @@ These items belong in marketing copy, the homepage, the About page, and meta tag
 
 Belongs in `README.md`, `docs/internal/`, or engineer notes — never in user-facing copy.
 
-- Niche category: B2B Marketing / Advertising. Target RPM $14 (range $8–$22).
+- Niche category: B2B Marketing / Advertising.
 - Traffic model: Min 5k / Avg 15k / Max 40k pageviews per month.
-- Earnings model: $40 / $210 / $880 per month at the same tiers.
+- Revenue model: Pro tier only ($49/mo or $499/yr). Ad networks were considered (MediaVine, RPM-based) and explicitly retired — premium positioning was eroded by the implication of free-tier ads. If Pro fails to scale, revisit ad infrastructure as a fallback.
 - Distribution playbook: r/PPC, r/digital_marketing, r/FacebookAds, Facebook ad-buyer groups, LinkedIn ad-ops communities. Frame as utility, not promotion.
-- MediaVine Journey eligibility: ~50k monthly sessions; expected ~30 days post-launch given the niche. **Ad components ship with slots wired but unfilled** until approval.
 - Score: 87/100 (Earning 89, Ease 85). Use to deprioritize against future niches, not to display.
 
 ---
@@ -63,7 +62,7 @@ Belongs in `README.md`, `docs/internal/`, or engineer notes — never in user-fa
 | Storage              | **None** — no DB, no KV. Share state is fully URL-encoded.              |
 | OG images            | `@vercel/og` (Edge runtime) reading the same URL params                 |
 | Analytics            | `@vercel/analytics` + Microsoft Clarity (script in `app/layout.tsx`)    |
-| Ads                  | MediaVine slot component, feature-flagged off until approval            |
+| Revenue              | Pro tier (Stripe subscriptions). Ad networks retired.                   |
 | Forms / contact      | None at launch (avoid email handling)                                   |
 | Testing              | Vitest (unit, character-limit logic), Playwright (E2E + share rehydrate)|
 | Linting / formatting | ESLint, Prettier, `tsc --noEmit` in CI                                  |
@@ -89,7 +88,6 @@ captionsnap/
 │   └── layout.tsx
 ├── components/
 │   ├── simulator/                     # SafeZoneCanvas, CopyInputs, PlatformPicker
-│   ├── ads/MediaVineSlot.tsx          # renders nothing while flag is off
 │   ├── seo/JsonLd.tsx
 │   └── ui/                            # shadcn output
 ├── lib/
@@ -245,20 +243,19 @@ Every pSEO page MUST contain: a unique 250–400 word lede, an embedded simulato
 
 ---
 
-## Part H — Analytics, Ads, Privacy
+## Part H — Analytics, Privacy
 
 ### Analytics
 - `@vercel/analytics` `<Analytics />` in `app/layout.tsx`.
 - Microsoft Clarity script in `app/layout.tsx`, gated by `NEXT_PUBLIC_CLARITY_ID`.
 - Custom events via `lib/analytics.ts`: `simulator_run`, `share_link_copied`, `embed_snippet_copied`, `pseo_view`, `platform_switched`.
 
-### Ads
-- `<MediaVineSlot id="..." />` component renders nothing while `NEXT_PUBLIC_ADS_ENABLED=false`. After MediaVine Journey approval, flip the flag and drop in their script tag.
-- Slot positions: home (below-fold), pSEO pages (after lede + after FAQ), about page (sidebar).
-- **No ads on the embed render page** (would harm partner trust and breach MediaVine's policy).
+### Revenue
+- Pro tier (Stripe subscriptions) is the sole revenue lever. See README "Pro tier mechanics" for the no-account flow.
+- Ad networks (MediaVine and similar) are intentionally excluded — premium positioning conflicts with display-ad clutter, and the implication of free-tier ads erodes trust with the performance-marketer demographic. Revisit only if Pro fails to scale.
 
 ### Privacy / consent
-- Privacy page lists analytics + ads.
+- Privacy page lists analytics + Stripe (Pro tier).
 - Consent banner: skip for v1 (US-first audience, no PII collected, no auth). Add an EU consent banner before any paid EU traffic acquisition.
 
 ---
@@ -294,16 +291,14 @@ Every pSEO page MUST contain: a unique 250–400 word lede, an embedded simulato
 - `sitemap.ts`, `robots.ts`, `/llms.txt`, `/llms-full.txt`.
 - About, Privacy, Terms pages.
 
-### Phase 7: Ads + launch polish (day 14)
-- `<MediaVineSlot />` component, feature flag, slot positions.
-- Apply for MediaVine Journey.
+### Phase 7: Launch polish (day 14)
 - Submit sitemap to Google Search Console + Bing Webmaster.
 - Distribution per Part B (one channel at a time, log responses in `docs/internal/distribution-log.md`).
 
 ### Phase 8 (later): Chrome extension
 - Wrap the simulator as a side-panel extension using existing components.
 - Manifest V3, side panel API, reuse `lib/share.ts` so pasting copy in the extension can deep-link to the site.
-- Ship after the site is generating ad revenue — not part of MVP.
+- Ship after the site is generating Pro subscription revenue — not part of MVP.
 
 ---
 
@@ -344,16 +339,13 @@ Before declaring the MVP shippable:
 - Verify Vercel Analytics shows pageviews + custom events.
 - `curl https://captionsnap.io/llms.txt` and `…/llms-full.txt` return 200 with correct content-type.
 - `curl https://captionsnap.io/sitemap.xml` enumerates every pSEO + static URL.
-- Confirm `<MediaVineSlot />` renders an empty placeholder when `NEXT_PUBLIC_ADS_ENABLED=false`, and a slot when `=true`.
 
 ---
 
-## Out of scope (explicit non-goals for v1)
+## Out of scope (explicit non-goals)
 
 - User accounts, login, dashboards.
 - Database, KV, persistent storage of any kind.
 - Email collection, newsletter, contact form.
-- Live ad delivery (slots wired only).
-- Chrome extension (post-MVP).
-- Additional platforms (LinkedIn, X, Pinterest, Snapchat) — wait for traffic data.
-- Paid tier — v1 is fully free, ad-supported.
+- Display advertising (MediaVine and similar) — retired in favor of Pro-only revenue. Revisit only if Pro fails to scale.
+- Additional platforms beyond the current 8 — wait for traffic data.

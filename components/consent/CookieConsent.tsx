@@ -81,8 +81,8 @@ function CookieBanner() {
       className="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-2xl rounded-lg border border-border/60 bg-card/95 p-4 shadow-lg backdrop-blur sm:inset-x-auto sm:right-4 sm:left-auto"
     >
       <p className="text-sm text-foreground">
-        We use Microsoft Clarity for anonymized session analytics and (when enabled)
-        MediaVine for advertising. Vercel Analytics is cookieless and runs regardless.{" "}
+        We use Microsoft Clarity for anonymized session analytics. Vercel
+        Analytics is cookieless and runs regardless.{" "}
         <Link href="/privacy" className="underline hover:text-accent">
           Privacy policy
         </Link>

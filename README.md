@@ -80,7 +80,6 @@ must verify in production.
 |---|---|---|---|
 | `NEXT_PUBLIC_SITE_URL` | yes | Canonical origin used in `metadataBase`, OG image URLs, sitemap, llms.txt, and Stripe redirect URLs. No trailing slash. | `https://captionsnap.io` |
 | `NEXT_PUBLIC_CLARITY_ID` | optional | Microsoft Clarity project ID. When set, Clarity loads only after the user accepts cookies via the consent banner. Leave empty to disable Clarity entirely. | `xxxxxxxxxx` |
-| `NEXT_PUBLIC_ADS_ENABLED` | optional | Master switch for MediaVine ad slots on pSEO pages. Set to `true` only after MediaVine approval. | `false` (default) / `true` |
 | `NEXT_PUBLIC_PRO_ENABLED` | optional | Master switch for the Pro tier. When `false`, `/pricing` renders a "coming soon" state and Stripe Checkout returns 403. Used as the kill switch — flipping to `false` doesn't invalidate existing subscribers' tokens. | `false` (default) / `true` |
 | `NEXT_PUBLIC_CHROME_WEBSTORE_URL` | optional | Web Store listing URL for the extension. When set, `/extension` renders an "Install for Chrome →" CTA; when unset, renders a "Coming soon" state. | `https://chromewebstore.google.com/detail/...` |
 
@@ -173,7 +172,6 @@ app/
 └── sitemap.ts                # Dynamic sitemap.xml
 
 components/
-├── ads/MediaVineSlot.tsx     # Ad slot (Pro-gated, pSEO-only)
 ├── bulk/                     # Bulk-paste UI (Pro)
 ├── consent/CookieConsent.tsx # Cookie banner + Clarity gate
 ├── layout/                   # SiteHeader, SiteFooter
@@ -203,8 +201,6 @@ lib/
 └── truncate.ts               # Grapheme-aware truncation logic
 
 public/
-├── ads.txt                   # Ad-network seller authorization (placeholder)
-├── app-ads.txt               # Mobile/store equivalent
 └── og-default.png            # Fallback OG image
 
 tests/
