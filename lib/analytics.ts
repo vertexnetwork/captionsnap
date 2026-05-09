@@ -8,6 +8,11 @@ type EventMap = {
   platform_switched: { from: string; to: string };
   affiliate_clicked: { id: string; surface: "pseo" | "extension" | "home" };
   extension_install_clicked: { surface: "home" | "about" | "pseo" };
+  pricing_viewed: { plan?: "monthly" | "annual" };
+  checkout_started: { plan: "monthly" | "annual" };
+  checkout_completed: { plan: "monthly" | "annual" };
+  pro_feature_blocked: { feature: "png_export" | "bulk_paste" };
+  pro_feature_used: { feature: "png_export" | "bulk_paste" };
 };
 
 export function track<K extends keyof EventMap>(name: K, props: EventMap[K]) {

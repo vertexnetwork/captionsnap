@@ -38,6 +38,9 @@ export function ConsentProvider({ children }: { children: React.ReactNode }) {
     try {
       const stored = window.localStorage.getItem(STORAGE_KEY);
       if (stored === "accepted" || stored === "declined") {
+        // SSR snapshot is null; hydration reads localStorage. Documented
+        // React 18+ pattern for external-storage state.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setConsent(stored);
       }
     } catch {

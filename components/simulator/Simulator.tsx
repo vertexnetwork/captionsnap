@@ -7,6 +7,7 @@ import { CopyInputs } from "./CopyInputs";
 import { SafeZoneCanvas } from "./SafeZoneCanvas";
 import { ShareLinkButton } from "./ShareLinkButton";
 import { ResetButton } from "./ResetButton";
+import { ExportPngButton } from "./ExportPngButton";
 import { LastVerifiedBadge } from "./LastVerifiedBadge";
 import { SafeZoneLegend } from "./SafeZoneLegend";
 import { SimulatorStatusBanner } from "./SimulatorStatusBanner";
@@ -77,6 +78,7 @@ export function Simulator({ embedded = false }: Props) {
           <div className="flex flex-wrap items-center gap-3 pt-2">
             <ShareLinkButton />
             <ResetButton />
+            <ExportPngButton />
             <span className="text-xs text-muted">URL is the database. No signup, ever.</span>
           </div>
         ) : null}

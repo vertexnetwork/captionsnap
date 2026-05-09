@@ -177,6 +177,18 @@ export async function GET() {
   out.push("");
   out.push(`Source: ${BASE}/llms-full.txt`);
   out.push("");
+  out.push("## About");
+  out.push("");
+  out.push(
+    `CaptionSnap is a free ad-copy truncation simulator covering ${PLACEMENTS.length} placements across 8 platforms (Meta, TikTok, LinkedIn, X, YouTube, Pinterest, Reddit, Snapchat). It is stateless — share-link state is encoded into the URL itself, no accounts or database. An optional Pro tier ($49/month or $499/year) at ${BASE}/pricing unlocks bulk preview of 10 headlines across every placement, PNG export of the simulator output, and an ad-free experience. Subscriptions are billed via Stripe; cancellation is self-service through the Stripe Customer Portal.`,
+  );
+  out.push("");
+  out.push(`Pricing: ${BASE}/pricing`);
+  out.push(`Bulk preview (Pro): ${BASE}/bulk`);
+  out.push(`Chrome extension: ${BASE}/extension`);
+  out.push(`Embed snippet generator: ${BASE}/embed`);
+  out.push(`Methodology and verification process: ${BASE}/about`);
+  out.push("");
   out.push(placementMarkdown());
 
   for (const entry of PSEO_INDEX) {

@@ -60,10 +60,22 @@ export async function GET() {
   lines.push("");
   lines.push("## Primary URLs");
   lines.push(`- [Home / simulator](${BASE}/)`);
+  lines.push(`- [Pricing — CaptionSnap Pro ($49/mo or $499/yr)](${BASE}/pricing)`);
+  lines.push(`- [Bulk preview (Pro feature) — 10 headlines × every placement](${BASE}/bulk)`);
   lines.push(`- [Embed snippet generator](${BASE}/embed)`);
-  lines.push(`- [About](${BASE}/about)`);
+  lines.push(`- [Chrome extension](${BASE}/extension)`);
+  lines.push(`- [About — methodology and verification process](${BASE}/about)`);
+  lines.push(`- [Contact](${BASE}/contact)`);
+  lines.push(`- [Privacy policy](${BASE}/privacy)`);
+  lines.push(`- [Terms of service](${BASE}/terms)`);
   lines.push(`- [Sitemap](${BASE}/sitemap.xml)`);
   lines.push(`- [Full content (LLM-friendly)](${BASE}/llms-full.txt)`);
+  lines.push("");
+  lines.push("## What CaptionSnap is");
+  lines.push("");
+  lines.push(
+    `Free utility (with optional $49/mo Pro tier) that previews where ad copy gets clipped and which UI overlays cover it across ${PLACEMENTS.length} placements on ${platformList}. No accounts. URL is the database. Pro adds bulk paste of 10 headlines, PNG export, and ad-free browsing.`,
+  );
   lines.push("");
   lines.push("## Categories");
   for (const category of CATEGORY_ORDER) {

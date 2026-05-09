@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { ConsentProvider, ClarityScript } from "@/components/consent/CookieConsent";
+import { ProProvider } from "@/components/pro/ProProvider";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -68,9 +69,11 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <ConsentProvider>
-          {children}
-          <Analytics />
-          {clarityId ? <ClarityScript clarityId={clarityId} /> : null}
+          <ProProvider>
+            {children}
+            <Analytics />
+            {clarityId ? <ClarityScript clarityId={clarityId} /> : null}
+          </ProProvider>
         </ConsentProvider>
       </body>
     </html>

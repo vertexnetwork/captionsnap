@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SimulatorProvider } from "@/components/simulator/SimulatorProvider";
 import { Simulator } from "@/components/simulator/Simulator";
-import { MediaVineSlot } from "@/components/ads/MediaVineSlot";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { decode, DEFAULT_STATE } from "@/lib/share";
 import { PLACEMENTS } from "@/lib/platform-specs";
@@ -59,10 +58,6 @@ export default async function HomePage({
       >
         <Simulator />
       </SimulatorProvider>
-
-      <div className="mt-10">
-        <MediaVineSlot id="home-below-fold" />
-      </div>
 
       <JsonLd
         data={{
