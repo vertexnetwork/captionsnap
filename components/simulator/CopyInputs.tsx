@@ -11,6 +11,12 @@ const COUNTER_COLORS: Record<CounterState, string> = {
   red: "text-danger",
 };
 
+const COUNTER_RAIL: Record<CounterState, string> = {
+  green: "bg-accent",
+  yellow: "bg-warning",
+  red: "bg-danger",
+};
+
 // Hard ceiling so paste-bombs don't blow URL size budgets even when a placement's max is huge.
 const HARD_INPUT_CEILING = 4000;
 
@@ -35,44 +41,59 @@ export function CopyInputs() {
           setField(field.id, v);
         };
         return (
-          <div key={field.id} className="flex flex-col gap-1.5">
+          <div key={field.id} className="flex flex-col gap-2">
             <div className="flex items-baseline justify-between">
               <label htmlFor={id} className="text-sm font-medium text-foreground">
                 {field.label}
               </label>
               <span
                 id={counterId}
-                className={cn("text-xs tabular-nums font-medium", COUNTER_COLORS[cs])}
+                className={cn(
+                  "text-[length:var(--text-counter)] tabular-nums font-semibold",
+                  COUNTER_COLORS[cs],
+                )}
                 aria-live="polite"
               >
-                {len}/{field.max} · clips at {field.truncateAt}
-                {isOverCut ? " · clipped" : ""}
+                {len}/{field.max}
+                <span className="ml-2 text-xs font-normal text-muted">
+                  clips at {field.truncateAt}
+                  {isOverCut ? " · clipped" : ""}
+                </span>
               </span>
             </div>
-            {field.multiline ? (
-              <textarea
-                id={id}
-                value={value}
-                onChange={(e) => onChange(e.target.value)}
-                rows={4}
-                maxLength={inputCeiling * 4 /* allow surrogate pairs; grapheme cap above is the real guard */}
-                aria-describedby={counterId}
-                aria-invalid={cs === "red"}
-                className="w-full resize-y rounded-md border border-border bg-card px-3 py-2 text-sm leading-relaxed focus:border-accent focus:outline-none"
-                placeholder={`Type your ${field.label.toLowerCase()}…`}
+            <div className="relative">
+              <span
+                aria-hidden="true"
+                className={cn(
+                  "pointer-events-none absolute left-0 top-0 h-full w-0.5 rounded-l-md transition-colors",
+                  COUNTER_RAIL[cs],
+                )}
               />
-            ) : (
-              <input
-                id={id}
-                value={value}
-                onChange={(e) => onChange(e.target.value)}
-                maxLength={inputCeiling * 4}
-                aria-describedby={counterId}
-                aria-invalid={cs === "red"}
-                className="w-full rounded-md border border-border bg-card px-3 py-2 text-sm focus:border-accent focus:outline-none"
-                placeholder={`Type your ${field.label.toLowerCase()}…`}
-              />
-            )}
+              {field.multiline ? (
+                <textarea
+                  id={id}
+                  value={value}
+                  onChange={(e) => onChange(e.target.value)}
+                  rows={4}
+                  maxLength={inputCeiling * 4 /* allow surrogate pairs; grapheme cap above is the real guard */}
+                  aria-describedby={counterId}
+                  aria-invalid={cs === "red"}
+                  className="w-full resize-y rounded-md border border-border bg-card px-3 py-2.5 pl-3.5 text-sm leading-relaxed focus:border-border-strong focus:outline-none"
+                  placeholder={`Type your ${field.label.toLowerCase()}…`}
+                />
+              ) : (
+                <input
+                  id={id}
+                  value={value}
+                  onChange={(e) => onChange(e.target.value)}
+                  maxLength={inputCeiling * 4}
+                  aria-describedby={counterId}
+                  aria-invalid={cs === "red"}
+                  className="w-full rounded-md border border-border bg-card px-3 py-2.5 pl-3.5 text-sm focus:border-border-strong focus:outline-none"
+                  placeholder={`Type your ${field.label.toLowerCase()}…`}
+                />
+              )}
+            </div>
           </div>
         );
       })}

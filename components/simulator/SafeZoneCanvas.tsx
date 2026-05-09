@@ -119,7 +119,7 @@ export function SafeZoneCanvas({ embedded = false }: { embedded?: boolean }) {
           transform: `translate(-50%, -50%) scale(${scale})`,
         }}
       >
-        <div className="relative h-full w-full overflow-hidden rounded-[42px] border border-border bg-black shadow-[0_0_60px_rgba(0,0,0,0.55)]">
+        <div className="relative h-full w-full overflow-hidden rounded-[42px] border border-border bg-black shadow-[0_0_45px_rgba(0,0,0,0.45)]">
           {renderSurface(placement, truncated)}
           {/* Notch */}
           <div className="pointer-events-none absolute left-1/2 top-2 z-20 h-6 w-32 -translate-x-1/2 rounded-full bg-black" />

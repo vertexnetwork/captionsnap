@@ -42,7 +42,7 @@ export function ShareLinkButton({ className }: { className?: string }) {
         type="button"
         onClick={handleClick}
         className={cn(
-          "inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-semibold text-black transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent",
+          "btn-base bg-accent text-sm text-black hover:opacity-95",
           className,
         )}
         aria-live="polite"

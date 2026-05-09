@@ -19,7 +19,7 @@ export function ExportPngButton() {
       <Link
         href="/pricing"
         onClick={() => track("pro_feature_blocked", { feature: "png_export" })}
-        className="inline-flex items-center gap-2 rounded-md border border-border/60 px-3 py-2 text-xs text-muted hover:border-accent hover:text-accent"
+        className="btn-base border border-border bg-card text-sm text-muted hover:border-accent hover:text-accent"
         title="Export simulator output as PNG — Pro feature"
       >
         <span>Export PNG</span>
@@ -58,7 +58,7 @@ export function ExportPngButton() {
       type="button"
       onClick={handleExport}
       disabled={pending}
-      className="inline-flex items-center gap-2 rounded-md border border-accent/60 px-3 py-2 text-xs font-semibold text-accent hover:bg-accent/10 disabled:opacity-50"
+      className="btn-base border border-accent/60 text-sm font-semibold text-accent hover:bg-accent/10 disabled:opacity-50"
     >
       {pending ? "Exporting…" : "Export PNG"}
     </button>

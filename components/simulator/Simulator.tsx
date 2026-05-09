@@ -75,11 +75,13 @@ export function Simulator({ embedded = false }: Props) {
         <PlacementPicker />
         <CopyInputs />
         {!embedded ? (
-          <div className="flex flex-wrap items-center gap-3 pt-2">
+          <div className="flex flex-col gap-2 pt-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
             <ShareLinkButton />
             <ResetButton />
             <ExportPngButton />
-            <span className="text-xs text-muted">URL is the database. No signup, ever.</span>
+            <span className="text-xs text-muted sm:ml-auto">
+              URL is the database — no signup, ever.
+            </span>
           </div>
         ) : null}
       </div>

@@ -16,7 +16,7 @@ export function PlacementPicker() {
         <select
           value={placement.id}
           onChange={(e) => setPlacementId(e.target.value)}
-          className="rounded-md border border-border bg-card px-3 py-2 text-sm text-foreground focus:border-accent focus:outline-none"
+          className="min-h-11 rounded-md border border-border bg-card px-3 py-2.5 text-sm text-foreground focus:border-border-strong focus:outline-none"
         >
           {placements.map((p) => (
             <option key={p.id} value={p.id}>
@@ -38,10 +38,10 @@ export function PlacementPicker() {
               role="radio"
               aria-checked={active}
               className={cn(
-                "px-3 py-1 text-sm rounded-full border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent",
+                "btn-pill border text-sm",
                 active
                   ? "border-accent text-accent bg-accent/10"
-                  : "border-border text-muted hover:text-foreground hover:border-foreground/40",
+                  : "border-border text-muted hover:text-foreground hover:border-border-strong",
               )}
             >
               {p.label}

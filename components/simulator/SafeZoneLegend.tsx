@@ -5,8 +5,8 @@ export function SafeZoneLegend() {
         aria-hidden="true"
         className="inline-block h-3 w-4 rounded-sm"
         style={{
-          background: "rgba(255,61,110,0.18)",
-          outline: "1px dashed rgba(255,61,110,0.7)",
+          background: "var(--danger-overlay)",
+          outline: "1px dashed var(--danger-overlay-stroke)",
         }}
       />
       <span>Red dashed = covered by platform UI</span>

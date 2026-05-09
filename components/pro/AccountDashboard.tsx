@@ -75,14 +75,14 @@ export function AccountDashboard() {
             type="button"
             onClick={openPortal}
             disabled={portalPending}
-            className="rounded-md bg-accent px-4 py-2 text-sm font-semibold text-black hover:opacity-90 disabled:opacity-50"
+            className="btn-base bg-accent text-sm text-black hover:opacity-90 disabled:opacity-50"
           >
             {portalPending ? "Opening Stripe…" : "Manage subscription"}
           </button>
           <button
             type="button"
             onClick={clear}
-            className="rounded-md border border-border/60 px-4 py-2 text-sm text-muted hover:text-foreground"
+            className="btn-base border border-border text-sm text-muted hover:border-border-strong hover:text-foreground"
           >
             Sign out on this device
           </button>
@@ -121,22 +121,23 @@ function ProActiveCard({
 }) {
   const expiry = expiresAt ? new Date(expiresAt * 1000) : null;
   return (
-    <section className="rounded-lg border border-accent/40 bg-card/60 p-5">
-      <div className="flex items-baseline justify-between">
+    <section className="rounded-xl border border-accent/40 bg-card/60 p-6 ring-1 ring-accent/20">
+      <div className="flex flex-wrap items-baseline justify-between gap-2">
         <h2 className="text-lg font-semibold text-accent">Pro — Active</h2>
         {expiry ? (
           <span className="text-xs text-muted">
-            Token refreshes {expiry.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" })}
+            Active. Next check{" "}
+            {expiry.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" })}
           </span>
         ) : null}
       </div>
       {email ? (
         <p className="mt-2 text-sm text-muted">Billed to {email}</p>
       ) : null}
-      <ul className="mt-4 space-y-1 text-sm text-foreground">
+      <ul className="mt-4 space-y-1.5 text-sm text-foreground">
         <li>
           · Bulk paste at{" "}
-          <Link className="underline hover:text-accent" href="/bulk">
+          <Link className="text-accent hover:underline" href="/bulk">
             /bulk
           </Link>{" "}
           — 10 headlines × every placement of a platform
@@ -151,7 +152,7 @@ function ProActiveCard({
 
 function ProInactiveCard() {
   return (
-    <section className="rounded-lg border border-border/60 bg-card/40 p-5">
+    <section className="rounded-xl border border-border bg-card/40 p-6">
       <h2 className="text-lg font-semibold">No active subscription</h2>
       <p className="mt-2 text-sm text-muted">
         You&apos;re using the free single-placement simulator. Pro adds bulk
@@ -160,7 +161,7 @@ function ProInactiveCard() {
       </p>
       <Link
         href="/pricing"
-        className="mt-4 inline-block rounded-md bg-accent px-4 py-2 text-sm font-semibold text-black hover:opacity-90"
+        className="btn-base mt-4 bg-accent text-sm text-black hover:opacity-90"
       >
         Upgrade to Pro — $49/mo →
       </Link>

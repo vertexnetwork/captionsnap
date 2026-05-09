@@ -36,9 +36,21 @@ export default async function EmbedRenderPage({
         href={poweredHref}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-2 right-3 text-[11px] text-muted hover:text-accent"
+        className="fixed bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-card/80 px-3 py-1.5 text-xs font-medium text-muted backdrop-blur hover:border-accent hover:text-accent"
       >
-        Powered by CaptionSnap →
+        <svg viewBox="0 0 32 32" width="14" height="14" aria-hidden="true">
+          <path
+            d="M22 6 H10 a4 4 0 0 0 -4 4 v12 a4 4 0 0 0 4 4 h12"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="square"
+          />
+          <circle cx="16" cy="16" r="1.4" fill="currentColor" />
+          <circle cx="20" cy="16" r="1.4" fill="currentColor" />
+          <circle cx="24" cy="16" r="1.4" fill="currentColor" />
+        </svg>
+        <span>Powered by CaptionSnap</span>
       </Link>
     </div>
   );

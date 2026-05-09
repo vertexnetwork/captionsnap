@@ -49,7 +49,7 @@ export function EmbedSnippetBuilder() {
           <select
             value={placementId}
             onChange={(e) => setPlacementId(e.target.value)}
-            className="rounded-md border border-border bg-card px-3 py-2"
+            className="min-h-11 rounded-md border border-border bg-card px-3 py-2.5 text-sm focus:border-border-strong focus:outline-none"
           >
             {PLACEMENTS.map((p) => (
               <option key={p.id} value={p.id}>
@@ -66,7 +66,7 @@ export function EmbedSnippetBuilder() {
               value={primary}
               onChange={(e) => setPrimary(e.target.value)}
               rows={3}
-              className="rounded-md border border-border bg-card px-3 py-2"
+              className="min-h-11 rounded-md border border-border bg-card px-3 py-2.5 text-sm focus:border-border-strong focus:outline-none"
             />
           </label>
         ) : null}
@@ -76,7 +76,7 @@ export function EmbedSnippetBuilder() {
             <input
               value={headline}
               onChange={(e) => setHeadline(e.target.value)}
-              className="rounded-md border border-border bg-card px-3 py-2"
+              className="min-h-11 rounded-md border border-border bg-card px-3 py-2.5 text-sm focus:border-border-strong focus:outline-none"
             />
           </label>
         ) : null}
@@ -87,20 +87,20 @@ export function EmbedSnippetBuilder() {
               value={caption}
               onChange={(e) => setCaption(e.target.value)}
               rows={3}
-              className="rounded-md border border-border bg-card px-3 py-2"
+              className="min-h-11 rounded-md border border-border bg-card px-3 py-2.5 text-sm focus:border-border-strong focus:outline-none"
             />
           </label>
         ) : null}
 
         <div className="rounded-lg border border-border bg-card p-3">
           <div className="mb-2 flex items-center justify-between">
-            <span className="text-xs font-medium uppercase tracking-wide text-muted">Snippet</span>
+            <span className="text-xs font-semibold uppercase tracking-wide text-muted">Snippet</span>
             <button
               onClick={copy}
-              className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-black"
+              className="btn-pill bg-accent text-xs font-semibold text-black hover:opacity-90"
               type="button"
             >
-              {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+              {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
               {copied ? "Copied" : "Copy"}
             </button>
           </div>

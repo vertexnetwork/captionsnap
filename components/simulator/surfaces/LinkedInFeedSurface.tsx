@@ -37,7 +37,7 @@ export function LinkedInFeedSurface({ placement, truncated }: SurfaceProps) {
 
       {/* Creative */}
       <div
-        className="relative shrink-0 bg-gradient-to-br from-sky-700 via-blue-600 to-indigo-700"
+        className="relative shrink-0 bg-gradient-to-br from-zinc-300 via-zinc-400 to-zinc-500"
         style={{ aspectRatio: "1.91 / 1" }}
       >
         {isCarousel ? (

@@ -30,7 +30,7 @@ export default function ExtensionPage() {
         <p>
           <a
             href={CHROME_WEBSTORE_URL}
-            className="inline-block rounded-md bg-accent px-4 py-2 font-medium text-black no-underline hover:opacity-90"
+            className="btn-base bg-accent text-sm text-black no-underline hover:opacity-90"
           >
             Install for Chrome →
           </a>

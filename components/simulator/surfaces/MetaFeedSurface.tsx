@@ -41,7 +41,7 @@ export function MetaFeedSurface({ placement, truncated }: SurfaceProps) {
 
       {/* Creative image */}
       <div
-        className="relative mx-0 shrink-0 bg-gradient-to-br from-fuchsia-700 via-violet-700 to-indigo-700"
+        className="relative mx-0 shrink-0 bg-gradient-to-br from-zinc-700 via-zinc-800 to-zinc-900"
         style={{ aspectRatio: isExplore ? "1 / 1" : "1 / 1" }}
       >
         {isCarousel ? (

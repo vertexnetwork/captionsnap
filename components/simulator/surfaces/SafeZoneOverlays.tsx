@@ -12,8 +12,8 @@ export function SafeZoneOverlays({ zones }: { zones: SafeZone[] }) {
             top: `${z.y}%`,
             width: `${z.w}%`,
             height: `${z.h}%`,
-            background: "rgba(255,61,110,0.18)",
-            outline: "1px dashed rgba(255,61,110,0.7)",
+            background: "var(--danger-overlay)",
+            outline: "1px dashed var(--danger-overlay-stroke)",
           }}
           title={z.reason}
           aria-label={`Safe zone: ${z.reason}`}

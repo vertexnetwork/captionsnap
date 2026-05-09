@@ -53,7 +53,7 @@ export function SubscribeButtons() {
         type="button"
         onClick={() => startCheckout("monthly")}
         disabled={pending !== null}
-        className="rounded-md bg-accent px-5 py-3 text-sm font-semibold text-black hover:opacity-90 disabled:opacity-50"
+        className="btn-base bg-accent text-base text-black hover:opacity-90 disabled:opacity-50"
       >
         {pending === "monthly" ? "Redirecting…" : "Subscribe — $49/mo"}
       </button>
@@ -61,7 +61,7 @@ export function SubscribeButtons() {
         type="button"
         onClick={() => startCheckout("annual")}
         disabled={pending !== null}
-        className="rounded-md border border-accent/60 bg-card px-5 py-3 text-sm font-semibold text-accent hover:bg-accent/10 disabled:opacity-50"
+        className="btn-base border border-accent/60 bg-card text-base text-accent hover:bg-accent/10 disabled:opacity-50"
       >
         {pending === "annual" ? "Redirecting…" : "Annual — $499/yr (save 15%)"}
       </button>

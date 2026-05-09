@@ -17,7 +17,7 @@ export function PinterestPinSurface({ placement, truncated }: SurfaceProps) {
 
       {/* Pin image (2:3) */}
       <div
-        className="relative shrink-0 bg-gradient-to-br from-rose-500 via-pink-500 to-amber-400"
+        className="relative shrink-0 bg-gradient-to-br from-zinc-400 via-zinc-500 to-zinc-600"
         style={{ aspectRatio: "2 / 3" }}
       >
         <button

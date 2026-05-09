@@ -92,14 +92,14 @@ function CookieBanner() {
         <button
           type="button"
           onClick={accept}
-          className="rounded-md bg-accent px-3 py-1.5 text-sm font-medium text-black hover:opacity-90"
+          className="btn-base bg-accent text-sm font-semibold text-black hover:opacity-90"
         >
           Accept
         </button>
         <button
           type="button"
           onClick={decline}
-          className="rounded-md border border-border/60 px-3 py-1.5 text-sm text-muted hover:text-foreground"
+          className="btn-base border border-border/60 text-sm text-muted hover:text-foreground"
         >
           Decline
         </button>

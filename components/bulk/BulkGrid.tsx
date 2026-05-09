@@ -65,10 +65,10 @@ export function BulkGrid({
               key={p}
               onClick={() => setPlatform(p)}
               className={cn(
-                "rounded-full border px-3 py-1 text-xs",
+                "btn-pill border text-sm",
                 platform === p
-                  ? "border-accent text-accent"
-                  : "border-border/60 text-muted hover:text-foreground",
+                  ? "border-accent bg-accent/10 text-accent"
+                  : "border-border text-muted hover:text-foreground hover:border-border-strong",
               )}
             >
               {PLATFORM_LABEL[p]}
@@ -95,7 +95,7 @@ export function BulkGrid({
           value={lines.join("\n")}
           onChange={(e) => updateText(e.target.value)}
           placeholder={"Headline 1\nHeadline 2\nHeadline 3"}
-          className="w-full rounded-md border border-border/60 bg-card/40 p-3 font-mono text-sm focus:border-accent focus:outline-none"
+          className="w-full rounded-md border border-border bg-card/60 p-3 font-mono text-sm focus:border-border-strong focus:outline-none"
         />
       </div>
 
@@ -121,70 +121,79 @@ function ResultsTable({
     );
   }
   return (
-    <div className="overflow-x-auto rounded-lg border border-border/60">
+    <div className="overflow-x-auto rounded-xl border border-border">
       <table className="min-w-full text-sm">
-        <thead className="bg-card/60 text-xs uppercase tracking-wide text-muted">
+        <thead className="bg-card text-xs uppercase tracking-wide text-muted">
           <tr>
-            <th className="sticky left-0 bg-card/60 px-3 py-2 text-left">
+            <th className="sticky left-0 z-10 bg-card px-3 py-3 text-left">
               Headline
             </th>
             {placements.map((p) => (
-              <th key={p.id} className="px-3 py-2 text-left">
+              <th key={p.id} className="px-3 py-3 text-left">
                 {p.label}
               </th>
             ))}
           </tr>
         </thead>
         <tbody className="divide-y divide-border/60">
-          {filtered.map((line, idx) => (
-            <tr key={idx}>
-              <td className="sticky left-0 max-w-[240px] truncate bg-background px-3 py-2 align-top text-foreground">
-                {line}
-              </td>
-              {placements.map((p) => {
-                const headlineField = p.fields.find(
-                  (f) => f.id === "headline",
-                ) ?? p.fields[0];
-                if (!headlineField) {
+          {filtered.map((line, idx) => {
+            const rowBg = idx % 2 === 0 ? "bg-card/30" : "bg-card/10";
+            return (
+              <tr key={idx} className={rowBg}>
+                <td
+                  className={cn(
+                    "sticky left-0 z-10 max-w-[240px] truncate px-3 py-3 align-top text-foreground",
+                    rowBg,
+                  )}
+                >
+                  {line}
+                </td>
+                {placements.map((p) => {
+                  const headlineField = p.fields.find(
+                    (f) => f.id === "headline",
+                  ) ?? p.fields[0];
+                  if (!headlineField) {
+                    return (
+                      <td key={p.id} className="px-3 py-3 align-top text-muted">
+                        —
+                      </td>
+                    );
+                  }
+                  const state = counterState(line, headlineField);
+                  const result = truncateField(line, headlineField, p.platform);
+                  const len = Array.from(line).length;
                   return (
-                    <td key={p.id} className="px-3 py-2 align-top text-muted">
-                      —
+                    <td key={p.id} className="px-3 py-3 align-top">
+                      <div
+                        className={cn(
+                          "text-[length:var(--text-counter)] font-semibold tabular-nums",
+                          state === "green"
+                            ? "text-accent"
+                            : state === "yellow"
+                              ? "text-warning"
+                              : "text-danger",
+                        )}
+                      >
+                        {len}/{headlineField.truncateAt}
+                      </div>
+                      <div className="mt-1 text-xs text-muted line-clamp-2">
+                        {result.isTruncated ? (
+                          <>
+                            <span className="text-foreground">
+                              {result.display.replace(result.ellipsis, "")}
+                            </span>
+                            <span className="text-danger">{result.ellipsis}</span>
+                          </>
+                        ) : (
+                          <span className="text-foreground">{line}</span>
+                        )}
+                      </div>
                     </td>
                   );
-                }
-                const state = counterState(line, headlineField);
-                const result = truncateField(line, headlineField, p.platform);
-                return (
-                  <td key={p.id} className="px-3 py-2 align-top">
-                    <div
-                      className={cn(
-                        "text-xs font-semibold",
-                        state === "green"
-                          ? "text-accent"
-                          : state === "yellow"
-                            ? "text-warning"
-                            : "text-danger",
-                      )}
-                    >
-                      {Array.from(line).length} / {headlineField.truncateAt}
-                    </div>
-                    <div className="mt-1 text-xs text-muted line-clamp-2">
-                      {result.isTruncated ? (
-                        <>
-                          <span className="text-foreground">
-                            {result.display.replace(result.ellipsis, "")}
-                          </span>
-                          <span className="text-danger">{result.ellipsis}</span>
-                        </>
-                      ) : (
-                        <span className="text-foreground">{line}</span>
-                      )}
-                    </div>
-                  </td>
-                );
-              })}
-            </tr>
-          ))}
+                })}
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>

@@ -44,7 +44,7 @@ export function BulkPageContent() {
 
 function UpsellCard() {
   return (
-    <div className="rounded-lg border border-accent/40 bg-card/60 p-8">
+    <div className="rounded-xl border border-accent/40 bg-card/60 p-8 ring-1 ring-accent/20">
       <h2 className="text-xl font-semibold">
         Bulk paste is a <span className="text-accent">Pro</span> feature.
       </h2>
@@ -63,13 +63,13 @@ function UpsellCard() {
       <div className="mt-6 flex flex-wrap gap-3">
         <Link
           href="/pricing"
-          className="rounded-md bg-accent px-4 py-2 text-sm font-semibold text-black hover:opacity-90"
+          className="btn-base bg-accent text-sm text-black hover:opacity-90"
         >
           Upgrade to Pro — $49/mo →
         </Link>
         <Link
           href="/"
-          className="rounded-md border border-border/60 px-4 py-2 text-sm hover:border-accent"
+          className="btn-base border border-border text-sm hover:border-border-strong"
         >
           Use the free single-placement simulator
         </Link>

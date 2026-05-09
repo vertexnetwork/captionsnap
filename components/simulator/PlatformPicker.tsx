@@ -44,7 +44,7 @@ export function PlatformPicker() {
               setPlacementId(first.id);
             }}
             className={cn(
-              "px-3 py-1.5 text-sm font-medium rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent",
+              "btn-pill text-sm font-medium",
               active
                 ? "bg-accent text-black"
                 : "text-muted hover:text-foreground",

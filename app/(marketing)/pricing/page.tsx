@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Check } from "lucide-react";
 import { SubscribeButtons } from "@/components/pro/SubscribeButtons";
 import { PricingViewedBeacon } from "@/components/pro/PricingViewedBeacon";
+import { RoiEstimator } from "@/components/pro/RoiEstimator";
 
 export const metadata: Metadata = {
   title: "Pricing — CaptionSnap Pro",
@@ -24,13 +26,14 @@ const features: { name: string; free: boolean; pro: boolean }[] = [
 
 export default function PricingPage() {
   return (
-    <article className="mx-auto max-w-4xl px-4 py-12">
+    <article className="mx-auto max-w-5xl px-4 py-12">
       <PricingViewedBeacon />
-      <header className="mb-8 max-w-2xl">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-          Stop wasting ad spend on <span className="text-accent glow">truncated copy</span>.
+      <header className="mb-10 max-w-2xl">
+        <h1 className="text-[length:var(--text-h1)] font-bold leading-[1.05] tracking-tight sm:text-[length:var(--text-display)]">
+          Stop wasting ad spend on{" "}
+          <span className="text-accent">truncated copy</span>.
         </h1>
-        <p className="mt-3 text-base text-muted">
+        <p className="mt-5 text-base text-muted">
           One clipped headline on a $5K Meta campaign is roughly $200 in wasted
           impressions. Catch it before launch and Pro pays for itself this month.
         </p>
@@ -43,32 +46,55 @@ export default function PricingPage() {
         </p>
       </header>
 
-      <section className="grid gap-6 lg:grid-cols-2">
-        <div className="rounded-lg border border-border/60 bg-card/40 p-6">
+      {/* Trust object first — answers the most common pre-purchase question. */}
+      <section className="mb-10 rounded-xl border border-border bg-card/40 p-6">
+        <h2 className="text-lg font-semibold">No accounts. Stripe is the database.</h2>
+        <p className="mt-2 text-sm text-muted">
+          You don&apos;t create a CaptionSnap account. Subscribing issues an
+          HMAC-signed license token tied to your Stripe customer ID. We never see
+          your card. Cards, invoices, cancellations all live in the standard
+          Stripe Customer Portal.
+        </p>
+        <p className="mt-2 text-sm text-muted">
+          Lost access on a new device? Visit{" "}
+          <Link className="text-accent hover:underline" href="/account">/account</Link>{" "}
+          and your subscription auto-recovers via a long-lived signed cookie. If
+          both cookie and localStorage are cleared, email{" "}
+          <a className="text-accent hover:underline" href="mailto:hello@captionsnap.io">
+            hello@captionsnap.io
+          </a>{" "}
+          with your Stripe receipt — typical response under 2 business days.
+        </p>
+      </section>
+
+      <section className="grid gap-6 lg:grid-cols-[1fr_1.4fr]">
+        <div className="rounded-xl border border-border bg-card/40 p-6">
           <h2 className="text-lg font-semibold">Free</h2>
           <p className="mt-1 text-sm text-muted">
             Solo marketers running one-off audits and individual creative checks.
           </p>
-          <p className="mt-4 text-3xl font-bold">$0</p>
+          <p className="mt-5 text-3xl font-bold">$0</p>
           <p className="text-xs text-muted">forever, no signup</p>
           <Link
             href="/"
-            className="mt-5 inline-block rounded-md border border-border/60 px-4 py-2 text-sm hover:border-accent"
+            className="btn-base mt-5 border border-border text-sm hover:border-border-strong hover:text-accent"
           >
             Use the free simulator →
           </Link>
         </div>
 
-        <div className="rounded-lg border border-accent/60 bg-card/60 p-6 shadow-[0_0_0_1px_rgba(0,255,163,0.08)]">
+        <div className="rounded-xl border border-accent/60 bg-card/70 p-7 ring-1 ring-accent/30 sm:p-8">
           <div className="flex items-baseline justify-between">
-            <h2 className="text-lg font-semibold text-accent">Pro</h2>
-            <span className="text-xs uppercase tracking-wide text-accent">Recommended</span>
+            <h2 className="text-xl font-semibold text-accent">Pro</h2>
+            <span className="rounded-full bg-accent/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-accent">
+              Recommended
+            </span>
           </div>
           <p className="mt-1 text-sm text-muted">
             Agencies and in-house teams shipping 10+ creatives a week across
             multiple platforms.
           </p>
-          <p className="mt-4 text-3xl font-bold">
+          <p className="mt-5 text-4xl font-bold">
             $49<span className="text-base font-normal text-muted">/mo</span>
           </p>
           <p className="text-xs text-muted">or $499/yr (save 15%)</p>
@@ -82,10 +108,19 @@ export default function PricingPage() {
       </section>
 
       <section className="mt-12">
-        <h2 className="mb-4 text-xl font-semibold">What&apos;s included</h2>
-        <div className="overflow-hidden rounded-lg border border-border/60">
+        <h2 className="text-lg font-semibold">Will Pro pay for itself?</h2>
+        <p className="mt-1 text-sm text-muted">
+          Estimate the ad spend recovered when CaptionSnap catches one
+          truncated hook before launch.
+        </p>
+        <RoiEstimator />
+      </section>
+
+      <section className="mt-12">
+        <h2 className="mb-4 text-lg font-semibold">What&apos;s included</h2>
+        <div className="overflow-hidden rounded-xl border border-border">
           <table className="w-full text-sm">
-            <thead className="bg-card/60 text-xs uppercase tracking-wide text-muted">
+            <thead className="bg-card text-xs uppercase tracking-wide text-muted">
               <tr>
                 <th className="px-4 py-3 text-left">Feature</th>
                 <th className="px-4 py-3 text-center">Free</th>
@@ -95,38 +130,26 @@ export default function PricingPage() {
             <tbody className="divide-y divide-border/60">
               {features.map((f) => (
                 <tr key={f.name}>
-                  <td className="px-4 py-3">{f.name}</td>
+                  <td className="px-4 py-3 text-foreground">{f.name}</td>
                   <td className="px-4 py-3 text-center">
-                    {f.free ? <span className="text-accent">✓</span> : <span className="text-muted">—</span>}
+                    {f.free ? (
+                      <Check className="mx-auto h-4 w-4 text-accent" aria-label="Included" />
+                    ) : (
+                      <span className="text-border-strong" aria-label="Not included">—</span>
+                    )}
                   </td>
                   <td className="px-4 py-3 text-center">
-                    {f.pro ? <span className="text-accent">✓</span> : <span className="text-muted">—</span>}
+                    {f.pro ? (
+                      <Check className="mx-auto h-4 w-4 text-accent" aria-label="Included" />
+                    ) : (
+                      <span className="text-border-strong" aria-label="Not included">—</span>
+                    )}
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-      </section>
-
-      <section className="mt-12 rounded-lg border border-border/60 bg-card/40 p-6">
-        <h2 className="text-lg font-semibold">No accounts. Stripe is the database.</h2>
-        <p className="mt-2 text-sm text-muted">
-          You don&apos;t create a CaptionSnap account. Subscribing issues an
-          HMAC-signed license token tied to your Stripe customer ID. We never see
-          your card. Cards, invoices, cancellations all live in the standard
-          Stripe Customer Portal.
-        </p>
-        <p className="mt-2 text-sm text-muted">
-          Lost access on a new device? Visit{" "}
-          <Link className="underline hover:text-accent" href="/account">/account</Link>{" "}
-          and your subscription auto-recovers via a long-lived signed cookie. If
-          both cookie and localStorage are cleared, email{" "}
-          <a className="underline hover:text-accent" href="mailto:hello@captionsnap.io">
-            hello@captionsnap.io
-          </a>{" "}
-          with your Stripe receipt — typical response under 2 business days.
-        </p>
       </section>
     </article>
   );

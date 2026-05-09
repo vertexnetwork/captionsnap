@@ -14,15 +14,22 @@ export function AffiliateLink({ id, surface = "pseo", children }: Props) {
   if (!entry) return null;
 
   return (
-    <a
-      href={entry.url}
-      target="_blank"
-      rel="sponsored noopener nofollow"
-      onClick={() => track("affiliate_clicked", { id, surface })}
-      className="text-accent underline-offset-4 hover:underline"
-    >
-      {children ?? entry.label}
-      <span className="sr-only"> (sponsored)</span>
-    </a>
+    <span className="inline-flex items-baseline gap-1">
+      <a
+        href={entry.url}
+        target="_blank"
+        rel="sponsored noopener nofollow"
+        onClick={() => track("affiliate_clicked", { id, surface })}
+        className="text-accent underline-offset-4 hover:underline"
+      >
+        {children ?? entry.label}
+      </a>
+      <span
+        aria-label="sponsored link"
+        className="rounded-sm bg-card px-1 py-0.5 text-[10px] uppercase tracking-wide text-muted"
+      >
+        sponsored
+      </span>
+    </span>
   );
 }
