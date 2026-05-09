@@ -3,6 +3,7 @@ import { SimulatorPreset } from "@/components/pseo/SimulatorPreset";
 import { SpecTable } from "@/components/pseo/SpecTable";
 import { FAQ } from "@/components/pseo/FAQ";
 import { RelatedPages } from "@/components/pseo/RelatedPages";
+import { AffiliateLink } from "@/components/pseo/AffiliateLink";
 import { LastVerifiedBadge } from "@/components/simulator/LastVerifiedBadge";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
@@ -11,6 +12,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     SpecTable,
     FAQ,
     RelatedPages,
+    AffiliateLink,
     LastVerifiedBadge,
     ...components,
   };

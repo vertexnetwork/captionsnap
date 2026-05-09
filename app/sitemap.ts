@@ -9,7 +9,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries: MetadataRoute.Sitemap = [
     { url: BASE + "/", lastModified: today, changeFrequency: "weekly", priority: 1 },
     { url: BASE + "/about", lastModified: today, changeFrequency: "monthly", priority: 0.5 },
+    { url: BASE + "/contact", lastModified: today, changeFrequency: "yearly", priority: 0.3 },
     { url: BASE + "/embed", lastModified: today, changeFrequency: "monthly", priority: 0.7 },
+    { url: BASE + "/extension", lastModified: today, changeFrequency: "monthly", priority: 0.5 },
     { url: BASE + "/privacy", lastModified: today, changeFrequency: "yearly", priority: 0.3 },
     { url: BASE + "/terms", lastModified: today, changeFrequency: "yearly", priority: 0.3 },
   ];

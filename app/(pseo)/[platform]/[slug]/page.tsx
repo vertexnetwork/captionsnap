@@ -4,13 +4,28 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { MediaVineSlot } from "@/components/ads/MediaVineSlot";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { BreadcrumbListJsonLd } from "@/components/seo/BreadcrumbList";
 import { LastVerifiedBadge } from "@/components/simulator/LastVerifiedBadge";
-import { getPseoEntry, pseoSlugs } from "@/data/pseo-index";
+import { getPseoEntry, pseoSlugs, type PseoCategory } from "@/data/pseo-index";
 import { getPlacement } from "@/lib/platform-specs";
 import { encode } from "@/lib/share";
 import { loadPseoMdx } from "@/content/pseo/load";
 
 type RouteParams = { platform: string; slug: string };
+
+const CATEGORY_LABEL: Record<PseoCategory, string> = {
+  meta: "Meta",
+  tiktok: "TikTok",
+  linkedin: "LinkedIn",
+  x: "X",
+  youtube: "YouTube",
+  pinterest: "Pinterest",
+  reddit: "Reddit",
+  snapchat: "Snapchat",
+  guides: "Guides",
+  compare: "Comparisons",
+  glossary: "Glossary",
+};
 
 export async function generateStaticParams() {
   return pseoSlugs().map((s) => {
@@ -89,6 +104,13 @@ export default async function PseoPage({ params }: { params: Promise<RouteParams
           },
           mainEntityOfPage: `/${entry.slug}`,
         }}
+      />
+      <BreadcrumbListJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: CATEGORY_LABEL[entry.category] },
+          { name: entry.title, path: `/${entry.slug}` },
+        ]}
       />
     </>
   );

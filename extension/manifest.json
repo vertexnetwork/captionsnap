@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "CaptionSnap — Ad Copy Truncation Preview",
+  "version": "0.1.0",
+  "description": "Paste ad copy and instantly see where it gets clipped on Meta, TikTok, LinkedIn, X, YouTube, Pinterest, Reddit, and Snapchat. Free, no signup.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "CaptionSnap"
+  },
+  "permissions": [],
+  "host_permissions": []
+}

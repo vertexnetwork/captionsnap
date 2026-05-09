@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
-import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
+import { ConsentProvider, ClarityScript } from "@/components/consent/CookieConsent";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -67,17 +67,11 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        {children}
-        <Analytics />
-        {clarityId ? (
-          <Script id="ms-clarity" strategy="afterInteractive">
-            {`(function(c,l,a,r,i,t,y){
-              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "${clarityId}");`}
-          </Script>
-        ) : null}
+        <ConsentProvider>
+          {children}
+          <Analytics />
+          {clarityId ? <ClarityScript clarityId={clarityId} /> : null}
+        </ConsentProvider>
       </body>
     </html>
   );

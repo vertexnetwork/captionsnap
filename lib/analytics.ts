@@ -6,6 +6,8 @@ type EventMap = {
   embed_snippet_copied: { placementId: string };
   pseo_view: { slug: string };
   platform_switched: { from: string; to: string };
+  affiliate_clicked: { id: string; surface: "pseo" | "extension" | "home" };
+  extension_install_clicked: { surface: "home" | "about" | "pseo" };
 };
 
 export function track<K extends keyof EventMap>(name: K, props: EventMap[K]) {

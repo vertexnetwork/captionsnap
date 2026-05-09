@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SimulatorProvider } from "@/components/simulator/SimulatorProvider";
 import { Simulator } from "@/components/simulator/Simulator";
 import { MediaVineSlot } from "@/components/ads/MediaVineSlot";
@@ -40,6 +41,14 @@ export default async function HomePage({
           <li className="rounded-full border border-border bg-card px-3 py-1">Every major ad platform</li>
           <li className="rounded-full border border-border bg-card px-3 py-1">Share via URL</li>
           <li className="rounded-full border border-border bg-card px-3 py-1">No tracking of copy</li>
+          <li>
+            <Link
+              href="/extension"
+              className="rounded-full border border-accent/60 bg-card px-3 py-1 text-accent hover:bg-accent/10"
+            >
+              Chrome extension →
+            </Link>
+          </li>
         </ul>
       </section>
 

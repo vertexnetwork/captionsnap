@@ -9,6 +9,7 @@ export function SiteFooter() {
         <nav className="flex flex-wrap gap-4">
           <Link href="/about" className="hover:text-foreground">About</Link>
           <Link href="/embed" className="hover:text-foreground">Embed</Link>
+          <Link href="/contact" className="hover:text-foreground">Contact</Link>
           <Link href="/privacy" className="hover:text-foreground">Privacy</Link>
           <Link href="/terms" className="hover:text-foreground">Terms</Link>
         </nav>
