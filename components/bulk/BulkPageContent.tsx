@@ -49,14 +49,15 @@ function UpsellCard() {
         Bulk paste is a <span className="text-accent">Pro</span> feature.
       </h2>
       <p className="mt-3 text-sm text-muted">
-        Run 10 headlines across every placement of a platform in one shot — no
-        more clicking through one placement at a time. Save the time, and the
-        ad-spend that gets wasted on copy that gets clipped.
+        Validate an entire campaign&apos;s creative in one paste — 10 headlines
+        across every placement of a platform, in a single grid. No more clicking
+        through one placement at a time, and no more clipped copy slipping into
+        production.
       </p>
       <ul className="mt-5 space-y-1.5 text-sm text-foreground">
-        <li>· 10 headlines × all placements grid</li>
+        <li>· 10 headlines × every placement grid</li>
         <li>· Live truncation indicator per cell</li>
-        <li>· Color-coded counters (green / yellow / red)</li>
+        <li>· Color-coded counters (green · yellow · red)</li>
         <li>· Plus PNG export, ad-free browsing, and priority spec re-verification</li>
       </ul>
       <div className="mt-6 flex flex-wrap gap-3">
@@ -64,7 +65,7 @@ function UpsellCard() {
           href="/pricing"
           className="rounded-md bg-accent px-4 py-2 text-sm font-semibold text-black hover:opacity-90"
         >
-          See pricing — $49/mo →
+          Upgrade to Pro — $49/mo →
         </Link>
         <Link
           href="/"

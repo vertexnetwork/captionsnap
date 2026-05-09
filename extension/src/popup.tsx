@@ -37,9 +37,9 @@ const PLATFORM_LABEL: Record<Platform, string> = {
 
 const DEFAULT_FIELDS: Partial<Record<FieldId, string>> = {
   primary:
-    "Stop guessing where your ad copy gets cut off — preview truncation across every major ad platform in real time.",
-  headline: "See exactly where your ad cuts off",
-  description: "Free, no signup, no database",
+    "Stop guessing where your ad copy gets clipped — preview truncation across every major ad platform in real time.",
+  headline: "See exactly where your ad clips",
+  description: "Free, no signup, URL is the database",
 };
 
 function Popup() {

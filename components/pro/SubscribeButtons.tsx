@@ -38,7 +38,7 @@ export function SubscribeButtons() {
   if (!enabled) {
     return (
       <div className="rounded-md border border-border/60 bg-card/40 px-4 py-3 text-sm text-muted">
-        Pro tier is not yet live. Check back shortly, or email{" "}
+        Pro is not yet live. Check back shortly, or email{" "}
         <a className="underline hover:text-accent" href="mailto:hello@captionsnap.io">
           hello@captionsnap.io
         </a>{" "}
@@ -68,7 +68,7 @@ export function SubscribeButtons() {
       {error ? (
         <p className="text-xs text-danger" role="alert">
           {error === "pro_disabled"
-            ? "Pro tier is currently disabled."
+            ? "Pro is currently disabled."
             : error === "price_not_configured"
               ? "Pricing not configured — please email hello@captionsnap.io."
               : "Could not start checkout. Try again or email hello@captionsnap.io."}

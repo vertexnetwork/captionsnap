@@ -13,9 +13,9 @@ export const DEFAULT_STATE: SimulatorState = {
   v: 1,
   placementId: DEFAULT_PLACEMENT_ID,
   fields: {
-    primary: "Stop guessing where your ad copy gets cut off — preview truncation across every major ad platform in real time.",
-    headline: "See exactly where your ad cuts off",
-    description: "Free, no signup, no database",
+    primary: "Stop guessing where your ad copy gets clipped — preview truncation across every major ad platform in real time.",
+    headline: "See exactly where your ad clips",
+    description: "Free, no signup, URL is the database",
   },
   display: { dark: true, deviceFrame: true },
 };

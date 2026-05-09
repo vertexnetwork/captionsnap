@@ -5,7 +5,7 @@ import { CHROME_WEBSTORE_URL, EXTENSION_AVAILABLE } from "@/lib/extension";
 export const metadata: Metadata = {
   title: "CaptionSnap for Chrome",
   description:
-    "Preview ad-copy truncation across Meta, TikTok, LinkedIn, X, YouTube, Pinterest, Reddit, and Snapchat from your Chrome toolbar. Popup-only, no permissions, fully offline.",
+    "Preview ad-copy truncation across 8 platforms from your Chrome toolbar. Popup-only, no permissions, fully offline. Free; one-click handoff to the full simulator on captionsnap.io.",
   alternates: { canonical: "/extension" },
 };
 
@@ -15,8 +15,15 @@ export default function ExtensionPage() {
       <h1>CaptionSnap for Chrome</h1>
       <p>
         Same simulator, in your toolbar. Paste ad copy, see exactly where each
-        platform clips it, jump to the full simulator with one click. The popup
-        is fully offline — no host permissions, no content scripts, no tracking.
+        platform clips it, hand off to the full simulator with one click. The
+        popup is free, fully offline, and stays out of the way — no host
+        permissions, no content scripts, no tracking SDK.
+      </p>
+      <p>
+        Pro features — <Link href="/bulk">bulk paste of 10 headlines</Link>,
+        PNG export, ad-free browsing — live on the website. The popup&apos;s
+        &ldquo;Open full simulator&rdquo; button hands your current copy off to
+        captionsnap.io with one click.
       </p>
 
       {EXTENSION_AVAILABLE && CHROME_WEBSTORE_URL ? (

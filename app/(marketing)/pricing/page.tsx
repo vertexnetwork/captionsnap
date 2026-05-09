@@ -6,19 +6,19 @@ import { PricingViewedBeacon } from "@/components/pro/PricingViewedBeacon";
 export const metadata: Metadata = {
   title: "Pricing — CaptionSnap Pro",
   description:
-    "$49/mo or $499/yr (15% off). Bulk-preview 10 headlines × all placements, export simulator output as PNG, and remove ads. Cancel anytime via Stripe.",
+    "Pro at $49/mo or $499/yr (save 15%). Bulk paste 10 headlines × every placement, export simulator output as PNG, and skip the ads. Built for performance marketers and small agencies. Cancel anytime via Stripe.",
   alternates: { canonical: "/pricing" },
 };
 
 const features: { name: string; free: boolean; pro: boolean }[] = [
   { name: "Single-placement simulator", free: true, pro: true },
-  { name: "All 8 platforms / 55 placements", free: true, pro: true },
+  { name: "8 platforms · 55 placements", free: true, pro: true },
   { name: "Share via URL (no signup)", free: true, pro: true },
   { name: "Iframe embed for blogs / agency sites", free: true, pro: true },
   { name: "Chrome extension popup", free: true, pro: true },
-  { name: "Bulk paste — 10 headlines × all placements", free: false, pro: true },
-  { name: "Export simulator output as PNG", free: false, pro: true },
-  { name: "Ad-free experience", free: false, pro: true },
+  { name: "Bulk paste — 10 headlines × every placement", free: false, pro: true },
+  { name: "Export simulator output as PNG (2x resolution)", free: false, pro: true },
+  { name: "Ad-free", free: false, pro: true },
   { name: "Priority spec re-verification", free: false, pro: true },
 ];
 
@@ -31,18 +31,26 @@ export default function PricingPage() {
           Stop wasting ad spend on <span className="text-accent glow">truncated copy</span>.
         </h1>
         <p className="mt-3 text-base text-muted">
-          $49/mo or $499/yr (save 15%). Cancel anytime via Stripe — no questions, no
-          retention call. Built for agencies and in-house paid-social teams running
-          campaigns across multiple platforms.
+          One clipped headline on a $5K Meta campaign is roughly $200 in wasted
+          impressions. Catch it before launch and Pro pays for itself this month.
+        </p>
+        <p className="mt-3 text-sm text-muted">
+          $49/mo or $499/yr (save 15%). Cancel anytime via the Stripe Customer
+          Portal — no questions, no retention call, no demo to sit through. Built
+          for performance marketers, paid-social managers, and small agencies
+          running campaigns across Meta, TikTok, LinkedIn, X, YouTube, Pinterest,
+          Reddit, and Snapchat.
         </p>
       </header>
 
       <section className="grid gap-6 lg:grid-cols-2">
         <div className="rounded-lg border border-border/60 bg-card/40 p-6">
           <h2 className="text-lg font-semibold">Free</h2>
-          <p className="mt-1 text-sm text-muted">For solo marketers and one-off checks.</p>
+          <p className="mt-1 text-sm text-muted">
+            Solo marketers running one-off audits and individual creative checks.
+          </p>
           <p className="mt-4 text-3xl font-bold">$0</p>
-          <p className="text-xs text-muted">forever</p>
+          <p className="text-xs text-muted">forever, no signup</p>
           <Link
             href="/"
             className="mt-5 inline-block rounded-md border border-border/60 px-4 py-2 text-sm hover:border-accent"
@@ -57,18 +65,18 @@ export default function PricingPage() {
             <span className="text-xs uppercase tracking-wide text-accent">Recommended</span>
           </div>
           <p className="mt-1 text-sm text-muted">
-            For agencies and paid-social teams. Save more in ad-spend than the cost
-            in the first week.
+            Agencies and in-house teams shipping 10+ creatives a week across
+            multiple platforms.
           </p>
           <p className="mt-4 text-3xl font-bold">
             $49<span className="text-base font-normal text-muted">/mo</span>
           </p>
-          <p className="text-xs text-muted">or $499/yr (15% off)</p>
+          <p className="text-xs text-muted">or $499/yr (save 15%)</p>
           <div className="mt-5">
             <SubscribeButtons />
           </div>
           <p className="mt-3 text-xs text-muted">
-            Cancel anytime via Stripe Customer Portal. No retention call.
+            Cancel anytime via the Stripe Customer Portal. No retention call.
           </p>
         </div>
       </section>
@@ -104,18 +112,20 @@ export default function PricingPage() {
       <section className="mt-12 rounded-lg border border-border/60 bg-card/40 p-6">
         <h2 className="text-lg font-semibold">No accounts. Stripe is the database.</h2>
         <p className="mt-2 text-sm text-muted">
-          You don&apos;t create a CaptionSnap account. Subscribing issues an HMAC-signed
-          license token tied to your Stripe customer ID. Manage everything — cards,
-          invoices, cancellations — through the standard Stripe Customer Portal.
+          You don&apos;t create a CaptionSnap account. Subscribing issues an
+          HMAC-signed license token tied to your Stripe customer ID. We never see
+          your card. Cards, invoices, cancellations all live in the standard
+          Stripe Customer Portal.
         </p>
         <p className="mt-2 text-sm text-muted">
-          Lost access on a new device? Visit <Link className="underline hover:text-accent" href="/account">/account</Link>{" "}
-          and your subscription auto-recovers via a long-lived signed cookie. If both
-          cookie and localStorage are cleared, email{" "}
+          Lost access on a new device? Visit{" "}
+          <Link className="underline hover:text-accent" href="/account">/account</Link>{" "}
+          and your subscription auto-recovers via a long-lived signed cookie. If
+          both cookie and localStorage are cleared, email{" "}
           <a className="underline hover:text-accent" href="mailto:hello@captionsnap.io">
             hello@captionsnap.io
           </a>{" "}
-          with your Stripe receipt.
+          with your Stripe receipt — typical response under 2 business days.
         </p>
       </section>
     </article>

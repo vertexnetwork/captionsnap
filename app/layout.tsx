@@ -20,15 +20,18 @@ export const metadata: Metadata = {
     template: "%s · CaptionSnap",
   },
   description:
-    "Paste your ad copy and instantly see character-limit violations and UI safe-zone collisions across Meta, TikTok, LinkedIn, X, YouTube, Pinterest, Reddit, and Snapchat placements.",
+    "Built for performance marketers and small agencies. Paste your ad copy, see exactly where every platform clips it and which UI overlays cover your hook — Meta, TikTok, LinkedIn, X, YouTube, Pinterest, Reddit, Snapchat. No signup. Pro at $49/mo for bulk paste + PNG export.",
   applicationName: "CaptionSnap",
   authors: [{ name: "CaptionSnap" }],
   keywords: [
     "ad copy",
     "character limits",
     "safe zones",
+    "performance marketing",
+    "paid social",
     "media buying",
     "PPC",
+    "agency tools",
     "Meta ads",
     "TikTok ads",
     "LinkedIn ads",
@@ -44,7 +47,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     title: "CaptionSnap — Stop ad copy from getting truncated",
     description:
-      "Paste your ad copy and instantly see character-limit violations and UI safe-zone collisions across Meta, TikTok, LinkedIn, X, YouTube, Pinterest, Reddit, and Snapchat placements.",
+      "Paste your ad copy, see exactly where every major platform clips it and which UI overlays cover your hook. Built for performance marketers and small agencies.",
     images: [{ url: "/og-default.png", width: 1200, height: 630 }],
   },
   twitter: {

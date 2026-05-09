@@ -6,7 +6,7 @@ import { PSEO_INDEX } from "@/data/pseo-index";
 export const metadata: Metadata = {
   title: "About CaptionSnap",
   description:
-    "Why CaptionSnap exists, who built it, and how the platform-spec data stays current across Meta, TikTok, LinkedIn, X, YouTube, Pinterest, Reddit, and Snapchat placements.",
+    "Why CaptionSnap exists for performance marketers and small agencies, how the platform-spec data stays current, and why there are no accounts — across 8 platforms · 55 placements.",
   alternates: { canonical: "/about" },
 };
 
@@ -15,11 +15,16 @@ export default function AboutPage() {
     <article className="mx-auto max-w-3xl px-4 py-12 prose prose-invert">
       <h1>About CaptionSnap</h1>
       <p>
-        CaptionSnap is a free utility for media buyers, paid-social managers, and
-        creative teams who keep shipping ads with copy that gets clipped at
+        CaptionSnap is built for performance marketers, paid-social managers, and
+        small agencies who keep shipping ads with copy that gets clipped at
         &ldquo;See more&rdquo; — or worse, hidden behind a CTA button or a profile
         avatar. Paste your ad copy. See the truncation in real time. Fix it before
         launch. No account, no upload, no waiting.
+      </p>
+      <p>
+        Free to use forever. <Link href="/pricing">Pro</Link> at $49/mo unlocks
+        bulk paste of 10 headlines × every placement, PNG export for creative
+        handoff, and an ad-free experience.
       </p>
 
       <h2>Why this exists</h2>
@@ -77,17 +82,17 @@ export default function AboutPage() {
 
       <h2>Who built it</h2>
       <p>
-        CaptionSnap is an indie operation. The architecture is intentionally
-        minimal: Next.js on Vercel, no database, no authentication, no server-side
-        state. The URL <em>is</em> the database — share-link state is encoded into
-        the query string with lz-string, so links work without an account and
-        nothing about your copy is stored on our servers. Embeds are sandboxed
-        iframes; the simulator runs entirely in your browser.
+        CaptionSnap is run as a small, focused operation. The architecture is
+        intentionally minimal: Next.js on Vercel, no database, no authentication,
+        no server-side state. The URL <em>is</em> the database — share-link state
+        is encoded into the query string with lz-string, so links work without an
+        account and nothing about your copy is stored on our servers. Embeds are
+        sandboxed iframes; the simulator runs entirely in your browser.
       </p>
       <p>
         That minimalism is a feature, not a constraint. It&apos;s why the simulator
-        loads in under a second, why share links never expire, why there&apos;s no
-        login wall in front of a tool you should be able to use in 30 seconds.
+        loads in under a second, why share links never expire, and why there&apos;s
+        no login wall in front of a tool you should be able to use in 30 seconds.
       </p>
 
       <h2>What we don&apos;t do</h2>
@@ -95,27 +100,61 @@ export default function AboutPage() {
         <li>
           <strong>No AI caption generator.</strong> The market is saturated and the
           margin is brutal. We focus on what platforms actually <em>do</em> with
-          copy you already wrote.
+          the copy you already wrote.
         </li>
         <li>
-          <strong>No accounts.</strong> Ever. Share links are stateless.
+          <strong>No accounts.</strong> Ever. Share links are stateless. Pro
+          subscribers are identified by an HMAC-signed token tied to a Stripe
+          customer ID — there&apos;s still no CaptionSnap login.
         </li>
         <li>
-          <strong>No live spec scraping.</strong> Quarterly re-verification by
-          paid impression is more reliable than scrapers that break the moment a
+          <strong>No live spec scraping.</strong> Quarterly re-verification by paid
+          impression is more reliable than scrapers that break the moment a
           platform ships a redesign.
         </li>
         <li>
-          <strong>No paid tier today.</strong> The site is ad-supported via
-          MediaVine Journey. Ad slots ship empty until approval lands.
+          <strong>No demo, no sales call, no retention loop.</strong> Try the free
+          simulator, upgrade if Pro pays for itself, cancel anytime via the Stripe
+          Customer Portal.
+        </li>
+      </ul>
+
+      <h2>Pro — for teams that ship paid ads weekly</h2>
+      <p>
+        The free simulator is a single-placement check — paste copy, see one
+        platform, fix one creative. That&apos;s right for solo marketers and
+        one-off audits.
+      </p>
+      <p>
+        <Link href="/pricing">Pro</Link> ($49/mo or $499/yr) is built for the team
+        running 10+ creatives a week across multiple platforms. It adds:
+      </p>
+      <ul>
+        <li>
+          <strong>Bulk paste</strong> — 10 headlines × every placement of a
+          platform in one grid. The agency feature: validate a campaign&apos;s
+          full creative set before pushing to ad managers.
+        </li>
+        <li>
+          <strong>PNG export</strong> — capture the simulator preview at 2x
+          resolution for creative-handoff decks. Account managers stop reading
+          screenshots back over Zoom.
+        </li>
+        <li>
+          <strong>Ad-free</strong> on every page, no display takeovers between
+          you and the spec.
+        </li>
+        <li>
+          <strong>Priority spec re-verification</strong> when a platform ships
+          UI changes — Pro subscribers get the updated spec first.
         </li>
       </ul>
 
       <h2>Coverage</h2>
       <p>
-        {PLACEMENTS.length} placements across 8 platforms. {PSEO_INDEX.length}{" "}
-        platform-specific guides covering character limits, safe zones, comparisons,
-        and glossary terms — see the{" "}
+        8 platforms · {PLACEMENTS.length} placements. {PSEO_INDEX.length}{" "}
+        platform-specific guides covering character limits, safe zones,
+        comparisons, and glossary terms — see the{" "}
         <Link href="/sitemap.xml">sitemap</Link> for the full list.
       </p>
 

@@ -13,9 +13,9 @@ export default function ContactPage() {
     <article className="mx-auto max-w-3xl px-4 py-12 prose prose-invert">
       <h1>Contact</h1>
       <p>
-        CaptionSnap is a small indie operation. The fastest way to reach us is
-        email — we read every message and typically reply within{" "}
-        <strong>2 business days</strong>.
+        The fastest way to reach us is email — we read every message and
+        typically reply within <strong>2 business days</strong>. No demo, no
+        sales call, no ticketing system.
       </p>
 
       <h2>Email</h2>
@@ -64,9 +64,10 @@ export default function ContactPage() {
 
       <h2>Response time</h2>
       <p>
-        Standard: 2 business days. If you&apos;re a paying MediaVine partner or
-        have hit a blocking embed bug on a production site, mark the subject line
-        with <code>[urgent]</code> and we&apos;ll bump priority.
+        Standard: 2 business days. If you&apos;re a Pro subscriber or have hit a
+        blocking embed bug on a production site, mark the subject line with{" "}
+        <code>[urgent]</code> and we&apos;ll bump priority — typical response
+        under 24 hours.
       </p>
     </article>
   );

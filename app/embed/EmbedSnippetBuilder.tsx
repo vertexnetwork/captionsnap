@@ -12,8 +12,8 @@ const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://captionsnap.io";
 export function EmbedSnippetBuilder() {
   const [placementId, setPlacementId] = useState(PLACEMENTS[0].id);
   const placement = getPlacement(placementId)!;
-  const [primary, setPrimary] = useState("Stop guessing where your ad copy gets cut off.");
-  const [headline, setHeadline] = useState("See exactly where your ad cuts off");
+  const [primary, setPrimary] = useState("Stop guessing where your ad copy gets clipped.");
+  const [headline, setHeadline] = useState("See exactly where your ad clips");
   const [caption, setCaption] = useState("Tap to see the truncation preview live →");
   const [copied, setCopied] = useState(false);
 

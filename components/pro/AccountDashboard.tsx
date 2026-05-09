@@ -51,9 +51,13 @@ export function AccountDashboard() {
     <div className="mt-6 flex flex-col gap-6">
       {welcomeShown && isPro ? (
         <div className="rounded-md border border-accent/60 bg-accent/10 px-4 py-3 text-sm text-foreground">
-          <strong className="text-accent">Welcome to Pro.</strong> Your subscription
-          is active. Bulk paste, PNG export, and ad-free browsing are unlocked on
-          this device.
+          <strong className="text-accent">You&apos;re in.</strong> Bulk paste,
+          PNG export, and an ad-free experience are unlocked on this device.
+          Try{" "}
+          <Link href="/bulk" className="underline hover:text-accent">
+            /bulk
+          </Link>{" "}
+          to validate your next campaign in one paste.
         </div>
       ) : null}
 
@@ -88,20 +92,20 @@ export function AccountDashboard() {
       {portalError ? (
         <p className="text-xs text-danger" role="alert">
           {portalError === "no_customer"
-            ? "No customer cookie found on this device. Email hello@captionsnap.io with your Stripe receipt for recovery."
-            : "Could not open Stripe portal. Try again or email hello@captionsnap.io."}
+            ? "No customer cookie found on this device. Email hello@captionsnap.io with your Stripe receipt and we'll re-issue access."
+            : "Could not open the Stripe portal. Try again or email hello@captionsnap.io."}
         </p>
       ) : null}
 
       <section className="rounded-md border border-border/60 bg-card/40 px-4 py-3 text-xs text-muted">
-        <p className="font-semibold text-foreground">Lost access?</p>
+        <p className="font-semibold text-foreground">Lost access on a new device?</p>
         <p className="mt-1">
-          Cookie + localStorage on this browser cleared? Email{" "}
+          The customer cookie auto-recovers your subscription on most browsers.
+          If both cookie and localStorage are cleared, email{" "}
           <a className="underline hover:text-accent" href="mailto:hello@captionsnap.io">
             hello@captionsnap.io
           </a>{" "}
-          with your Stripe receipt and we&apos;ll re-issue the customer cookie.
-          Standard response time: 2 business days.
+          with your Stripe receipt — typical response under 2 business days.
         </p>
       </section>
     </div>
@@ -130,9 +134,16 @@ function ProActiveCard({
         <p className="mt-2 text-sm text-muted">Billed to {email}</p>
       ) : null}
       <ul className="mt-4 space-y-1 text-sm text-foreground">
-        <li>· Bulk paste at <Link className="underline hover:text-accent" href="/bulk">/bulk</Link></li>
-        <li>· PNG export from any simulator preview</li>
-        <li>· Ad-free pSEO + simulator pages</li>
+        <li>
+          · Bulk paste at{" "}
+          <Link className="underline hover:text-accent" href="/bulk">
+            /bulk
+          </Link>{" "}
+          — 10 headlines × every placement of a platform
+        </li>
+        <li>· PNG export at 2x resolution from any simulator preview</li>
+        <li>· Ad-free across pSEO + simulator</li>
+        <li>· Priority spec re-verification on platform UI changes</li>
       </ul>
     </section>
   );
@@ -143,14 +154,15 @@ function ProInactiveCard() {
     <section className="rounded-lg border border-border/60 bg-card/40 p-5">
       <h2 className="text-lg font-semibold">No active subscription</h2>
       <p className="mt-2 text-sm text-muted">
-        You&apos;re using the free simulator. Upgrade to Pro for bulk preview,
-        PNG export, and an ad-free experience.
+        You&apos;re using the free single-placement simulator. Pro adds bulk
+        paste, PNG export, and an ad-free experience for performance marketers
+        and small agencies running campaigns weekly.
       </p>
       <Link
         href="/pricing"
         className="mt-4 inline-block rounded-md bg-accent px-4 py-2 text-sm font-semibold text-black hover:opacity-90"
       >
-        See pricing →
+        Upgrade to Pro — $49/mo →
       </Link>
     </section>
   );

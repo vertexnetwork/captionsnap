@@ -45,8 +45,8 @@ export function CopyInputs() {
                 className={cn("text-xs tabular-nums font-medium", COUNTER_COLORS[cs])}
                 aria-live="polite"
               >
-                {len}/{field.max} · cuts at {field.truncateAt}
-                {isOverCut ? " · CLIPPED" : ""}
+                {len}/{field.max} · clips at {field.truncateAt}
+                {isOverCut ? " · clipped" : ""}
               </span>
             </div>
             {field.multiline ? (

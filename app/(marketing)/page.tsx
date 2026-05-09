@@ -9,7 +9,7 @@ import { PLACEMENTS } from "@/lib/platform-specs";
 export const metadata: Metadata = {
   title: "CaptionSnap — Stop ad copy from getting truncated",
   description:
-    "Free ad-copy simulator for every major platform — Meta, TikTok, LinkedIn, X, YouTube, Pinterest, Reddit, Snapchat. Paste your copy, see exactly where it truncates and which UI overlays cover it.",
+    "Free ad-copy simulator for performance marketers and small agencies. Paste your copy, see exactly where every platform clips it — Meta, TikTok, LinkedIn, X, YouTube, Pinterest, Reddit, Snapchat. No signup. Pro at $49/mo unlocks bulk paste of 10 headlines and PNG export.",
   alternates: { canonical: "/" },
 };
 
@@ -28,18 +28,26 @@ export default async function HomePage({
     <div className="mx-auto max-w-6xl px-4 py-12">
       <section className="mb-10">
         <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-          Stop guessing where your ad copy gets <span className="text-accent glow">cut off</span>.
+          Stop guessing where your ad copy gets <span className="text-accent glow">clipped</span>.
         </h1>
         <p className="mt-4 max-w-2xl text-base text-muted sm:text-lg">
-          Paste your ad copy for Meta, TikTok, LinkedIn, X, YouTube, Pinterest, Reddit, or Snapchat
-          and instantly see character-limit violations, see-more truncation, and which UI overlays cover
-          your hook. Free, no signup, the URL is the database.
+          Paste your ad copy for Meta, TikTok, LinkedIn, X, YouTube, Pinterest,
+          Reddit, or Snapchat and see exactly where each platform clips it,
+          plus which UI overlays cover your hook. Free, no signup. Built for
+          performance marketers and small agencies.
         </p>
         <ul className="mt-4 flex flex-wrap gap-3 text-xs text-muted">
-          <li className="rounded-full border border-border bg-card px-3 py-1">{PLACEMENTS.length} placements</li>
-          <li className="rounded-full border border-border bg-card px-3 py-1">Every major ad platform</li>
+          <li className="rounded-full border border-border bg-card px-3 py-1">8 platforms · {PLACEMENTS.length} placements</li>
           <li className="rounded-full border border-border bg-card px-3 py-1">Share via URL</li>
           <li className="rounded-full border border-border bg-card px-3 py-1">No tracking of copy</li>
+          <li>
+            <Link
+              href="/pricing"
+              className="rounded-full border border-accent/60 bg-card px-3 py-1 text-accent hover:bg-accent/10"
+            >
+              Pro: bulk + PNG export →
+            </Link>
+          </li>
           <li>
             <Link
               href="/extension"
