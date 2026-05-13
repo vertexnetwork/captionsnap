@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: "CaptionSnap — Stop ad copy from getting truncated",
-    template: "%s · CaptionSnap",
+    template: "%s | CaptionSnap",
   },
   description:
     "Built for performance marketers and small agencies. Paste your ad copy, see exactly where every platform clips it and which UI overlays cover your hook — Meta, TikTok, LinkedIn, X, YouTube, Pinterest, Reddit, Snapchat. No signup. Pro at $49/mo for bulk paste + PNG export.",

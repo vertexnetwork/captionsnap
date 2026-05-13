@@ -174,17 +174,10 @@ export default function AboutPage() {
       </p>
 
       <h2>Changelog</h2>
-      <ul>
-        <li>
-          <strong>{LAST_VERIFIED_GLOBAL}</strong> — Re-verified all 2026 placements
-          across Meta, TikTok, LinkedIn, X, YouTube, Pinterest, Reddit, and
-          Snapchat.
-        </li>
-        <li>
-          Initial launch — {PLACEMENTS.length} placements, {PSEO_INDEX.length}{" "}
-          pSEO pages, share-link OG images, iframe embed.
-        </li>
-      </ul>
+      <p>
+        Dated record of updates and spec re-verifications lives at{" "}
+        <Link href="/changelog">/changelog</Link>. Full release notes are on GitHub.
+      </p>
     </article>
   );
 }

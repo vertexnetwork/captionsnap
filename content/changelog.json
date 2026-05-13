@@ -1,0 +1,58 @@
+[
+  {
+    "date": "2026-05-09",
+    "title": "Rip out ad infrastructure entirely; Pro is the sole revenue lever"
+  },
+  {
+    "date": "2026-05-09",
+    "title": "Drop 'Ad-free' from Pro feature lists across the site"
+  },
+  {
+    "date": "2026-05-09",
+    "title": "Replace default Next.js favicon with branded CaptionSnap icon set"
+  },
+  {
+    "date": "2026-05-09",
+    "title": "Add /network page + discreet 'Part of the Vertex Network' footer link"
+  },
+  {
+    "date": "2026-05-09",
+    "title": "Quiet-Luxury redesign: 44px tap targets, calmer palette, dominant Pro"
+  },
+  {
+    "date": "2026-05-09",
+    "title": "Align copy across every page for performance-marketer demographic"
+  },
+  {
+    "date": "2026-05-09",
+    "title": "Ship Pro tier: Stripe subscriptions, placement-aware ads, PNG export, bulk paste, comprehensive README"
+  },
+  {
+    "date": "2026-05-09",
+    "title": "Add MediaVine readiness, affiliate registry, breadcrumb schema, and Chrome extension popup"
+  },
+  {
+    "date": "2026-05-08",
+    "title": "Refresh SEO/GEO surfaces to cover all 8 platforms"
+  },
+  {
+    "date": "2026-05-08",
+    "title": "Add LinkedIn, X, YouTube, Pinterest, Reddit, Snapchat — 22 new placements + 38 pSEO pages"
+  },
+  {
+    "date": "2026-05-08",
+    "title": "Fix UX audit P0-P5: safe-zone overlays everywhere, accurate counters, defensive UX, hardened llms-full"
+  },
+  {
+    "date": "2026-05-08",
+    "title": "Render authentic per-placement layouts so user copy lands where the platform shows it"
+  },
+  {
+    "date": "2026-05-08",
+    "title": "Build CaptionSnap MVP — simulator, share links, embed, 60 pSEO pages"
+  },
+  {
+    "date": "2026-05-08",
+    "title": "Initial commit from Create Next App"
+  }
+]

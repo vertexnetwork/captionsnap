@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node --experimental-strip-types scripts/build-changelog.mts",
     "build": "next build",
     "start": "next start",
+    "build:changelog": "node --experimental-strip-types scripts/build-changelog.mts",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",

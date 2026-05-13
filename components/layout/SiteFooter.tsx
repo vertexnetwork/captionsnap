@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LAST_VERIFIED_GLOBAL } from "@/lib/platform-specs";
+import { AffiliateSlot } from "@/components/affiliate/AffiliateSlot";
 
 const COLUMNS: { heading: string; links: { label: string; href: string }[] }[] = [
   {
@@ -16,6 +17,7 @@ const COLUMNS: { heading: string; links: { label: string; href: string }[] }[] =
     links: [
       { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },
+      { label: "Changelog", href: "/changelog" },
     ],
   },
   {
@@ -67,13 +69,14 @@ export function SiteFooter() {
           </nav>
         ))}
       </div>
-      <div className="mx-auto max-w-6xl border-t border-border/60 px-4 py-4">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 border-t border-border/60 px-4 py-4">
         <Link
           href="/network"
           className="text-[11px] uppercase tracking-[0.18em] text-muted/70 hover:text-muted"
         >
           Part of the Vertex Network
         </Link>
+        <AffiliateSlot surface="footer" />
       </div>
     </footer>
   );
