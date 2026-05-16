@@ -39,22 +39,22 @@ const COLUMNS: { heading: string; links: { label: string; href: string }[] }[] =
 export function SiteFooter() {
   return (
     <footer className="mt-24 border-t border-border/60">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-5">
-        <div className="lg:col-span-1">
+      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-8 px-4 py-12 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="col-span-2 sm:col-span-3 lg:col-span-1">
           <p className="text-sm font-semibold text-foreground">CaptionSnap</p>
           <p className="mt-2 text-xs text-muted">
             Specs last verified {LAST_VERIFIED_GLOBAL}.
           </p>
-          <p className="mt-2 text-xs text-muted">
+          <p className="mt-1 text-xs text-muted">
             © {new Date().getFullYear()} CaptionSnap.
           </p>
         </div>
         {COLUMNS.map((col) => (
-          <nav key={col.heading} aria-label={col.heading} className="flex flex-col gap-1">
+          <nav key={col.heading} aria-label={col.heading} className="flex flex-col">
             <p className="text-xs font-semibold uppercase tracking-wide text-muted">
               {col.heading}
             </p>
-            <ul className="mt-2 flex flex-col gap-1 text-sm text-muted">
+            <ul className="mt-2 flex flex-col gap-0.5 text-sm text-muted">
               {col.links.map((l) => (
                 <li key={l.href}>
                   <Link
