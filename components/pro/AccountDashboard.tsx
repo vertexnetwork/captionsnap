@@ -1,39 +1,81 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useProContext } from "@/components/pro/ProProvider";
 import { track } from "@/lib/analytics";
 
 export function AccountDashboard() {
-  const { status, isPro, email, expiresAt, refresh, clear } = useProContext();
+  const { status, isPro, email, expiresAt, installToken, clear } =
+    useProContext();
   const [portalPending, setPortalPending] = useState(false);
   const [portalError, setPortalError] = useState<string | null>(null);
   const [welcomeShown, setWelcomeShown] = useState(false);
 
+  const [keyInput, setKeyInput] = useState("");
+  const [activating, setActivating] = useState(false);
+  const [activateError, setActivateError] = useState<string | null>(null);
+  const autoTried = useRef(false);
+
+  const activate = useCallback(
+    async (key: string) => {
+      const trimmed = key.trim();
+      if (!trimmed || activating) return;
+      setActivating(true);
+      setActivateError(null);
+      try {
+        const res = await fetch("/api/ls/activate", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ key: trimmed }),
+          credentials: "include",
+        });
+        const data = (await res.json()) as {
+          active?: boolean;
+          token?: string;
+          error?: string;
+        };
+        if (!res.ok || !data.active || !data.token) {
+          setActivateError(data.error ?? "activation_failed");
+          setActivating(false);
+          return;
+        }
+        await installToken(data.token);
+        track("checkout_completed", { plan: "monthly" });
+        setKeyInput("");
+        setActivating(false);
+      } catch {
+        setActivateError("network_error");
+        setActivating(false);
+      }
+    },
+    [activating, installToken],
+  );
+
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined" || autoTried.current) return;
+    autoTried.current = true;
     const params = new URLSearchParams(window.location.search);
-    if (params.get("welcome") === "1") {
-      // SSR cannot read URL search params — we must hydrate this on mount.
+    const key = params.get("key");
+    const welcome = params.get("welcome") === "1";
+    if (welcome) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setWelcomeShown(true);
-      // Refresh ProProvider to pick up the cookie + mint a token.
-      void refresh();
-      // Fire conversion event once.
-      track("checkout_completed", { plan: "monthly" });
-      // Strip the query param so refresh doesn't re-fire.
-      const clean = window.location.pathname;
-      window.history.replaceState({}, "", clean);
     }
-  }, [refresh]);
+    if (key) {
+      void activate(key);
+    }
+    if (key || welcome) {
+      window.history.replaceState({}, "", window.location.pathname);
+    }
+  }, [activate]);
 
   async function openPortal() {
     if (portalPending) return;
     setPortalPending(true);
     setPortalError(null);
     try {
-      const res = await fetch("/api/stripe/portal", { method: "POST" });
+      const res = await fetch("/api/ls/portal", { method: "POST" });
       const data = (await res.json()) as { url?: string; error?: string };
       if (!res.ok || !data.url) {
         setPortalError(data.error ?? "portal_failed");
@@ -49,15 +91,11 @@ export function AccountDashboard() {
 
   return (
     <div className="mt-6 flex flex-col gap-6">
-      {welcomeShown && isPro ? (
+      {welcomeShown && !isPro ? (
         <div className="rounded-md border border-accent/60 bg-accent/10 px-4 py-3 text-sm text-foreground">
-          <strong className="text-accent">You&apos;re in.</strong> Bulk paste,
-          PNG export, and priority spec re-verification are unlocked on this
-          device. Try{" "}
-          <Link href="/bulk" className="underline hover:text-accent">
-            /bulk
-          </Link>{" "}
-          to validate your next campaign in one paste.
+          <strong className="text-accent">Payment received.</strong> Your
+          license key is on its way by email. Paste it below to unlock Pro on
+          this device — it should arrive within a minute or two.
         </div>
       ) : null}
 
@@ -69,6 +107,52 @@ export function AccountDashboard() {
         <ProInactiveCard />
       )}
 
+      {!isPro ? (
+        <section className="rounded-xl border border-border bg-card/40 p-6">
+          <h2 className="text-sm font-semibold text-foreground">
+            Activate with your license key
+          </h2>
+          <p className="mt-1 text-xs text-muted">
+            From your purchase email. Activating binds Pro to this device; your
+            key works on a limited number of devices.
+          </p>
+          <form
+            className="mt-4 flex flex-col gap-3 sm:flex-row"
+            onSubmit={(e) => {
+              e.preventDefault();
+              void activate(keyInput);
+            }}
+          >
+            <input
+              type="text"
+              inputMode="text"
+              autoComplete="off"
+              spellCheck={false}
+              value={keyInput}
+              onChange={(e) => setKeyInput(e.target.value)}
+              placeholder="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+              className="min-h-[44px] flex-1 rounded-md border border-border bg-background px-3 font-mono text-sm text-foreground outline-none focus:border-accent"
+            />
+            <button
+              type="submit"
+              disabled={activating || keyInput.trim().length === 0}
+              className="btn-base bg-accent text-sm text-black hover:opacity-90 disabled:opacity-50"
+            >
+              {activating ? "Activating…" : "Activate Pro"}
+            </button>
+          </form>
+          {activateError ? (
+            <p className="mt-3 text-xs text-danger" role="alert">
+              {activateError.includes("limit")
+                ? "This key has hit its device limit. Deactivate an old device from the customer portal, or email hello@captionsnap.io."
+                : activateError === "network_error"
+                  ? "Network error. Try again."
+                  : "Could not activate that key. Check it matches your purchase email exactly, or email hello@captionsnap.io."}
+            </p>
+          ) : null}
+        </section>
+      ) : null}
+
       {isPro ? (
         <div className="flex flex-wrap gap-3">
           <button
@@ -77,7 +161,7 @@ export function AccountDashboard() {
             disabled={portalPending}
             className="btn-base bg-accent text-sm text-black hover:opacity-90 disabled:opacity-50"
           >
-            {portalPending ? "Opening Stripe…" : "Manage subscription"}
+            {portalPending ? "Opening portal…" : "Manage subscription"}
           </button>
           <button
             type="button"
@@ -92,20 +176,20 @@ export function AccountDashboard() {
       {portalError ? (
         <p className="text-xs text-danger" role="alert">
           {portalError === "no_customer"
-            ? "No customer cookie found on this device. Email hello@captionsnap.io with your Stripe receipt and we'll re-issue access."
-            : "Could not open the Stripe portal. Try again or email hello@captionsnap.io."}
+            ? "No active license on this device. Activate your key above first."
+            : "Could not open the billing portal. Try again or email hello@captionsnap.io."}
         </p>
       ) : null}
 
       <section className="rounded-md border border-border/60 bg-card/40 px-4 py-3 text-xs text-muted">
-        <p className="font-semibold text-foreground">Lost access on a new device?</p>
+        <p className="font-semibold text-foreground">New device, or lost access?</p>
         <p className="mt-1">
-          The customer cookie auto-recovers your subscription on most browsers.
-          If both cookie and localStorage are cleared, email{" "}
+          Re-enter your license key above on any device — it works until it hits
+          its activation limit. Lost the key? Email{" "}
           <a className="underline hover:text-accent" href="mailto:hello@captionsnap.io">
             hello@captionsnap.io
           </a>{" "}
-          with your Stripe receipt — typical response under 2 business days.
+          from your purchase address — typical response under 2 business days.
         </p>
       </section>
     </div>
@@ -126,8 +210,11 @@ function ProActiveCard({
         <h2 className="text-lg font-semibold text-accent">Pro — Active</h2>
         {expiry ? (
           <span className="text-xs text-muted">
-            Active. Next check{" "}
-            {expiry.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" })}
+            Re-checks LemonSqueezy{" "}
+            {expiry.toLocaleString(undefined, {
+              dateStyle: "medium",
+              timeStyle: "short",
+            })}
           </span>
         ) : null}
       </div>

@@ -1,0 +1,40 @@
+An ad copy truncation checker answers one question before you spend money: **where does each platform clip this exact copy, and is anything important on the wrong side of the cut?** Ads Manager and the native preview tools don't answer it — they render full text. CaptionSnap does: paste the copy, see the real per-placement truncation point and the UI overlays that cover it.
+
+## What a real checker has to do
+
+A useful truncation checker is not a character counter. A counter tells you "138 characters". It does not tell you that Facebook drops "… See more" at ~125, that your headline clips at ~27, that TikTok's CTA covers the bottom of the frame, or that Pinterest shows only ~40 of a 100-character title. The check that matters is **visible vs. hidden against the live render**, per placement.
+
+<SimulatorPreset
+  placementId="meta-facebook-feed"
+  presetCopy={{
+    primary: "Paste your real copy. The checker shows exactly what survives the feed cut and what's hidden — across every placement, not a generic phone mockup.",
+    headline: "Check before you spend",
+  }}
+/>
+
+## How to use it
+
+1. **Paste the exact copy** you're about to ship — not an approximation.
+2. **Read only what shows before the cut.** If the hook or CTA is hidden, rewrite and re-check.
+3. **Repeat per placement.** The same copy clips differently on Facebook Feed, Reels, TikTok, and Pinterest — check each surface you're running.
+
+The free [simulator](/) checks one placement at a time. [CaptionSnap Pro](/pricing) checks **10 headlines across every placement of a platform in one paste** — the difference between QA-ing a campaign in an afternoon and QA-ing it in ten seconds.
+
+<FAQ
+  items={[
+    {
+      q: "What is an ad copy truncation checker?",
+      a: "A tool that shows where each platform clips your ad copy in the live feed and which UI elements cover it, so you can confirm the hook and CTA are visible before spending.",
+    },
+    {
+      q: "Isn't a character counter enough?",
+      a: "No. A counter gives a number; it doesn't tell you the platform's visible window, the headline's earlier cut, or the UI overlays. Truncation is positional and per-placement, not just a count.",
+    },
+    {
+      q: "Do I need to sign up?",
+      a: "No. The free simulator checks one placement with no account. Pro adds bulk checking across every placement and PNG export for creative handoff.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["guides/preview-ad-copy-before-you-spend", "guides/agency-creative-qa-workflow", "guides/why-ads-get-truncated"]} />

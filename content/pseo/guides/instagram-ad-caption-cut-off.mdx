@@ -1,0 +1,42 @@
+An Instagram ad caption that reads in full inside Ads Manager but shows **"… more"** in the live feed isn't a bug — Instagram clips the caption at a tighter window than Facebook, and the preview tool doesn't simulate it. If your value proposition or CTA sits after that "… more", most of your paid audience never sees it.
+
+## The Instagram-specific cut
+
+Instagram Feed collapses the caption to roughly the first **125 characters** before "… more", but the practical hook window is tighter than Facebook because the image dominates more screen height before the caption begins. On Reels and Stories the text is overlaid on creative and the safe-zone furniture (profile, CTA, audio tag) eats the edges entirely.
+
+<SimulatorPreset
+  placementId="meta-instagram-feed"
+  presetCopy={{
+    primary: "Instagram drops the '… more' link around here — write as if the caption ends at this point, because for most scrollers it does.",
+    headline: "First line is the whole pitch",
+  }}
+/>
+
+<SpecTable placementId="meta-instagram-feed" />
+
+## How to fix it
+
+1. **Write the first line as a standalone ad.** It should make the case with zero expansion.
+2. **Never split a sentence across the cut.** A caption that clips mid-thought reads as broken and depresses tap-through.
+3. **Verify the live render before launch** — paste the exact caption into the simulator and read only what shows pre-"more".
+
+A clipped caption on a scaled Instagram campaign quietly wastes spend every impression. [CaptionSnap Pro](/pricing) checks a full set of captions across every Meta placement in one paste, so this never reaches a live campaign.
+
+<FAQ
+  items={[
+    {
+      q: "Why is my Instagram ad caption cut off with '… more'?",
+      a: "Instagram Feed truncates captions at roughly 125 characters. Ads Manager preview shows the full caption, so the cut only appears once the ad is live. Front-load the hook and CTA.",
+    },
+    {
+      q: "Is the Instagram caption limit different from Facebook?",
+      a: "The character cap is similar, but Instagram's image occupies more vertical space before the caption, so the effective visible window feels tighter. Reels and Stories overlay text and lose the edges to safe-zone UI.",
+    },
+    {
+      q: "How do I see the caption the way Instagram will show it?",
+      a: "Use a renderer that simulates the live feed truncation point rather than the Ads Manager preview, which shows full text.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["guides/why-is-my-facebook-ad-cut-off", "meta/instagram-feed-ad-character-limits", "guides/preview-ad-copy-before-you-spend"]} />

@@ -17,7 +17,7 @@ export function SubscribeButtons() {
     setPending(plan);
     track("checkout_started", { plan });
     try {
-      const res = await fetch("/api/stripe/checkout", {
+      const res = await fetch("/api/ls/checkout", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ plan }),
@@ -69,7 +69,7 @@ export function SubscribeButtons() {
         <p className="text-xs text-danger" role="alert">
           {error === "pro_disabled"
             ? "Pro is currently disabled."
-            : error === "price_not_configured"
+            : error === "variant_not_configured"
               ? "Pricing not configured — please email hello@captionsnap.io."
               : "Could not start checkout. Try again or email hello@captionsnap.io."}
         </p>

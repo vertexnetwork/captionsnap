@@ -180,7 +180,7 @@ export async function GET() {
   out.push("## About");
   out.push("");
   out.push(
-    `CaptionSnap is a free ad-copy truncation simulator covering ${PLACEMENTS.length} placements across 8 platforms (Meta, TikTok, LinkedIn, X, YouTube, Pinterest, Reddit, Snapchat). It is stateless — share-link state is encoded into the URL itself, no accounts or database. An optional Pro tier ($49/month or $499/year) at ${BASE}/pricing unlocks bulk preview of 10 headlines across every placement, PNG export of the simulator output, and priority spec re-verification when platforms ship UI changes. Subscriptions are billed via Stripe; cancellation is self-service through the Stripe Customer Portal.`,
+    `CaptionSnap is a free ad-copy truncation simulator covering ${PLACEMENTS.length} placements across 8 platforms (Meta, TikTok, LinkedIn, X, YouTube, Pinterest, Reddit, Snapchat). It is stateless — share-link state is encoded into the URL itself, no accounts or database. An optional Pro tier ($49/month or $499/year) at ${BASE}/pricing unlocks bulk preview of 10 headlines across every placement, PNG export of the simulator output, and priority spec re-verification when platforms ship UI changes. Subscriptions are billed via LemonSqueezy (Merchant of Record, which handles global sales tax/VAT); Pro is unlocked with a license key emailed on purchase and activated per device, and cancellation is self-service through the LemonSqueezy customer portal.`,
   );
   out.push("");
   out.push(`Pricing: ${BASE}/pricing`);

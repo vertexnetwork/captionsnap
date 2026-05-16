@@ -1,0 +1,42 @@
+If your TikTok ad caption looks fine in the upload preview but is **covered by the UI** in the live feed — hidden behind the username, the side action rail, or the CTA button — that's not a character-limit problem. It's a safe-zone problem. TikTok's caption can be well under the limit and still be unreadable because the platform's own interface sits on top of it.
+
+## It's the furniture, not the count
+
+TikTok In-Feed truncates the caption text at a character point, but the more common failure is spatial: the right-side action rail (like, comment, share, profile) and the bottom CTA cover the lower-right and bottom of every video. Caption text that extends into that region is rendered but visually obscured. The upload preview shows a clean frame; the live app does not.
+
+<SimulatorPreset
+  placementId="tiktok-in-feed"
+  presetCopy={{
+    primary: "Text that runs into the bottom-right is hidden behind TikTok's action rail and CTA — keep the hook clear of the furniture.",
+    headline: "Caption clears the side rail",
+  }}
+/>
+
+<SpecTable placementId="tiktok-in-feed" />
+
+## How to fix it
+
+1. **Keep the hook in the upper-left safe zone.** The top-left is the only consistently unobstructed region.
+2. **Assume the bottom ~14% and right ~20% are covered.** Design the caption and any burned-in text outside that.
+3. **Preview against the real chrome,** not a blank video frame — the simulator renders TikTok's actual overlays so you see what's hidden.
+
+Reshooting creative because the caption was buried is the expensive failure. [CaptionSnap Pro](/pricing) lets you clear a batch of TikTok variants against the live overlay in one pass before any of it ships.
+
+<FAQ
+  items={[
+    {
+      q: "Why is my TikTok ad caption hidden or cut off?",
+      a: "Either the caption exceeded the truncation point, or — more often — it extends into the region covered by TikTok's action rail and CTA button. The upload preview doesn't show these overlays.",
+    },
+    {
+      q: "Where is the TikTok safe zone for ad text?",
+      a: "Keep critical text in the upper-left. Treat roughly the bottom 14% and right 20% of the frame as permanently covered by TikTok's interface.",
+    },
+    {
+      q: "Does this apply to Spark Ads too?",
+      a: "Yes. Spark Ads carry the same action rail and CTA furniture as In-Feed, plus the original creator's handle and caption. Plan for it.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["tiktok/cta-overlay-safe-zone", "guides/safe-zone-vs-character-limit", "guides/preview-ad-copy-before-you-spend"]} />

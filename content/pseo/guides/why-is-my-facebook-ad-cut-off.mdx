@@ -1,0 +1,42 @@
+If your Facebook ad text is showing a **"… See more"** link and the rest of your copy is hidden, nothing is broken — Facebook truncated your primary text at the feed's visible window, and the cut happens **before** the line you thought was visible. The Ads Manager preview does not show this cut; it renders the full text. The live feed does not. That gap is why the ad looked fine when you built it and clipped when it ran.
+
+## Where the cut actually lands
+
+Facebook Feed primary text collapses to roughly the first **125 characters** on mobile before "… See more". Your headline clips earlier — around 27 characters on many placements before the CTA strip covers it. Anything past those points is invisible to the ~80% of users who never tap "See more".
+
+<SimulatorPreset
+  placementId="meta-facebook-feed"
+  presetCopy={{
+    primary: "This is roughly where Facebook drops the 'See more' link — everything after this point is hidden from most of your audience unless they tap to expand the post.",
+    headline: "Your hook has to land before the cut",
+  }}
+/>
+
+<SpecTable placementId="meta-facebook-feed" />
+
+## How to fix it
+
+1. **Move the hook and the offer into the first ~125 characters.** Treat everything after as bonus context, not load-bearing copy.
+2. **Don't bury the CTA in the headline's tail.** Front-load it; the headline clips far earlier than the primary text.
+3. **Check the live render, not Ads Manager.** Paste your exact copy into the simulator above and read it the way the feed will, before you spend.
+
+One clipped headline on a $5K campaign is roughly $200 of impressions spent on copy nobody read. [CaptionSnap Pro](/pricing) bulk-checks 10 headlines across every Meta placement at once so a whole campaign clears QA in one paste.
+
+<FAQ
+  items={[
+    {
+      q: "Why does my Facebook ad show 'See more' when the preview didn't?",
+      a: "Ads Manager preview renders full text; the live mobile feed truncates primary text at ~125 characters. The preview is not representative — always check the live-feed render.",
+    },
+    {
+      q: "How many characters of a Facebook ad are visible before it's cut off?",
+      a: "Roughly 125 characters of primary text on mobile before '… See more', and the headline clips much earlier (around 27 on many placements). Put the hook and offer first.",
+    },
+    {
+      q: "Does 'See more' hurt performance?",
+      a: "Only if the hidden text was doing work. Most users never expand, so any persuasion or CTA after the cut is effectively unspent. Front-loaded copy is unaffected.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["guides/why-ads-get-truncated", "guides/preview-ad-copy-before-you-spend", "meta/primary-text-see-more-truncation"]} />

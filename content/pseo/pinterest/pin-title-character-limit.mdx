@@ -1,0 +1,50 @@
+The Pinterest pin title field accepts **100 characters**, but only the **first ~40 render in the mobile feed** before the bottom CTA strip clips the rest. This is true for both organic Pins and Promoted (ad) Pins — the title field and its truncation point are identical; promotion does not extend it. If your keyword phrase or hook sits past character 40, feed users never see it; they only see it on the Pin detail (close-up) view after a tap.
+
+This is the single most misunderstood Pinterest spec, because the 100-character ceiling is what the upload form and most "best practices" posts quote — while the number that actually governs whether your title works is the ~40-character *visible* window.
+
+<SimulatorPreset
+  placementId="pinterest-standard-pin"
+  presetCopy={{
+    headline: "Front-load the keyword — 40 chars show in feed",
+    primary: "100-char title cap, but feed truncates at ~40. Detail view shows the full title after a tap.",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="pinterest-standard-pin" />
+
+The 100-character maximum and the ~40-character feed cutoff were re-verified against live Promoted Pins on 2026-04-15. Pinterest's own Help Center quotes the 100-character maximum but does not document the in-feed truncation point — it is a rendering behavior, not a stated field limit, which is why most "official" answers are incomplete.
+
+## Pin title best practices that follow from the cutoff
+
+- **Put the search keyword in the first ~40 characters.** Pinterest is a visual search engine; the title is a ranking and matching signal. A title whose keyword lands at character 60 is both invisible in-feed *and* weaker for Pinterest search.
+- **Write a complete thought by character 40.** "Cream merino crew sweater under $80" (35 chars) reads fully in-feed. "The coziest, softest, most beautiful cream merino crew neck sweater you'll want for fall" clips to "The coziest, softest, most beautiful…" — pure waste.
+- **Use the remaining 60 characters for long-tail SEO,** not persuasion. Those characters help Pinterest and Google image search match the Pin even though feed users won't read them.
+
+## Does the limit change in 2026?
+
+No. The 100-character title maximum and ~40-character feed truncation are unchanged for 2026 across Standard, Video, and Carousel Pin formats. Idea Ad page-overlay text follows a different rule — see the related pages below.
+
+<FAQ
+  items={[
+    {
+      q: "What is the Pinterest pin title character limit?",
+      a: "100 characters maximum. But only the first ~40 characters are visible in the mobile feed before the title is truncated by the CTA strip. The full title appears on the Pin detail view.",
+    },
+    {
+      q: "Is the official Pinterest Help Center number correct?",
+      a: "The Help Center's 100-character maximum is correct as a hard limit, but it does not document the ~40-character in-feed truncation, so relying on the official number alone overstates how much title users actually see.",
+    },
+    {
+      q: "Is the title limit different for Promoted (ad) Pins?",
+      a: "No. Organic and Promoted Pins share the same 100-character title field and the same ~40-character feed cutoff. Promotion does not extend the visible window.",
+    },
+    {
+      q: "Does the Pinterest pin title limit change in 2026?",
+      a: "No. The 100-character maximum and ~40-character feed truncation are unchanged for 2026.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["pinterest/standard-pin-ad-character-limits", "pinterest/video-pin-character-limits", "pinterest/idea-ad-character-limits"]} />

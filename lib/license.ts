@@ -1,36 +1,45 @@
 // HMAC-signed tokens for two purposes:
 //
-//  1. **License token** (`signLicense` / `verifyLicense`) — short-lived (24h),
-//     stored in localStorage, claims `{cid, sid, email}`. Granted by
-//     /api/license/verify after confirming the Stripe subscription is active.
-//     Treats Pro status as a bearer claim.
+//  1. **License token** (`signLicense` / `verifyLicense`) — SHORT-lived (1h),
+//     stored in localStorage, claims `{cid, sid, jti, email}`. Granted by
+//     /api/license/verify only after LemonSqueezy confirms the license key +
+//     bound instance is still valid. A short TTL is the security trade: a
+//     leaked bearer token is useless within an hour, and every refresh
+//     re-checks LS (so cancellation/disable propagates fast). `jti` makes
+//     every issued token unique (audit / future revocation).
 //
-//  2. **Customer cookie** (`signCustomerCookie` / `verifyCustomerCookie`) —
-//     long-lived (1y), HTTP-only, claims only `{cid}`. Used so /account and
-//     /api/stripe/portal can identify the returning customer for self-service
-//     management without auth UI. Re-issuing a license still requires hitting
-//     Stripe to confirm subscription status.
+//  2. **License cookie** (`signLicenseCookie` / `verifyLicenseCookie`) —
+//     long-lived (1y), HTTP-only, Secure, SameSite=Lax. Claims `{key, iid}`:
+//     the LemonSqueezy license key and the activated instance id bound to
+//     THIS browser. Server-only — never exposed to client JS. Refreshing a
+//     license token still requires LS to confirm the instance is valid, so
+//     possession of the cookie alone is not a durable entitlement.
 //
 // No JWT lib — we only support HS256 and don't need a header. Token shape:
 // `${base64url(payload)}.${base64url(signature)}`. Edge-compatible (Web Crypto only).
 
 export type LicensePayload = {
-  /** Stripe customer ID */
+  /** LemonSqueezy customer ID */
   cid: string;
-  /** Stripe subscription ID */
+  /** LemonSqueezy license instance ID bound to this device */
   sid: string;
+  /** Unique token id — makes each issued token distinct */
+  jti: string;
   /** Unix timestamp (seconds) when this token expires */
   exp: number;
   /** Customer email — surfaced on /account for recovery context */
   email?: string;
 };
 
-export type CustomerCookiePayload = {
-  cid: string;
+export type LicenseCookiePayload = {
+  /** LemonSqueezy license key */
+  key: string;
+  /** LemonSqueezy instance id this browser activated */
+  iid: string;
   exp: number;
 };
 
-const LICENSE_TTL_SECONDS = 24 * 60 * 60; // 24 hours
+const LICENSE_TTL_SECONDS = 60 * 60; // 1 hour — short by design (see header)
 const COOKIE_TTL_SECONDS = 365 * 24 * 60 * 60; // 1 year
 
 function getSecret(): string {
@@ -107,14 +116,15 @@ async function verifyJson(token: string): Promise<string | null> {
   return new TextDecoder().decode(payloadBytes);
 }
 
-// ───────────────────── License tokens (24h) ─────────────────────
+// ───────────────────── License tokens (1h) ─────────────────────
 
 export async function signLicense(
-  payload: Omit<LicensePayload, "exp">,
+  payload: Omit<LicensePayload, "exp" | "jti">,
   ttlSeconds: number = LICENSE_TTL_SECONDS,
 ): Promise<string> {
   const full: LicensePayload = {
     ...payload,
+    jti: crypto.randomUUID(),
     exp: Math.floor(Date.now() / 1000) + ttlSeconds,
   };
   return signJson(JSON.stringify(full));
@@ -132,6 +142,7 @@ export async function verifyLicense(token: string): Promise<LicensePayload | nul
     return null;
   }
   if (typeof parsed.cid !== "string" || typeof parsed.sid !== "string") return null;
+  if (typeof parsed.jti !== "string") return null;
   if (typeof parsed.exp !== "number") return null;
   if (parsed.exp < Math.floor(Date.now() / 1000)) return null;
   return parsed;
@@ -142,35 +153,35 @@ export function isStale(payload: LicensePayload, staleSeconds: number = 60 * 60)
   return payload.exp - Math.floor(Date.now() / 1000) < staleSeconds;
 }
 
-// ───────────────────── Customer cookie (1y) ─────────────────────
+// ───────────────────── License cookie (1y, HTTP-only) ─────────────────────
 
-export async function signCustomerCookie(
-  cid: string,
+export async function signLicenseCookie(
+  payload: Omit<LicenseCookiePayload, "exp">,
   ttlSeconds: number = COOKIE_TTL_SECONDS,
 ): Promise<string> {
-  const full: CustomerCookiePayload = {
-    cid,
+  const full: LicenseCookiePayload = {
+    ...payload,
     exp: Math.floor(Date.now() / 1000) + ttlSeconds,
   };
   return signJson(JSON.stringify(full));
 }
 
-export async function verifyCustomerCookie(
+export async function verifyLicenseCookie(
   token: string | undefined | null,
-): Promise<CustomerCookiePayload | null> {
+): Promise<LicenseCookiePayload | null> {
   if (!token) return null;
   const json = await verifyJson(token);
   if (json === null) return null;
-  let parsed: CustomerCookiePayload;
+  let parsed: LicenseCookiePayload;
   try {
     parsed = JSON.parse(json);
   } catch {
     return null;
   }
-  if (typeof parsed.cid !== "string") return null;
+  if (typeof parsed.key !== "string" || typeof parsed.iid !== "string") return null;
   if (typeof parsed.exp !== "number") return null;
   if (parsed.exp < Math.floor(Date.now() / 1000)) return null;
   return parsed;
 }
 
-export const CUSTOMER_COOKIE_NAME = "cs_cid";
+export const LICENSE_COOKIE_NAME = "cs_lic";
