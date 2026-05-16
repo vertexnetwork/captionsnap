@@ -104,8 +104,8 @@ export default function AboutPage() {
         </li>
         <li>
           <strong>No accounts.</strong> Ever. Share links are stateless. Pro
-          subscribers are identified by an HMAC-signed token tied to a Stripe
-          customer ID — there&apos;s still no CaptionSnap login.
+          subscribers activate a LemonSqueezy license key, exchanged for an
+          HMAC-signed token — there&apos;s still no CaptionSnap login.
         </li>
         <li>
           <strong>No live spec scraping.</strong> Quarterly re-verification by paid
@@ -114,8 +114,8 @@ export default function AboutPage() {
         </li>
         <li>
           <strong>No demo, no sales call, no retention loop.</strong> Try the free
-          simulator, upgrade if Pro pays for itself, cancel anytime via the Stripe
-          Customer Portal.
+          simulator, upgrade if Pro pays for itself, cancel anytime via the
+          LemonSqueezy portal.
         </li>
       </ul>
 

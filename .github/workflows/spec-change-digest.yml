@@ -1,0 +1,53 @@
+name: Spec-change digest
+
+# Muse-safe: zero operator touchpoints. The operator's existing work — appending
+# a line to content/spec-changes.json when a spec is re-verified — is the only
+# trigger. This job pulls active LemonSqueezy subscribers live and emails them a
+# digest of what changed, then commits the idempotency watermark back.
+#
+# Safe to enable before Pro is live: with no secrets set the script dry-runs.
+#
+# Required repo secrets (Settings → Secrets and variables → Actions):
+#   RESEND_API_KEY         — Resend sending key
+#   LEMONSQUEEZY_API_KEY   — LS API key (lists active subscribers)
+# Optional repo variables:
+#   EMAIL_FROM             — defaults to "CaptionSnap <hello@captionsnap.io>"
+#   SITE_URL               — defaults to https://captionsnap.io
+
+on:
+  schedule:
+    - cron: "0 14 1 * *" # 14:00 UTC on the 1st of each month
+  workflow_dispatch: # manual run for ad-hoc spec changes
+
+concurrency:
+  group: spec-change-digest
+  cancel-in-progress: false
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # to commit the watermark back
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+      - name: Send spec-change digest
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          LEMONSQUEEZY_API_KEY: ${{ secrets.LEMONSQUEEZY_API_KEY }}
+          EMAIL_FROM: ${{ vars.EMAIL_FROM }}
+          NEXT_PUBLIC_SITE_URL: ${{ vars.SITE_URL }}
+        run: npm run notify:spec-changes
+      - name: Commit watermark
+        run: |
+          if git status --porcelain | grep -q 'content/.spec-digest-state.json'; then
+            git config user.name "captionsnap-bot"
+            git config user.email "bot@captionsnap.io"
+            git add content/.spec-digest-state.json
+            git commit -m "chore: advance spec-digest watermark [skip ci]"
+            git push
+          else
+            echo "watermark unchanged — nothing to commit"
+          fi

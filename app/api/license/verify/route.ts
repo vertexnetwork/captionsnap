@@ -1,19 +1,24 @@
 import { NextRequest } from "next/server";
 import { cookies } from "next/headers";
-import { getStripe } from "@/lib/stripe";
+import { validateLicense } from "@/lib/lemonsqueezy";
 import {
-  CUSTOMER_COOKIE_NAME,
+  LICENSE_COOKIE_NAME,
   signLicense,
-  verifyCustomerCookie,
   verifyLicense,
+  verifyLicenseCookie,
 } from "@/lib/license";
 
 export const runtime = "nodejs";
 
 // Resolves Pro status by:
-//   1. Trying to verify the bearer token (if client passed one) — fast path.
-//   2. Falling back to the customer cookie + a Stripe API call — slow path.
-// Always returns a fresh token when status is active.
+//   1. Trying to verify the bearer token (if client passed one) — fast path,
+//      good for up to 1h, then forced back through LS.
+//   2. Falling back to the signed HTTP-only license cookie + a live
+//      LemonSqueezy validate call — slow path, the source of truth.
+//
+// Because the bearer TTL is short and the slow path always re-checks LS, a
+// cancelled/disabled key loses access within the hour regardless of any
+// cached token.
 
 export async function POST(req: NextRequest) {
   let body: { token?: unknown } = {};
@@ -23,7 +28,7 @@ export async function POST(req: NextRequest) {
     // empty body is fine
   }
 
-  // Fast path: existing token still valid.
+  // Fast path: existing token still valid and unexpired.
   if (typeof body.token === "string" && body.token.length > 0) {
     const verified = await verifyLicense(body.token);
     if (verified) {
@@ -37,54 +42,33 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  // Slow path: refresh from cookie + Stripe.
+  // Slow path: re-derive from the cookie via LemonSqueezy.
   const cookieStore = await cookies();
-  const cookieRaw = cookieStore.get(CUSTOMER_COOKIE_NAME)?.value;
-  const cookiePayload = await verifyCustomerCookie(cookieRaw);
+  const cookieRaw = cookieStore.get(LICENSE_COOKIE_NAME)?.value;
+  const cookiePayload = await verifyLicenseCookie(cookieRaw);
   if (!cookiePayload) {
     return Response.json({ active: false, reason: "no_cookie" });
   }
 
-  const stripe = getStripe();
-  let subs: Awaited<ReturnType<typeof stripe.subscriptions.list>>;
-  try {
-    subs = await stripe.subscriptions.list({
-      customer: cookiePayload.cid,
-      status: "all",
-      limit: 5,
+  const result = await validateLicense(cookiePayload.key, cookiePayload.iid);
+  if (!result.valid) {
+    return Response.json({
+      active: false,
+      reason: result.status ? `license_${result.status}` : "license_invalid",
     });
-  } catch {
-    return Response.json({ active: false, reason: "stripe_lookup_failed" });
-  }
-
-  const active = subs.data.find(
-    (s) => s.status === "active" || s.status === "trialing",
-  );
-  if (!active) {
-    return Response.json({ active: false, reason: "no_active_subscription" });
-  }
-
-  let email: string | undefined;
-  try {
-    const customer = await stripe.customers.retrieve(cookiePayload.cid);
-    if (customer && !customer.deleted) {
-      email = customer.email ?? undefined;
-    }
-  } catch {
-    // non-fatal
   }
 
   const token = await signLicense({
-    cid: cookiePayload.cid,
-    sid: active.id,
-    email,
+    cid: result.customerId ?? "",
+    sid: cookiePayload.iid,
+    email: result.email,
   });
 
   return Response.json({
     active: true,
     token,
-    exp: Math.floor(Date.now() / 1000) + 24 * 60 * 60,
-    cid: cookiePayload.cid,
-    email,
+    exp: Math.floor(Date.now() / 1000) + 60 * 60,
+    cid: result.customerId,
+    email: result.email,
   });
 }

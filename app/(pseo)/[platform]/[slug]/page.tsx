@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
@@ -72,9 +73,12 @@ export default async function PseoPage({ params }: { params: Promise<RouteParams
       <SiteHeader />
       <article className="mx-auto flex max-w-3xl flex-1 flex-col gap-4 px-4 py-12">
         <header className="space-y-3">
-          <p className="text-xs font-semibold uppercase tracking-wide text-accent">
-            {entry.category}
-          </p>
+          <Link
+            href={`/${entry.category}`}
+            className="text-xs font-semibold uppercase tracking-wide text-accent hover:underline"
+          >
+            {CATEGORY_LABEL[entry.category]}
+          </Link>
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{entry.title}</h1>
           <p className="text-base text-muted">{entry.description}</p>
           <LastVerifiedBadge date={placement.lastVerified} sourceUrl={placement.sourceUrl} />
@@ -104,7 +108,7 @@ export default async function PseoPage({ params }: { params: Promise<RouteParams
       <BreadcrumbListJsonLd
         items={[
           { name: "Home", path: "/" },
-          { name: CATEGORY_LABEL[entry.category] },
+          { name: CATEGORY_LABEL[entry.category], path: `/${entry.category}` },
           { name: entry.title, path: `/${entry.slug}` },
         ]}
       />

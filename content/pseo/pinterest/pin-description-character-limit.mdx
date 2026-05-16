@@ -1,0 +1,42 @@
+The Pinterest pin description field accepts **800 characters**, but only the **first ~50 characters render in the mobile feed** before a "…more" cutoff. On desktop the visible window is wider — roughly 200 characters — but mobile is where the majority of Pinterest impressions happen, so plan to the ~50-character feed window. This applies to organic Pins and Promoted (ad) Pins identically; the description field and its truncation point do not change when a Pin is promoted.
+
+Pinterest treats the description differently from every other social platform. It is not in-feed persuasion copy — feed users barely see it. It is a **search-and-match field**: Pinterest's visual search engine and Google image search both read the full 800 characters to decide what queries the Pin should rank for. So the first ~50 characters must read as a complete, compelling thought for the minority who read in-feed, while the remaining ~750 should be dense, natural-language long-tail keyword coverage for the majority who arrive through search.
+
+<SimulatorPreset
+  placementId="pinterest-standard-pin"
+  presetCopy={{
+    headline: "Pin title: 40 chars show in feed",
+    primary: "Description allows 800 characters but only ~50 render in the mobile feed before a '…more' cutoff. The rest is read by Pinterest and Google search, not by feed scrollers.",
+  }}
+/>
+
+## Verified 2026 limits
+
+<SpecTable placementId="pinterest-standard-pin" />
+
+The 800-character maximum and the ~50-character mobile feed cutoff were re-verified against live Promoted Pins on 2026-04-15. Pinterest's Help Center documents the 800-character maximum but, as with the title, does not document the in-feed truncation point — it is a rendering behavior, not a stated field limit.
+
+## How to use the 800 characters
+
+- **First ~50 characters: a complete value statement.** "Cream merino crew sweater, machine washable, under $80" reads fully in-feed and as the search snippet.
+- **Next ~750 characters: long-tail keyword body.** Cover the synonyms, use cases, and qualifiers a searcher would type — "fall capsule wardrobe", "non-itchy wool", "gift for her". This is what makes the Pin match queries; it is not wasted space.
+- **Do not keyword-stuff.** Pinterest's NLP rewards natural phrasing. Write sentences a human would write; the keyword coverage should fall out of describing the product thoroughly.
+
+<FAQ
+  items={[
+    {
+      q: "What is the Pinterest pin description character limit?",
+      a: "800 characters maximum. Only the first ~50 render in the mobile feed before a '…more' cutoff; desktop shows roughly 200. The full description is read by Pinterest and Google search regardless of what is visible in-feed.",
+    },
+    {
+      q: "Is the description limit different for Promoted Pins?",
+      a: "No. Organic and Promoted Pins share the same 800-character description field and the same ~50-character mobile feed cutoff.",
+    },
+    {
+      q: "Should I put keywords in the Pinterest description?",
+      a: "Yes — the description is primarily a search-matching field. Use natural-language long-tail phrasing across the full 800 characters; avoid keyword stuffing, which Pinterest's NLP penalizes.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["pinterest/pin-title-character-limit", "pinterest/standard-pin-ad-character-limits", "pinterest/pin-title-best-practices"]} />

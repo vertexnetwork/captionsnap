@@ -8,7 +8,7 @@ import { RoiEstimator } from "@/components/pro/RoiEstimator";
 export const metadata: Metadata = {
   title: "Pricing — CaptionSnap Pro",
   description:
-    "Pro at $49/mo or $499/yr (save 15%). Bulk paste 10 headlines × every placement, export simulator output as PNG, and get priority spec re-verification. Built for performance marketers and small agencies. Cancel anytime via Stripe.",
+    "Pro at $49/mo or $499/yr (save 15%). Bulk paste 10 headlines × every placement, export simulator output as PNG, and get priority spec re-verification. Built for performance marketers and small agencies. Cancel anytime via LemonSqueezy.",
   alternates: { canonical: "/pricing" },
 };
 
@@ -37,8 +37,8 @@ export default function PricingPage() {
           impressions. Catch it before launch and Pro pays for itself this month.
         </p>
         <p className="mt-3 text-sm text-muted">
-          $49/mo or $499/yr (save 15%). Cancel anytime via the Stripe Customer
-          Portal — no questions, no retention call, no demo to sit through. Built
+          $49/mo or $499/yr (save 15%). Cancel anytime via the LemonSqueezy
+          customer portal — no questions, no retention call, no demo to sit through. Built
           for performance marketers, paid-social managers, and small agencies
           running campaigns across Meta, TikTok, LinkedIn, X, YouTube, Pinterest,
           Reddit, and Snapchat.
@@ -47,22 +47,24 @@ export default function PricingPage() {
 
       {/* Trust object first — answers the most common pre-purchase question. */}
       <section className="mb-10 rounded-xl border border-border bg-card/40 p-6">
-        <h2 className="text-lg font-semibold">No accounts. Stripe is the database.</h2>
+        <h2 className="text-lg font-semibold">No accounts. A license key, not a login.</h2>
         <p className="mt-2 text-sm text-muted">
-          You don&apos;t create a CaptionSnap account. Subscribing issues an
-          HMAC-signed license token tied to your Stripe customer ID. We never see
-          your card. Cards, invoices, cancellations all live in the standard
-          Stripe Customer Portal.
+          You don&apos;t create a CaptionSnap account. Checkout is handled by
+          LemonSqueezy, our Merchant of Record — they&apos;re the seller on
+          record and handle payment and sales tax/VAT. We never see your card.
+          You get a license key by email; activate it on a device to unlock Pro.
+          The key works on a limited number of devices, so it can&apos;t be
+          freely shared.
         </p>
         <p className="mt-2 text-sm text-muted">
-          Lost access on a new device? Visit{" "}
+          New device? Visit{" "}
           <Link className="text-accent hover:underline" href="/account">/account</Link>{" "}
-          and your subscription auto-recovers via a long-lived signed cookie. If
-          both cookie and localStorage are cleared, email{" "}
+          and paste your license key — it activates until it hits its device
+          limit. Lost the key? Email{" "}
           <a className="text-accent hover:underline" href="mailto:hello@captionsnap.io">
             hello@captionsnap.io
           </a>{" "}
-          with your Stripe receipt — typical response under 2 business days.
+          from your purchase address — typical response under 2 business days.
         </p>
       </section>
 
@@ -101,7 +103,7 @@ export default function PricingPage() {
             <SubscribeButtons />
           </div>
           <p className="mt-3 text-xs text-muted">
-            Cancel anytime via the Stripe Customer Portal. No retention call.
+            Cancel anytime via the LemonSqueezy portal. No retention call.
           </p>
         </div>
       </section>

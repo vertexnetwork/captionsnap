@@ -1,0 +1,44 @@
+Every Pinterest pin title best practice reduces to one constraint: the field accepts **100 characters but only ~40 render in the mobile feed** before the bottom CTA strip clips the rest. Best-practice advice that ignores this — "use all 100 characters", "be descriptive" — produces titles that look complete in the upload form and arrive truncated in the feed. The practices below all derive from designing for the ~40-character visible window while still using the full 100 for search.
+
+<SimulatorPreset
+  placementId="pinterest-standard-pin"
+  presetCopy={{
+    headline: "Front-load the keyword in the first 40 chars",
+    primary: "100-char title cap; ~40 visible in feed. Best practice = complete thought + keyword before character 40.",
+  }}
+/>
+
+## The seven practices
+
+1. **Lead with the search keyword.** Pinterest is a visual search engine. The title is a primary ranking signal; a keyword at character 55 is both invisible in-feed and weaker for search than one at character 5.
+2. **Finish a complete thought by character ~40.** Treat character 40 as a hard line. "Cream merino crew sweater under $80" (35) survives; the same idea padded with adjectives does not.
+3. **Use characters 40–100 for long-tail coverage,** not persuasion. Feed users won't read them, but Pinterest and Google image search do — qualifiers, synonyms, use cases.
+4. **Don't duplicate the title in the description.** They are separate matching fields; repeating wastes search surface area. Title = primary phrase; description = the long body.
+5. **Skip the brand name unless it's the search term.** Most Pinterest searches are unbranded ("fall capsule outfit", not "[Brand] sweater"). A leading brand name burns visible characters that aren't being searched.
+6. **Match the title to the image's job.** The image sells; the title routes search intent to it. A title that describes a different angle than the image shows depresses tap-through.
+7. **Verify in-feed before publishing.** Upload-form preview shows the full 100 characters and lies about the feed. Check the actual ~40-character mobile render — that is the only preview that matches what users see.
+
+## Verified 2026 limits
+
+<SpecTable placementId="pinterest-standard-pin" />
+
+Re-verified against live Promoted Pins on 2026-04-15. The 100-character maximum is Pinterest's documented limit; the ~40-character feed truncation is an undocumented rendering behavior, which is why most "best practices" posts quote 100 and stop there.
+
+<FAQ
+  items={[
+    {
+      q: "What is the best length for a Pinterest pin title?",
+      a: "Aim for a complete, keyword-led thought within ~40 characters — that is the mobile feed visible window. You may use up to 100 characters total; characters 40–100 still help Pinterest and Google search even though feed users won't see them.",
+    },
+    {
+      q: "Should I use all 100 characters of the Pinterest title?",
+      a: "Use them for search coverage, but never at the expense of the first ~40. The first 40 must read as a complete, compelling, keyword-led statement on their own.",
+    },
+    {
+      q: "Do these best practices differ for Promoted Pins?",
+      a: "No. Organic and Promoted Pins share the same 100-character title field and ~40-character feed cutoff, so the practices are identical.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["pinterest/pin-title-character-limit", "pinterest/pin-description-character-limit", "pinterest/standard-pin-ad-character-limits"]} />

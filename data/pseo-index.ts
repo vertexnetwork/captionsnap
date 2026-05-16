@@ -905,7 +905,59 @@ export const PSEO_INDEX: PseoEntry[] = [
     publishedAt: "2026-04-15",
   },
 
-  // ────────────── Pinterest (4) ──────────────
+  // ────────────── Pinterest (8) ──────────────
+  {
+    slug: "pinterest/pin-title-character-limit",
+    title: "Pinterest Pin Title Character Limit (2026)",
+    description: "Pinterest pin titles cap at 100 characters, but only ~40 show in the feed before truncation. See exactly where your title clips — organic and Promoted Pins.",
+    placementId: "pinterest-standard-pin",
+    presetCopy: {
+      headline: "Front-load the keyword — 40 chars show in feed",
+      primary: "100-char title cap, but feed truncates at ~40. Detail view shows the full title after a tap.",
+    },
+    related: ["pinterest/pin-title-best-practices", "pinterest/pin-description-character-limit", "pinterest/standard-pin-ad-character-limits"],
+    category: "pinterest",
+    publishedAt: "2026-05-15",
+  },
+  {
+    slug: "pinterest/pin-description-character-limit",
+    title: "Pinterest Pin Description Character Limit (2026)",
+    description: "Pinterest pin descriptions cap at 800 characters but only ~50 show in the mobile feed. The rest is read by Pinterest and Google search, not feed scrollers.",
+    placementId: "pinterest-standard-pin",
+    presetCopy: {
+      headline: "Pin title: 40 chars show in feed",
+      primary: "Description allows 800 characters but only ~50 render in the mobile feed before a '…more' cutoff.",
+    },
+    related: ["pinterest/pin-title-character-limit", "pinterest/standard-pin-ad-character-limits", "pinterest/pin-title-best-practices"],
+    category: "pinterest",
+    publishedAt: "2026-05-15",
+  },
+  {
+    slug: "pinterest/pin-title-best-practices",
+    title: "Pinterest Pin Title Best Practices (2026)",
+    description: "Seven Pinterest pin title best practices, all derived from the one constraint that governs them: 100-char max, but only ~40 render in the mobile feed.",
+    placementId: "pinterest-standard-pin",
+    presetCopy: {
+      headline: "Front-load the keyword in the first 40 chars",
+      primary: "100-char title cap; ~40 visible in feed. Best practice = complete thought + keyword before character 40.",
+    },
+    related: ["pinterest/pin-title-character-limit", "pinterest/pin-description-character-limit", "pinterest/standard-pin-ad-character-limits"],
+    category: "pinterest",
+    publishedAt: "2026-05-15",
+  },
+  {
+    slug: "pinterest/pinterest-ads-specs",
+    title: "Pinterest Ads Specs — All Formats (2026)",
+    description: "Complete 2026 Pinterest Ads character spec: Standard, Video, Carousel, and Idea formats. Title 100/~40 visible, description 800/~50 visible.",
+    placementId: "pinterest-standard-pin",
+    presetCopy: {
+      headline: "Every format: 100-char title, ~40 visible",
+      primary: "Standard, Video, and Carousel share 100/800 text limits. Idea Ad overlay text is the one exception.",
+    },
+    related: ["pinterest/pin-title-character-limit", "pinterest/standard-pin-ad-character-limits", "pinterest/idea-ad-character-limits"],
+    category: "pinterest",
+    publishedAt: "2026-05-15",
+  },
   {
     slug: "pinterest/standard-pin-ad-character-limits",
     title: "Pinterest Standard Pin Ad Character Limits",
@@ -1237,6 +1289,86 @@ export const PSEO_INDEX: PseoEntry[] = [
     related: ["compare/linkedin-vs-meta-feed", "compare/youtube-shorts-vs-tiktok-in-feed", "compare/pinterest-vs-instagram-feed"],
     category: "guides",
     publishedAt: "2026-04-15",
+  },
+
+  // ──── Workflow-pain cluster — buyer/commercial intent, not informational ────
+  {
+    slug: "guides/ad-copy-truncation-checker",
+    title: "Ad Copy Truncation Checker — Before You Spend",
+    description: "Paste your exact ad copy and see where every platform clips it and which UI covers it. A truncation checker, not a character counter. Free, no signup.",
+    placementId: "meta-facebook-feed",
+    presetCopy: {
+      primary: "Paste your real copy. The checker shows exactly what survives the feed cut and what's hidden — across every placement, not a generic phone mockup.",
+      headline: "Check before you spend",
+    },
+    related: ["guides/preview-ad-copy-before-you-spend", "guides/agency-creative-qa-workflow", "guides/why-ads-get-truncated"],
+    category: "guides",
+    publishedAt: "2026-05-15",
+  },
+  {
+    slug: "guides/preview-ad-copy-before-you-spend",
+    title: "How to Preview Ad Copy Before You Spend",
+    description: "Ads Manager renders full text and hides the cut. A real pre-spend preview shows the live feed truncation — the cheapest optimization in paid social.",
+    placementId: "meta-facebook-feed",
+    presetCopy: {
+      primary: "Read only what shows before the cut. If the offer is hidden here, the spend behind it is being wasted on copy nobody sees.",
+      headline: "Ten seconds vs. a wasted flight",
+    },
+    related: ["guides/ad-copy-truncation-checker", "guides/why-is-my-facebook-ad-cut-off", "guides/agency-creative-qa-workflow"],
+    category: "guides",
+    publishedAt: "2026-05-15",
+  },
+  {
+    slug: "guides/why-is-my-facebook-ad-cut-off",
+    title: "Why Is My Facebook Ad Cut Off? (Fix the 'See more')",
+    description: "Your Facebook ad shows '… See more' because Feed truncates primary text at ~125 chars — the preview hides it. Where the cut lands and how to fix it.",
+    placementId: "meta-facebook-feed",
+    presetCopy: {
+      primary: "This is roughly where Facebook drops the 'See more' link — everything after this point is hidden from most of your audience unless they tap to expand the post.",
+      headline: "Your hook has to land before the cut",
+    },
+    related: ["guides/why-ads-get-truncated", "guides/preview-ad-copy-before-you-spend", "meta/primary-text-see-more-truncation"],
+    category: "guides",
+    publishedAt: "2026-05-15",
+  },
+  {
+    slug: "guides/instagram-ad-caption-cut-off",
+    title: "Why Is My Instagram Ad Caption Cut Off?",
+    description: "Instagram Feed clips captions at ~125 chars behind '… more' and the preview doesn't show it. Where the cut lands on Feed, Reels, and Stories — and the fix.",
+    placementId: "meta-instagram-feed",
+    presetCopy: {
+      primary: "Instagram drops the '… more' link around here — write as if the caption ends at this point, because for most scrollers it does.",
+      headline: "First line is the whole pitch",
+    },
+    related: ["guides/why-is-my-facebook-ad-cut-off", "meta/instagram-feed-ad-character-limits", "guides/preview-ad-copy-before-you-spend"],
+    category: "guides",
+    publishedAt: "2026-05-15",
+  },
+  {
+    slug: "guides/tiktok-ad-caption-hidden-by-ui",
+    title: "Why Is My TikTok Ad Caption Hidden by the UI?",
+    description: "A TikTok caption under the limit can still be unreadable behind the action rail and CTA. It's a safe-zone problem, not a character one — here's the fix.",
+    placementId: "tiktok-in-feed",
+    presetCopy: {
+      primary: "Text that runs into the bottom-right is hidden behind TikTok's action rail and CTA — keep the hook clear of the furniture.",
+      headline: "Caption clears the side rail",
+    },
+    related: ["tiktok/cta-overlay-safe-zone", "guides/safe-zone-vs-character-limit", "guides/preview-ad-copy-before-you-spend"],
+    category: "guides",
+    publishedAt: "2026-05-15",
+  },
+  {
+    slug: "guides/agency-creative-qa-workflow",
+    title: "The Agency Creative QA Workflow for Ad Copy",
+    description: "Truncation slips through because the check happens in the wrong place. The one pre-handoff QA gate that closes it — and survives staff turnover.",
+    placementId: "meta-facebook-feed",
+    presetCopy: {
+      primary: "QA step: paste every variant, confirm hook + CTA survive the cut on every placement, export the proof, hand off.",
+      headline: "One QA gate, every variant",
+    },
+    related: ["guides/ad-copy-truncation-checker", "guides/preview-ad-copy-before-you-spend", "guides/which-platform-for-which-niche"],
+    category: "guides",
+    publishedAt: "2026-05-15",
   },
 ];
 

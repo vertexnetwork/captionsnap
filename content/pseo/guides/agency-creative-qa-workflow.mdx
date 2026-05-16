@@ -1,0 +1,41 @@
+For an agency or in-house team shipping creative weekly, ad-copy truncation is not an occasional mistake — it is a recurring QA gap that costs client trust and wasted spend. This is the workflow that closes it without adding a tool nobody opens.
+
+## Where truncation slips through
+
+It slips through because the check happens in the wrong place: the designer checks in Figma, the buyer checks in Ads Manager, and **neither renders the live truncation point**. By the time the ad is in-feed, the spend has started and the clip is a client email, not a QA note. The fix is to move the check to a single, fast, pre-handoff step.
+
+<SimulatorPreset
+  placementId="meta-facebook-feed"
+  presetCopy={{
+    primary: "QA step: paste every variant, confirm hook + CTA survive the cut on every placement, export the proof, hand off.",
+    headline: "One QA gate, every variant",
+  }}
+/>
+
+## The workflow
+
+1. **Copywriter drafts to the visible window,** not the character max. The first line is the ad.
+2. **Single QA gate before handoff.** Paste all variants into the checker; confirm hook and CTA clear the cut and the UI overlays on every placement in the media plan.
+3. **Export the rendered proof.** Attach the PNG to the creative handoff so the buyer and client see exactly what the feed will show — no "it looked fine in the preview" disputes.
+4. **Re-verify on spec changes.** Platforms move truncation points; a dated re-verification feed means the QA gate stays accurate without manual research.
+
+Steps 2–3 are where [CaptionSnap Pro](/pricing) earns its keep: bulk paste clears a full variant set across every placement in one action, and PNG export produces the handoff artifact. The QA gate becomes ten seconds, not an afternoon, and it survives staff turnover because it's a step, not a person's habit.
+
+<FAQ
+  items={[
+    {
+      q: "Where should ad-copy QA live in an agency workflow?",
+      a: "As a single gate immediately before creative handoff to the media buyer — after copy is final, before spend starts. Earlier checks miss final edits; later checks are post-spend.",
+    },
+    {
+      q: "How do we prove to a client the ad will display correctly?",
+      a: "Export the rendered, truncation-accurate preview as a PNG and attach it to the handoff. It shows the live feed render, which the native preview tools do not.",
+    },
+    {
+      q: "How do we keep QA accurate when platforms change specs?",
+      a: "Tie the gate to a dated, re-verified spec source rather than tribal knowledge. CaptionSnap re-verifies against paid impressions and dates every spec.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["guides/ad-copy-truncation-checker", "guides/preview-ad-copy-before-you-spend", "guides/which-platform-for-which-niche"]} />

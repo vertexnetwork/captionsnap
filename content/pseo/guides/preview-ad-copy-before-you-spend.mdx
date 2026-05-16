@@ -1,0 +1,40 @@
+Previewing ad copy before you spend is the cheapest optimization in paid social, and almost nobody does it correctly — because the preview people use (Ads Manager, the native ad tools) renders full text and hides the one thing you need to see: **the truncation point.** A real pre-spend preview shows the live feed render, where the cut actually lands.
+
+## The math of skipping it
+
+A clipped headline doesn't fail loudly — it just quietly underperforms. On a $5,000 campaign, copy whose hook or CTA is hidden past "… See more" is roughly $200+ of impressions spent on text no one read, and the loss compounds every flight until someone notices. The preview costs ten seconds. The skip costs a percentage of every campaign.
+
+<SimulatorPreset
+  placementId="meta-facebook-feed"
+  presetCopy={{
+    primary: "Read only what shows before the cut. If the offer is hidden here, the spend behind it is being wasted on copy nobody sees.",
+    headline: "Ten seconds vs. a wasted flight",
+  }}
+/>
+
+## The pre-spend check
+
+1. **Paste the final copy** — exactly what's going live, every variant.
+2. **Read only the pre-cut text** on each placement in the plan. Hook present? CTA present? Sentence not split mid-thought?
+3. **Fix and re-check** before the campaign is enabled, not after the first day's data looks soft.
+
+The free [simulator](/) does this one placement at a time. [CaptionSnap Pro](/pricing) does the whole campaign — 10 headlines across every placement of a platform — in a single paste, which is the difference between a habit people skip and a gate they actually clear.
+
+<FAQ
+  items={[
+    {
+      q: "Why not just use the Ads Manager preview?",
+      a: "It renders full text and does not simulate the live feed truncation or UI overlays. It will show copy as complete when the live ad clips it. Use a render that simulates the actual visible window.",
+    },
+    {
+      q: "How much does truncated copy actually cost?",
+      a: "It's proportional to spend: any impressions served against copy whose hook or CTA is hidden are wasted persuasion. On a $5K campaign that's commonly $200+ — recurring every flight until caught.",
+    },
+    {
+      q: "When in the process should I preview?",
+      a: "After copy is final and before the campaign is enabled. Previewing drafts misses final edits; previewing after launch means the waste already started.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["guides/ad-copy-truncation-checker", "guides/why-is-my-facebook-ad-cut-off", "guides/agency-creative-qa-workflow"]} />

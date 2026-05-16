@@ -103,7 +103,7 @@ export default async function HomePage({
           <Link href="/pricing" className="text-accent hover:underline">Pro at $49/mo</Link>{" "}
           adds bulk paste — 10 headlines × every placement of a platform — plus
           PNG export for creative handoff and priority spec re-verification.
-          Cancel anytime via the Stripe Customer Portal. No demo, no retention call.
+          Cancel anytime via the LemonSqueezy portal. No demo, no retention call.
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
           <Link

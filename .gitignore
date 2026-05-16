@@ -45,3 +45,9 @@ next-env.d.ts
 /playwright-report/
 /test-results/
 /playwright/.cache/
+
+# local agent harness config (never commit)
+.claude/
+
+# 15MB local reference screenshots/specs — kept out of git history
+/reference/

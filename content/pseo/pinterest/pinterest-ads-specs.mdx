@@ -1,0 +1,51 @@
+This is the complete 2026 Pinterest Ads character spec across all four ad formats. Pinterest's spec is unusual: every format shares the **same text limits** — a 100-character title (~40 visible in the mobile feed) and an 800-character description (~50 visible) — and differs only in media and which UI overlays sit on top. Idea Ads are the one exception: their per-page text overlay follows its own rule. The recurring trap is that Pinterest's upload form and Help Center quote the *maximum* (100 / 800) while the *visible* window in-feed is far smaller, and that gap is undocumented.
+
+## Standard Pin Ad
+
+Single 2:3 image. The default format and the highest-volume one.
+
+<SpecTable placementId="pinterest-standard-pin" />
+
+## Video Pin Ad
+
+Auto-plays in-feed without sound. Same 100/800 text limits as Standard; captions matter because audio is off by default.
+
+<SpecTable placementId="pinterest-video-pin" />
+
+## Carousel Ad
+
+2–5 cards, each with its own 100-character title and 800-character description, same ~40/~50 visible windows per card.
+
+<SpecTable placementId="pinterest-carousel" />
+
+## Idea Ad
+
+The exception. Multi-page (3–20 pages); the per-page text overlay caps at 250 characters with ~100 visible — a different rule from the title field.
+
+<SpecTable placementId="pinterest-idea" />
+
+## What carries across every format
+
+- **Title: 100 max, ~40 visible in mobile feed.** Lead with the search keyword; finish the thought by character 40.
+- **Description: 800 max, ~50 visible in mobile feed (~200 desktop).** Primarily a search-matching field, not in-feed persuasion.
+- **The image carries the sell.** Pinterest users are in save-for-later search mode; text routes intent, the visual converts.
+- **Aspect ratio: 2:3 vertical (1000×1500).** Other ratios render letterboxed and lose feed real estate.
+
+<FAQ
+  items={[
+    {
+      q: "What are the Pinterest ad character limits in 2026?",
+      a: "Title: 100 characters max, ~40 visible in the mobile feed. Description: 800 characters max, ~50 visible in the mobile feed (~200 on desktop). These apply to Standard, Video, and Carousel formats. Idea Ad page-overlay text is 250 max / ~100 visible.",
+    },
+    {
+      q: "Are Pinterest ad specs different from organic Pin specs?",
+      a: "No. Promoting a Pin does not change the title or description field limits or their truncation points. Organic and Promoted Pins share the same text spec.",
+    },
+    {
+      q: "What is the Pinterest ad image aspect ratio?",
+      a: "2:3 vertical, 1000×1500 px recommended. Other ratios are accepted but render with letterboxing and forfeit feed space.",
+    },
+  ]}
+/>
+
+<RelatedPages slugs={["pinterest/pin-title-character-limit", "pinterest/pin-description-character-limit", "pinterest/standard-pin-ad-character-limits", "pinterest/idea-ad-character-limits"]} />

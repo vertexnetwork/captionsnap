@@ -18,18 +18,20 @@ export default function PrivacyPage() {
         is encoded into the URL itself — when you copy a share link, your ad copy
         travels in the URL and is not stored on our servers.
       </p>
-      <h2>Pro subscribers (Stripe)</h2>
+      <h2>Pro subscribers (LemonSqueezy)</h2>
       <p>
-        Pro subscriptions are processed by Stripe. We never see your card. Stripe
-        provides us with your billing email and customer ID; we sign that
-        customer ID into a long-lived HTTP-only cookie so you can manage your
-        subscription on return visits without a login. We do not store your
-        billing email or customer ID in any database — Stripe is the source of
-        truth, the cookie is the only thing on our side.
+        Pro subscriptions are processed by LemonSqueezy, our Merchant of Record.
+        LemonSqueezy is the seller on record and handles all payment, invoicing,
+        and applicable sales tax/VAT. We never see your card. On purchase you
+        receive a license key by email. Activating it on a device binds the key
+        to that device via LemonSqueezy and stores a signed HTTP-only cookie
+        holding only the license key and its activation id. We do not store your
+        billing email or any customer record in a database — LemonSqueezy is the
+        source of truth, re-checked live whenever your access refreshes.
       </p>
       <p>
-        Cancel, update payment method, view invoices: all handled by the standard
-        Stripe Customer Portal.
+        Cancel, update payment method, view invoices: all handled by the
+        LemonSqueezy-hosted customer portal.
       </p>
       <h2>Analytics</h2>
       <p>
@@ -48,9 +50,10 @@ export default function PrivacyPage() {
       </p>
       <ul>
         <li>
-          <code>cs_cid</code> — long-lived (1 year), HTTP-only, signed.
-          Identifies a Pro subscriber&apos;s Stripe customer ID for self-service
-          subscription management. Set only after a successful Stripe checkout.
+          <code>cs_lic</code> — long-lived (1 year), HTTP-only, signed. Holds
+          the LemonSqueezy license key and activated-instance id for this
+          device so Pro can be re-verified without a login. Set only after you
+          activate a valid license key.
         </li>
         <li>
           <code>captionsnap-consent-v1</code> — local-storage only (not a cookie),
@@ -58,8 +61,8 @@ export default function PrivacyPage() {
         </li>
         <li>
           <code>captionsnap-license-v1</code> — local-storage only, stores the
-          short-lived (24h) HMAC-signed license token granting Pro access on this
-          device.
+          short-lived (1h) HMAC-signed license token granting Pro access on this
+          device. Re-derived from LemonSqueezy when it expires.
         </li>
       </ul>
       <p>
@@ -69,11 +72,11 @@ export default function PrivacyPage() {
       <h2>Data subject rights</h2>
       <p>
         We don&apos;t store user data on our side. To request deletion of your
-        Stripe customer record, contact Stripe directly or email us at{" "}
+        customer record, contact LemonSqueezy directly or email us at{" "}
         <a href="mailto:hello@captionsnap.io" className="underline hover:text-accent">
           hello@captionsnap.io
         </a>{" "}
-        and we&apos;ll initiate the deletion via the Stripe API.
+        and we&apos;ll initiate the deletion with LemonSqueezy.
       </p>
     </article>
   );

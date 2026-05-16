@@ -82,6 +82,7 @@ export async function GET() {
     const entries = PSEO_INDEX.filter((e) => e.category === category);
     if (entries.length === 0) continue;
     lines.push(`### ${CATEGORY_LABEL[category]}`);
+    lines.push(`- [${CATEGORY_LABEL[category]} hub — all ${entries.length} pages](${BASE}/${category})`);
     for (const e of entries) {
       lines.push(`- [${e.title}](${BASE}/${e.slug}) — ${e.description}`);
     }

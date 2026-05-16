@@ -95,6 +95,10 @@ const loaders: Record<string, () => Promise<MdxModule>> = {
   "youtube/masthead-character-limits": () => import("./youtube/masthead-character-limits.mdx"),
 
   // Pinterest
+  "pinterest/pin-title-character-limit": () => import("./pinterest/pin-title-character-limit.mdx"),
+  "pinterest/pin-description-character-limit": () => import("./pinterest/pin-description-character-limit.mdx"),
+  "pinterest/pin-title-best-practices": () => import("./pinterest/pin-title-best-practices.mdx"),
+  "pinterest/pinterest-ads-specs": () => import("./pinterest/pinterest-ads-specs.mdx"),
   "pinterest/standard-pin-ad-character-limits": () => import("./pinterest/standard-pin-ad-character-limits.mdx"),
   "pinterest/video-pin-character-limits": () => import("./pinterest/video-pin-character-limits.mdx"),
   "pinterest/idea-ad-character-limits": () => import("./pinterest/idea-ad-character-limits.mdx"),
@@ -127,6 +131,14 @@ const loaders: Record<string, () => Promise<MdxModule>> = {
 
   // New cross-platform guide
   "guides/which-platform-for-which-niche": () => import("./guides/which-platform-for-which-niche.mdx"),
+
+  // Workflow-pain cluster (buyer/commercial intent)
+  "guides/ad-copy-truncation-checker": () => import("./guides/ad-copy-truncation-checker.mdx"),
+  "guides/preview-ad-copy-before-you-spend": () => import("./guides/preview-ad-copy-before-you-spend.mdx"),
+  "guides/why-is-my-facebook-ad-cut-off": () => import("./guides/why-is-my-facebook-ad-cut-off.mdx"),
+  "guides/instagram-ad-caption-cut-off": () => import("./guides/instagram-ad-caption-cut-off.mdx"),
+  "guides/tiktok-ad-caption-hidden-by-ui": () => import("./guides/tiktok-ad-caption-hidden-by-ui.mdx"),
+  "guides/agency-creative-qa-workflow": () => import("./guides/agency-creative-qa-workflow.mdx"),
 };
 
 export async function loadPseoMdx(slug: string): Promise<ComponentType | null> {

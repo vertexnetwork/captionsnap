@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "build:changelog": "node --experimental-strip-types scripts/build-changelog.mts",
+    "notify:spec-changes": "node --experimental-strip-types scripts/notify-spec-changes.mts",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
