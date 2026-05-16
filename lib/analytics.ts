@@ -6,6 +6,7 @@ type EventMap = {
   embed_snippet_copied: { placementId: string };
   pseo_view: { slug: string };
   platform_switched: { from: string; to: string };
+  device_switched: { placementId: string; to: "mobile" | "desktop" };
   affiliate_clicked: { id: string; surface: "pseo" | "extension" | "home" | "footer" };
   extension_install_clicked: { surface: "home" | "about" | "pseo" };
   pricing_viewed: { plan?: "monthly" | "annual" };

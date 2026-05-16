@@ -1,12 +1,12 @@
 import LZString from "lz-string";
 import { DEFAULT_PLACEMENT_ID, getPlacement } from "./platform-specs";
-import type { FieldId } from "./platform-specs";
+import type { FieldId, DeviceKind } from "./platform-specs";
 
 export type SimulatorState = {
   v: 1;
   placementId: string;
   fields: Partial<Record<FieldId, string>>;
-  display?: { dark?: boolean; deviceFrame?: boolean };
+  display?: { dark?: boolean; deviceFrame?: boolean; device?: DeviceKind };
 };
 
 export const DEFAULT_STATE: SimulatorState = {
@@ -17,7 +17,7 @@ export const DEFAULT_STATE: SimulatorState = {
     headline: "See exactly where your ad clips",
     description: "Free, no signup, URL is the database",
   },
-  display: { dark: true, deviceFrame: true },
+  display: { dark: true, deviceFrame: true, device: "mobile" },
 };
 
 export function encode(state: SimulatorState): string {

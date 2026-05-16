@@ -96,3 +96,13 @@ export function usePlatformPlacements() {
   const placement = useCurrentPlacement();
   return getPlacementsByPlatform(placement.platform);
 }
+
+/** Current device mode + setter. Defaults to "mobile". */
+export function useDeviceMode(): [
+  "mobile" | "desktop",
+  (d: "mobile" | "desktop") => void,
+] {
+  const { state, setDisplay } = useSimulator();
+  const device = state.display?.device ?? "mobile";
+  return [device, (d) => setDisplay({ device: d })];
+}

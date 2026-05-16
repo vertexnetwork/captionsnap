@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { PlatformPicker } from "./PlatformPicker";
+import { DeviceToggle } from "./DeviceToggle";
 import { PlacementPicker } from "./PlacementPicker";
 import { CopyInputs } from "./CopyInputs";
 import { SafeZoneCanvas } from "./SafeZoneCanvas";
@@ -70,6 +71,7 @@ export function Simulator({ embedded = false }: Props) {
         <SimulatorStatusBanner />
         <div className="flex flex-wrap items-center gap-3">
           <PlatformPicker />
+          <DeviceToggle />
           <LastVerifiedBadge date={placement.lastVerified} sourceUrl={placement.sourceUrl} />
         </div>
         <PlacementPicker />

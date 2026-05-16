@@ -1,9 +1,18 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useCurrentPlacement, useSimulator } from "./SimulatorProvider";
+import { useCurrentPlacement, useDeviceMode, useSimulator } from "./SimulatorProvider";
+import { getDeviceVariant } from "@/lib/platform-specs";
 import { truncatePlacement } from "@/lib/truncate";
 import { cn } from "@/lib/cn";
+import { MetaDesktopSurface } from "./surfaces/MetaDesktopSurface";
+import { PinterestDesktopSurface } from "./surfaces/PinterestDesktopSurface";
+import { TikTokDesktopSurface } from "./surfaces/TikTokDesktopSurface";
+import { YouTubeDesktopSurface } from "./surfaces/YouTubeDesktopSurface";
+import { XDesktopSurface } from "./surfaces/XDesktopSurface";
+import { LinkedInDesktopSurface } from "./surfaces/LinkedInDesktopSurface";
+import { RedditDesktopSurface } from "./surfaces/RedditDesktopSurface";
+import { MobileOnlyState } from "./surfaces/MobileOnlyState";
 import { MetaFeedSurface } from "./surfaces/MetaFeedSurface";
 import { MetaStoriesSurface } from "./surfaces/MetaStoriesSurface";
 import { MetaReelsSurface } from "./surfaces/MetaReelsSurface";
@@ -66,15 +75,46 @@ function renderSurface(
   }
 }
 
-function initialScale(placement: Placement): number {
-  return Math.min(720 / placement.device.h, 1);
+function renderDesktopSurface(
+  placement: Placement,
+  truncated: Partial<Record<FieldId, TruncateResult>>,
+) {
+  const props = { placement, truncated };
+  switch (placement.platform) {
+    case "meta":
+      return <MetaDesktopSurface {...props} />;
+    case "pinterest":
+      return <PinterestDesktopSurface {...props} />;
+    case "tiktok":
+      return <TikTokDesktopSurface {...props} />;
+    case "youtube":
+      return <YouTubeDesktopSurface {...props} />;
+    case "x":
+      return <XDesktopSurface {...props} />;
+    case "linkedin":
+      return <LinkedInDesktopSurface {...props} />;
+    case "reddit":
+      return <RedditDesktopSurface {...props} />;
+    // A platform only reaches here when it has a `desktop` variant in
+    // platform-specs.ts; otherwise the canvas shows the mobile-only state.
+    // Remaining platforms get their desktop surface as the rebuild scales out.
+    default:
+      return <MetaDesktopSurface {...props} />;
+  }
 }
 
 export function SafeZoneCanvas({ embedded = false }: { embedded?: boolean }) {
   const placement = useCurrentPlacement();
   const { state } = useSimulator();
+  const [device] = useDeviceMode();
   const wrapRef = useRef<HTMLDivElement>(null);
-  const [scale, setScale] = useState(() => initialScale(placement));
+  const [scale, setScale] = useState(1);
+
+  const variant = getDeviceVariant(placement, device);
+  // Box to fit. Fall back to the mobile box for the mobile-only message so the
+  // empty-state panel keeps a sensible aspect.
+  const boxW = variant?.w ?? placement.device.w;
+  const boxH = variant?.h ?? placement.device.h;
 
   useEffect(() => {
     const el = wrapRef.current;
@@ -83,9 +123,7 @@ export function SafeZoneCanvas({ embedded = false }: { embedded?: boolean }) {
     const update = () => {
       const w = el.clientWidth;
       const h = el.clientHeight;
-      const targetW = placement.device.w;
-      const targetH = placement.device.h;
-      const s = Math.min(w / targetW, h / targetH, 1);
+      const s = Math.min(w / boxW, h / boxH, 1);
       setScale(s);
     };
     update();
@@ -98,9 +136,11 @@ export function SafeZoneCanvas({ embedded = false }: { embedded?: boolean }) {
       cancelAnimationFrame(raf);
       ro.disconnect();
     };
-  }, [placement.device.w, placement.device.h]);
+  }, [boxW, boxH]);
 
   const truncated = truncatePlacement(state.fields, placement);
+  const isDesktop = device === "desktop";
+  const mobileOnly = isDesktop && variant === null;
 
   return (
     <div
@@ -110,20 +150,29 @@ export function SafeZoneCanvas({ embedded = false }: { embedded?: boolean }) {
         embedded ? "h-[640px]" : "h-[640px] sm:h-[720px]",
       )}
       data-testid="safe-zone-canvas"
+      data-device={device}
     >
       <div
         className="absolute left-1/2 top-1/2 origin-center"
         style={{
-          width: placement.device.w,
-          height: placement.device.h,
+          width: boxW,
+          height: boxH,
           transform: `translate(-50%, -50%) scale(${scale})`,
         }}
       >
-        <div className="relative h-full w-full overflow-hidden rounded-[42px] border border-border bg-black shadow-[0_0_45px_rgba(0,0,0,0.45)]">
-          {renderSurface(placement, truncated)}
-          {/* Notch */}
-          <div className="pointer-events-none absolute left-1/2 top-2 z-20 h-6 w-32 -translate-x-1/2 rounded-full bg-black" />
-        </div>
+        {mobileOnly ? (
+          <MobileOnlyState label={placement.label} />
+        ) : isDesktop ? (
+          <div className="relative h-full w-full overflow-hidden rounded-lg border border-border bg-black shadow-[0_0_45px_rgba(0,0,0,0.45)]">
+            {renderDesktopSurface(placement, truncated)}
+          </div>
+        ) : (
+          <div className="relative h-full w-full overflow-hidden rounded-[42px] border border-border bg-black shadow-[0_0_45px_rgba(0,0,0,0.45)]">
+            {renderSurface(placement, truncated)}
+            {/* Notch */}
+            <div className="pointer-events-none absolute left-1/2 top-2 z-20 h-6 w-32 -translate-x-1/2 rounded-full bg-black" />
+          </div>
+        )}
       </div>
     </div>
   );
